@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import CbHeader from './Component/CbHeader'
 
 function App() {
   return (
     <div className="App">
-        Welcome To CB's Book Store  
+        <CbHeader />
     </div>
   );
 }
