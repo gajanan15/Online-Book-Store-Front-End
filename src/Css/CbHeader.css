@@ -66,3 +66,34 @@
     text-align: center;
     font-size: 80%;
     }
+
+    .App-header {
+      background-color: #282c34;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      color: white;
+    }
+
+    .card{
+      display: flex;
+      justify-content: space-around;
+      Width: 600px;
+      height: 350px;
+    }
+
+    /* .btn{
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .btncard{
+      display: flex;
+      justify-content: space-between;
+      background-color: red;
+      color: royalblue;
+      width: 100%;
+    } */
