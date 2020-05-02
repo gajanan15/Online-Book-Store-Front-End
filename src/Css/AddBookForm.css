@@ -1,0 +1,48 @@
+.main{
+    justify-content: center;
+}
+
+.root{
+    width: 30%;
+}
+
+.formContent{
+    display: flex;
+    flex-direction: column;
+    
+}
+h2{
+    text-align: center;
+}
+
+.text{
+    margin:1%;
+}
+
+.textfield{
+    width: 100%;
+}
+
+.input1{
+    margin:1%;
+    border: 1px solid rgb(185, 184, 184);
+    border-radius: 5px;
+    padding: 3%;
+}
+
+.input{
+    width: 100%;
+    font-size: large;
+}
+
+.btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.button{
+   width: 35%;
+}

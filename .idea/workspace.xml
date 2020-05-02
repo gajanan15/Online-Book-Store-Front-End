@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="621a348e-9c9c-4ece-8463-2723a59b4285" name="Default Changelist" comment="" />
+    <list default="true" id="621a348e-9c9c-4ece-8463-2723a59b4285" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +26,18 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -34,28 +49,35 @@
       <option name="presentableId" value="Default" />
       <updated>1588338312098</updated>
       <workItem from="1588338313846" duration="766000" />
+      <workItem from="1588497827883" duration="38000" />
+      <workItem from="1588497972073" duration="25000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1478" height="221" key="GridCell.Tab.0.bottom" timestamp="1588339201185">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1478" height="221" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1588339201185" />
-    <state width="1478" height="221" key="GridCell.Tab.0.center" timestamp="1588339201184">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1478" height="221" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1588339201184" />
-    <state width="1478" height="221" key="GridCell.Tab.0.left" timestamp="1588339201184">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1478" height="221" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1588339201184" />
-    <state width="1478" height="221" key="GridCell.Tab.0.right" timestamp="1588339201184">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1478" height="221" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1588339201184" />
+    <state width="1478" height="221" key="GridCell.Tab.0.bottom" />
+    <state width="1478" height="221" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" />
+    <state width="1478" height="221" key="GridCell.Tab.0.center" />
+    <state width="1478" height="221" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" />
+    <state width="1478" height="221" key="GridCell.Tab.0.left" />
+    <state width="1478" height="221" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" />
+    <state width="1478" height="221" key="GridCell.Tab.0.right" />
+    <state width="1478" height="221" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" />
   </component>
 </project>
