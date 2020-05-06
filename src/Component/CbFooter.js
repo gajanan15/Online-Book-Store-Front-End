@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../Css/CbHeader.css';
+import '../css/CbHeader.css';
 
 export class CbFooter extends Component {
     render() {

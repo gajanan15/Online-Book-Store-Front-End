@@ -1,48 +1,117 @@
-.main{
-    justify-content: center;
+.root {
+    width: 100%;
 }
 
-.root{
-    width: 30%;
+.description {
+    width: 96%;
+    margin-left: 2%;
 }
 
-.formContent{
+.maincard {
     display: flex;
-    flex-direction: column;
-    
+    justify-content: center;
+    Width: 60%;
+    margin: auto;
+    margin-top: 2%;
+    height: 30%;
+    width: 50%;
 }
-h2{
+
+.formContent {
+    width: 120%;
+    margin-left: -10%;
+}
+
+h2 {
     text-align: center;
 }
 
-.text{
-    margin:1%;
+.selectButton {
+    margin-left: 2%;
+    margin-bottom: 1%;
 }
 
-.textfield{
+.text {
+    margin: 1%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.textfield {
+    width: 47%;
+
+}
+
+.textfield1 {
     width: 100%;
 }
 
-.input1{
-    margin:1%;
-    border: 1px solid rgb(185, 184, 184);
-    border-radius: 5px;
-    padding: 3%;
+.input1 {
+    margin-top: 2%;
 }
 
-.input{
-    width: 100%;
-    font-size: large;
-}
-
-.btn{
+.btn {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding: 2%;
+
 }
 
-.button{
-   width: 35%;
+.button {
+    width: 35%;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .root {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        width: 210%;
+    }
+
+    .description {
+        width: 99%;
+        margin-left: 0.5%;
+    }
+
+    .maincard {
+        width: 90%;
+    }
+
+    h2 {
+        font-size: 200%;
+    }
+
+    .formContent {
+        width: 200%;
+        margin-left: 1%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-device-width: 750px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+    .maincard {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-device-width: 1020px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+    .maincard {
+        width: 70%;
+    }
+
+    .formContent {
+        width: 120%;
+        margin-left: -10%;
+    }
 }

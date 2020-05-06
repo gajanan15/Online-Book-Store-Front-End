@@ -1,10 +1,9 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField'
 
-class TextFields extends React.Component {
+class CustomTextFields extends React.Component {
 constructor(props) {
     super(props);
-
     this.state = {
     };
 }
@@ -18,7 +17,8 @@ constructor(props) {
           value={this.props.value}
           variant="outlined"
           className="textfield"
-        /></div>;
+        />
+        </div>;
     }
 }
 

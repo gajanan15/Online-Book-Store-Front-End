@@ -8,7 +8,7 @@ import Badge from '@material-ui/core/Badge';
 import SearchIcon from '@material-ui/icons/Search';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-import '../Css/CbHeader.css';
+import '../css/CbHeader.css';
 
 
 export class CbHeader extends Component {
@@ -17,28 +17,28 @@ export class CbHeader extends Component {
             <div className="main">
                 <AppBar position="static" style={{backgroundColor:'brown'}}>
                     <Toolbar>
-                    <MenuBookIcon  style={{fontSize:'250%'}}/>
+                    <MenuBookIcon  style={{fontSize:'200%'}}/>
                         <Typography className="title" variant="h6" noWrap>
                             CB's Book Store
                         </Typography>
-                        <div className="search">
-                            <div className="searchIcon">
-                                <SearchIcon />
-                            </div>
-                            <InputBase
-                                placeholder="Search books"
-                                className="inputRoot inputInput"
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-                        </div>
-                        <div className="grow" />
-                        <div className="shoppingIcon">
-                            <IconButton aria-label="show 4 new mails" color="inherit">
-                                <Badge badgeContent={0} color="secondary">
-                                    <AddShoppingCartIcon style={{ fontSize: '150%', display: 'flex' }} />
-                                </Badge>
-                            </IconButton>
-                        </div>
+                        {/*<div className="search">*/}
+                        {/*    <div className="searchIcon">*/}
+                        {/*        <SearchIcon />*/}
+                        {/*    </div>*/}
+                        {/*    <InputBase*/}
+                        {/*        placeholder="Search books"*/}
+                        {/*        className="inputRoot inputInput"*/}
+                        {/*        inputProps={{ 'aria-label': 'search' }}*/}
+                        {/*    />*/}
+                        {/*</div>*/}
+                        {/*<div className="grow" />*/}
+                        {/*<div className="shoppingIcon">*/}
+                        {/*    <IconButton aria-label="show 4 new mails" color="inherit">*/}
+                        {/*        <Badge badgeContent={0} color="secondary">*/}
+                        {/*            <AddShoppingCartIcon style={{ fontSize: '150%', display: 'flex' }} />*/}
+                        {/*        </Badge>*/}
+                        {/*    </IconButton>*/}
+                        {/*</div>*/}
                     </Toolbar>
                 </AppBar>
             </div>
