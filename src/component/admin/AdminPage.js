@@ -1,14 +1,14 @@
 import React from 'react';
-import TextFields from './CustomTextFields'
+import TextFields from '../utils/CustomTextFields'
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
-import {AdminService} from '../service/AdminService'
+import {AdminService} from '../../service/AdminService'
 import RefreshIcon from '@material-ui/icons/Refresh';
-import '../css/AddBookForm.css'
-import CbHeader from "./CbHeader";
+import '../../css/AddBookForm.css'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CustomSnackBar from "./CustomSnackBar";
+import CbHeader from "../utils/CbHeader";
+import CustomSnackBar from "../utils/CustomSnackBar";
 
 class AdminPage extends React.Component {
     constructor(props) {
@@ -28,10 +28,10 @@ class AdminPage extends React.Component {
     }
 
     bookName=(event,error)=>{
-        let bookPattern="[a-zA-Z]+"
+        let bookPattern= "^\\w"
         if(!event.target.value.match(bookPattern)){
             this.setState({
-                [event.target.id]: "Book name cant not be empty",
+                [event.target.id]: "Book name cannot be empty",
                 [error]: `Invalid ${event.target.name}`,
                 err: true,
         })
@@ -48,7 +48,7 @@ class AdminPage extends React.Component {
         let authorPattern="^[A-Za-z]+[ ]*[A-Za-z]*$"
         if(!event.target.value.match(authorPattern)){
             this.setState({
-                [event.target.id]: "Author name can not be empty",
+                [event.target.id]: "Author name cannot be empty",
                 [error]: `Invalid ${event.target.name}`,
                 err: true,
             })
@@ -79,10 +79,10 @@ class AdminPage extends React.Component {
     }
 
     quantity=(event,error)=>{
-        let quantityPattern="[1-9]+"
+        let quantityPattern="^\\d$"
         if(!event.target.value.match(quantityPattern)){
             this.setState({
-                [event.target.id]: "Should be greater than zero",
+                [event.target.id]: "Should contain numeric value",
                 [error]: `Invalid ${event.target.name}`,
                 err: true,
             })
@@ -96,10 +96,10 @@ class AdminPage extends React.Component {
     }
 
     bookPrice=(event,error)=>{
-        let bookPricePattern="[1-9]+"
+        let bookPricePattern="^\\d$"
         if(!event.target.value.match(bookPricePattern)){
             this.setState({
-                [event.target.id]: "Should be greater than zero",
+                [event.target.id]: "Should contain numeric value",
                 [error]: `Invalid ${event.target.name}`,
                 err: true,
             })
@@ -113,10 +113,10 @@ class AdminPage extends React.Component {
     }
 
     description=(event,error)=>{
-        let descriptionPattern="^\\w{1,250}$"
+        let descriptionPattern="^\\w{1,250}"
         if(!event.target.value.match(descriptionPattern)){
             this.setState({
-                [event.target.id]: "Description can not be empty",
+                [event.target.id]: "Description cannot be empty",
                 [error]: `Invalid ${event.target.name}`,
                 err: true,
             })
@@ -133,7 +133,7 @@ class AdminPage extends React.Component {
         let publishingYearPattern="^\\d{4}$"
         if(!event.target.value.match(publishingYearPattern)){
             this.setState({
-                [event.target.id]: "Year should be greater than 999",
+                [event.target.id]: "Should contain 4 digit value",
                 [error]: `Invalid ${event.target.name}`,
                 err: true,
             })
@@ -175,6 +175,7 @@ class AdminPage extends React.Component {
                 err: true
             })
         }
+
     }
 
     changeValue = (event) => {

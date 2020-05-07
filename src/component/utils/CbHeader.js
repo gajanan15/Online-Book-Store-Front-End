@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-import '../css/CbHeader.css';
+import '../../css/CbHeader.css';
 
 export class CbHeader extends Component {
     render() {

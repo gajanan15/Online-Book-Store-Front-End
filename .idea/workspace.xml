@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="621a348e-9c9c-4ece-8463-2723a59b4285" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Component/CustomSnackBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/AdminPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/AdminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AdminService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RouterComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/RouterComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/admin/AdminPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/CbFooter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CbFooter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/CbHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CbHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/CustomSnackBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CustomSnackBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/CustomTextFields.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CustomTextFields.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +43,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\REACT-PROJECT\cbbookstore\src\router" />
+      <recent name="D:\REACT-PROJECT\cbbookstore\src\component\utils" />
+      <recent name="D:\REACT-PROJECT\cbbookstore\src\component\admin" />
+    </key>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -61,7 +72,7 @@
       <workItem from="1588739772762" duration="2782000" />
       <workItem from="1588770369769" duration="10634000" />
       <workItem from="1588789640559" duration="3837000" />
-      <workItem from="1588825653424" duration="25034000" />
+      <workItem from="1588825653424" duration="29727000" />
     </task>
     <servers />
   </component>
