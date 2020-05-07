@@ -14,7 +14,7 @@ class AdminPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            BookName: "", authorName: "", description: "", isbn: "",
+            bookName: "", authorName: "", description: "", isbn: "",
             quantity: "", bookPrice: "", publishingYear: "", imageUrl: "",
             book: " ", author: " ", Isbn: " ", descriptionOne: " ",
             year: " ", quantity1: " ", price: " ", err: "", abc: "", flag: false,
@@ -27,7 +27,7 @@ class AdminPage extends React.Component {
         this.refs.form.reset();
     }
 
-    bookName=(event,error)=>{
+    bookNameValidation=(event,error)=>{
         let bookPattern= "^\\w"
         if(!event.target.value.match(bookPattern)){
             this.setState({
@@ -44,7 +44,7 @@ class AdminPage extends React.Component {
         }
     }
 
-    authorName=(event,error)=>{
+    authorNameValidation=(event,error)=>{
         let authorPattern="^[A-Za-z]+[ ]*[A-Za-z]*$"
         if(!event.target.value.match(authorPattern)){
             this.setState({
@@ -61,7 +61,7 @@ class AdminPage extends React.Component {
         }
     }
 
-    isbn=(event,error)=>{
+    isbnValidation=(event,error)=>{
         let isbnPattern="^\\w{10}$"
         if(!event.target.value.match(isbnPattern)){
             this.setState({
@@ -78,8 +78,8 @@ class AdminPage extends React.Component {
         }
     }
 
-    quantity=(event,error)=>{
-        let quantityPattern="^\\d$"
+    quantityValidation=(event,error)=>{
+        let quantityPattern="[1-9]{1,}[0-9]*$"
         if(!event.target.value.match(quantityPattern)){
             this.setState({
                 [event.target.id]: "Should contain numeric value",
@@ -95,8 +95,8 @@ class AdminPage extends React.Component {
         }
     }
 
-    bookPrice=(event,error)=>{
-        let bookPricePattern="^\\d$"
+    bookPriceValidation=(event,error)=>{
+        let bookPricePattern="[1-9]{1,}[0-9]*$"
         if(!event.target.value.match(bookPricePattern)){
             this.setState({
                 [event.target.id]: "Should contain numeric value",
@@ -112,7 +112,7 @@ class AdminPage extends React.Component {
         }
     }
 
-    description=(event,error)=>{
+    descriptionValidation=(event,error)=>{
         let descriptionPattern="^\\w{1,250}"
         if(!event.target.value.match(descriptionPattern)){
             this.setState({
@@ -129,7 +129,7 @@ class AdminPage extends React.Component {
         }
     }
 
-    publishingYear=(event,error)=>{
+    publishingYearValidation=(event,error)=>{
         let publishingYearPattern="^\\d{4}$"
         if(!event.target.value.match(publishingYearPattern)){
             this.setState({
@@ -148,7 +148,7 @@ class AdminPage extends React.Component {
 
     myData = () => {
         const DTOdata = {
-            bookName: this.state.BookName,
+            bookName: this.state.bookName,
             authorName: this.state.authorName,
             bookPrice: this.state.bookPrice,
             isbn: this.state.isbn,
@@ -178,7 +178,7 @@ class AdminPage extends React.Component {
 
     }
 
-    changeValue = (event) => {
+    changeState = (event) => {
         this.setState({
             [event.target.name]: event.target.value,
         })
@@ -192,74 +192,74 @@ class AdminPage extends React.Component {
                     <h1>Book Details </h1>
                     <Card className="maincard" variant="outlined" style={{border: "1px solid black", boxShadow: "5px 5px 10px #888888"}}>
                         <CardContent>
-                            <form className="root" ref="form" onSubmit={(e) => this.handleSave(e)}
+                            <form className="root" ref="form"
                             >
                                 <div className="formContent">
                                     <div className="firsttextbox">
                                         <TextFields
                                             required={true}
                                             error={this.state.bookError}
-                                            name="BookName" label="Book Name" onChange={this.changeValue} id="book"
+                                            name="bookName" label="Book Name" onChange={this.changeState} id="book"
                                             variant="outlined"
                                             className="textfield"
-                                            onBlur={(e)=>this.bookName(e,"bookError")}
+                                            onBlur={(e)=>this.bookNameValidation(e,"bookError")}
                                             helperText={this.state.book}
                                         />
                                         <TextFields
                                             required={true}
                                             error={this.state.authorError}
-                                            label="Author Name" onChange={this.changeValue} name="authorName"
+                                            label="Author Name" onChange={this.changeState} name="authorName"
                                             id="author"
                                             helperText={this.state.author}
                                             variant="outlined" className="textfield"
-                                            onBlur={e => this.authorName(e,"authorError")}
+                                            onBlur={e => this.authorNameValidation(e,"authorError")}
                                         />
                                     </div>
                                     <div className="text">
                                         <TextFields
                                             required={true}
-                                            label="ISBN" name="isbn" id="Isbn" onChange={this.changeValue}
+                                            label="ISBN" name="isbn" id="Isbn" onChange={this.changeState}
                                             variant="outlined" className="textfield"
                                             error={this.state.isbnError}
-                                            onBlur={e => this.isbn(e,"isbnError")}
+                                            onBlur={e => this.isbnValidation(e,"isbnError")}
                                             helperText={this.state.Isbn}
                                         />
-                                        <TextFields label="Quantity" onChange={this.changeValue} id="quantity1"
+                                        <TextFields label="Quantity" onChange={this.changeState} id="quantity1"
                                                     variant="outlined"
                                                     className="textfield"
                                                     required={true}
                                                     error={this.state.quantityError}
-                                                    name="quantity" onBlur={e => this.quantity(e,"quantityError")}
+                                                    name="quantity" onBlur={e => this.quantityValidation(e,"quantityError")}
                                                     helperText={this.state.quantity1}
                                         />
                                     </div>
                                     <div className="text">
-                                        <TextFields label="Book Price" onChange={this.changeValue} name="bookPrice"
+                                        <TextFields label="Book Price" onChange={this.changeState} name="bookPrice"
                                                     id="price"
                                                     variant="outlined" className="textfield"
                                                     error={this.state.priceError}
                                                     required={true}
-                                                    onBlur={e => this.bookPrice(e,"priceError")}
+                                                    onBlur={e => this.bookPriceValidation(e,"priceError")}
                                                     helperText={this.state.price}
                                         />
-                                        <TextFields label="Publishing Year" onChange={this.changeValue} id="year"
+                                        <TextFields label="Publishing Year" onChange={this.changeState} id="year"
                                                     variant="outlined"
                                                     name="publishingYear"
                                                     error={this.state.yearError}
                                                     required={true}
-                                                    onBlur={e => this.publishingYear(e,"yearError")}
+                                                    onBlur={e => this.publishingYearValidation(e,"yearError")}
                                                     helperText={this.state.year}
                                                     className="textfield"
                                         />
                                     </div>
                                     <div className="description">
                                         <TextFields
-                                            onBlur={e => this.description(e,"descriptionError")}
+                                            onBlur={e => this.descriptionValidation(e,"descriptionError")}
                                             error={this.state.descriptionError}
                                             id="descriptionOne"
                                             helperText={this.state.descriptionOne}
                                             multiline rows={2} fullWidth inputProps={{maxLength: 250}}
-                                            label="Description" onChange={this.changeValue}
+                                            label="Description" onChange={this.changeState}
                                             placeholder={"Max 250 words"}
                                             variant="outlined"
                                             name="description" className="textfield1"/>
@@ -273,7 +273,7 @@ class AdminPage extends React.Component {
                                             multiple
                                             type="file"
                                             name="imageUrl"
-                                            onChange={this.changeValue}
+                                            onChange={this.changeState}
                                         />
                                     </div>
                                     <div className="btn">
@@ -281,6 +281,7 @@ class AdminPage extends React.Component {
                                                 style={{backgroundColor: "limegreen", color: "white"}}
                                                 size="large" className="button"
                                                 type={"submit"}
+                                                onClick={(e) => this.handleSave(e)}
                                                 startIcon={<SaveIcon/>}
                                         > Save </Button>
                                         <Button variant="contained" style={{backgroundColor: "crimson", color: "white"}}
