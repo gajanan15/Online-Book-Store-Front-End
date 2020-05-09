@@ -43,10 +43,7 @@ class AdminPage extends React.Component {
 
     handleSave=(e) =>{
         if (this.state.err === false) {
-            console.log("asd  ",this.myData())
             new AdminService().addbook(e,this.myData()).then(response => {
-                console.log(this.myData())
-                console.log(response.data.message)
                 this.setState({
                     snackMessage: response.data.message,
                     snackFlag: true,

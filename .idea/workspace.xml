@@ -4,9 +4,6 @@
     <list default="true" id="621a348e-9c9c-4ece-8463-2723a59b4285" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/admin/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/admin/AdminPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/utils/CustomSnackBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CustomSnackBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/utils/CustomTextFields.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CustomTextFields.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/AdminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AdminService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +82,7 @@
       <workItem from="1589014821044" duration="620000" />
       <workItem from="1589033348770" duration="1889000" />
       <workItem from="1589035336387" duration="692000" />
+      <workItem from="1589051091914" duration="323000" />
     </task>
     <servers />
   </component>
