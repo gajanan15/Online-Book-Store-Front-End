@@ -2,11 +2,13 @@ import  Axios from 'axios'
 import Constant from '../config/Constant'
 
 export class AdminService {
-    addbook=(data)=>{
+    addbook=(e,data)=>{
+        e.preventDefault();
         return  Axios({
             method:'post',
-            url:`${Constant.apiUrl}book`,
+            url:`${Constant.apiUrl}admin/book`,
             data: data,
          })
+
     }
 }

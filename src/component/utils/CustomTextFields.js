@@ -11,7 +11,7 @@ constructor(props) {
     render() {
         return <div className="text">
         <TextField
-          ref={this.props.ref}
+            ref={this.props.ref}
           id="outlined-helperText"
           label={this.props.labelName}
           value={this.props.value}

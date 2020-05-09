@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="621a348e-9c9c-4ece-8463-2723a59b4285" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RouterComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/RouterComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/admin/AdminPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/CbFooter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CbFooter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/CbHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CbHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/CustomSnackBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CustomSnackBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/CustomTextFields.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CustomTextFields.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/admin/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/admin/AdminPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/utils/CustomSnackBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CustomSnackBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/utils/CustomTextFields.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CustomTextFields.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/AdminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AdminService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +35,11 @@
     <property name="js.last.introduce.type" value="LET" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../REACT BACKEND" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -73,6 +73,18 @@
       <workItem from="1588770369769" duration="10634000" />
       <workItem from="1588789640559" duration="3837000" />
       <workItem from="1588825653424" duration="29727000" />
+      <workItem from="1588913654690" duration="2786000" />
+      <workItem from="1588918969140" duration="593000" />
+      <workItem from="1588933413968" duration="57000" />
+      <workItem from="1588954280576" duration="2251000" />
+      <workItem from="1588956832332" duration="18000" />
+      <workItem from="1588956892258" duration="265000" />
+      <workItem from="1588957193855" duration="3745000" />
+      <workItem from="1588966722202" duration="700000" />
+      <workItem from="1588971850759" duration="1818000" />
+      <workItem from="1589014821044" duration="620000" />
+      <workItem from="1589033348770" duration="1889000" />
+      <workItem from="1589035336387" duration="692000" />
     </task>
     <servers />
   </component>
@@ -95,6 +107,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="638" y="324" key="#ESLint" timestamp="1588914270842">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="638" y="324" key="#ESLint/0.0.1536.864@0.0.1536.864" timestamp="1588914270842" />
     <state x="530" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588672829624">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

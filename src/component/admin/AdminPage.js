@@ -19,12 +19,70 @@ class AdminPage extends React.Component {
             book: " ", author: " ", Isbn: " ", descriptionOne: " ",
             year: " ", quantity1: " ", price: " ", err: "", abc: "", flag: false,
             snackFlag: false, snackMessage: "", bookError: "", authorError:"", isbnError:"",descriptionError:"",
-            quantityError:"",priceError:"",yearError:"",severity:"success"
+            quantityError:"",priceError:"",yearError:"",severity:"error"
         };
     }
 
     handleReset = (e) => {
         this.refs.form.reset();
+    }
+
+    myData = () => {
+        const DTOdata = {
+            bookName: this.state.bookName,
+            authorName: this.state.authorName,
+            bookPrice: this.state.bookPrice,
+            isbn: this.state.isbn,
+            quantity: this.state.quantity,
+            description: this.state.description,
+            imageUrl: this.state.imageUrl,
+            publishingYear: this.state.publishingYear
+        }
+        return DTOdata
+    }
+
+    handleSave=(e) =>{
+        if (this.state.err === false) {
+            console.log("asd  ",this.myData())
+            new AdminService().addbook(e,this.myData()).then(response => {
+                console.log(this.myData())
+                console.log(response.data.message)
+                this.setState({
+                    snackMessage: response.data.message,
+                    snackFlag: true,
+                    severity:response.data.message==="Book Added Successfully"? "success":"error",
+                })
+                this.clear()
+            }).catch((response) => {
+                this.setState({
+                     snackMessage: "Fields cannot be empty",
+                    snackFlag: true,
+                })
+                this.clear()
+            })
+        } else {
+            this.setState({
+                flag: true,
+                err: true
+            })
+        }
+        this.clear()
+    }
+
+    clear=()=>{
+        if(this.state.severity === "success")
+        {
+            setTimeout(() => {
+            window.location.reload(true);
+        }, 3000);
+        }
+        else {
+            setTimeout(() => {
+                this.setState({
+                    snackFlag:false
+                })
+            }, 5000);
+        }
     }
 
     bookNameValidation=(event,error)=>{
@@ -52,7 +110,8 @@ class AdminPage extends React.Component {
                 [error]: `Invalid ${event.target.name}`,
                 err: true,
             })
-        } else {
+        }
+        else {
             this.setState({
                 [event.target.id]: " ",
                 [error]:"",
@@ -146,38 +205,6 @@ class AdminPage extends React.Component {
         }
     }
 
-    myData = () => {
-        const DTOdata = {
-            bookName: this.state.bookName,
-            authorName: this.state.authorName,
-            bookPrice: this.state.bookPrice,
-            isbn: this.state.isbn,
-            quantity: this.state.quantity,
-            description: this.state.description,
-            imageUrl: this.state.imageUrl,
-            publishingYear: this.state.publishingYear
-        }
-        return DTOdata
-    }
-
-    handleSave(e) {
-        if (this.state.err === false) {
-            new AdminService().addbook(this.myData()).then(response => {
-                this.setState({
-                    snackMessage: response.data.message,
-                    snackFlag: true,
-                    severity:response.data.message==="Book Added Successfully"? "success":"error"
-                })
-            })
-        } else {
-            this.setState({
-                flag: true,
-                err: true
-            })
-        }
-
-    }
-
     changeState = (event) => {
         this.setState({
             [event.target.name]: event.target.value,
@@ -265,15 +292,15 @@ class AdminPage extends React.Component {
                                             name="description" className="textfield1"/>
                                     </div>
                                     <div className="input1">
-                                        <input
-                                            required={true}
-                                            accept="image/*"
-                                            id="contained-button-file"
-                                            className="selectButton"
-                                            multiple
-                                            type="file"
-                                            name="imageUrl"
-                                            onChange={this.changeState}
+                                        <input type="file"
+                                               required={true}
+                                               name="imageUrl"
+                                               id="contained-button-file"
+                                               className="selectButton"
+                                               multiple
+                                               type="file"
+                                               accept="image/*"
+                                               onChange={this.changeState}
                                         />
                                     </div>
                                     <div className="btn">
@@ -293,8 +320,9 @@ class AdminPage extends React.Component {
                         </CardContent>
                     </Card>
                 </div>
+
                 {this.state.snackFlag &&
-                <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity}/>
+                <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity} />
                 }
             </div>
         )
