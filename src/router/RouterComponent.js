@@ -12,7 +12,7 @@ constructor(props) {
     render() {
         return (
             <Switch>
-                <Route path="" component={HomePage} exact={true} />
+                <Route path="/" component={HomePage} exact={true} />
                  <Route path="/admin" component={AdminPage} exact={true} />
              </Switch>
         );

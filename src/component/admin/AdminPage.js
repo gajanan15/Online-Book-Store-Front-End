@@ -17,7 +17,7 @@ class AdminPage extends React.Component {
         super(props);
         this.state = {
             bookName: "", authorName: "", description: "", isbn: "",
-            quantity: "", bookPrice: "", publishingYear: "", imageUrl: "",
+            quantity: "", bookPrice: "", publishingYear: "", imageUrl: "Select Book Image",
             book: " ", author: " ", Isbn: " ", descriptionOne: " ",
             year: " ", quantity1: " ", price: " ", err: "", abc: "", flag: false,
             snackFlag: false, snackMessage: "", bookError: "", authorError:"", isbnError:"",descriptionError:"",
@@ -210,9 +210,31 @@ class AdminPage extends React.Component {
         })
     }
 
-    render() {
-        const image = this.state.imageUrl;
+    imagePath = (event) => {
+        const image = event.target.value;
         let img = image.slice(12);
+        if(image.includes(".jpg") || image.includes(".png")){
+            this.setState({
+                [event.target.name]: img,
+            })
+        }else {
+            this.setState({
+                snackFlag:true,
+                severity:"error",
+                snackMessage:"Only .jpg and .png file are allowed"
+            })
+            setTimeout(() => {
+                this.setState({
+                    snackFlag:false
+                })
+            }, 3000);
+        }
+
+    }
+
+
+    render() {
+
         return (
             <div>
                 <CbHeader/>
@@ -297,17 +319,17 @@ class AdminPage extends React.Component {
                                             <IconButton color="primary" aria-label="upload picture" component="span">
                                                 <AddPhotoAlternateIcon style={{fontSize:"250%"}}/> </IconButton> </label>
                                         <input
-                                                type="file"
-                                               required={true}
-                                                name="imageUrl"
-                                               id="icon-button-file"
-                                               className="selectButton"
-                                                style={{visibility:"hidden"}}
-                                               multiple
-                                               accept="image/jpeg, image/png"
-                                               onChange={this.changeState}
+                                            type="file"
+                                            required={true}
+                                            name="imageUrl"
+                                            id="icon-button-file"
+                                            className="selectButton"
+                                            style={{visibility:"hidden"}}
+                                            multiple
+                                            accept="image/jpeg, image/png"
+                                            onChange={(e) => this.imagePath(e)}
                                         />
-                                        <label>{img}</label>
+                                        <label>{this.state.imageUrl}</label>
                                     </div>
                                     <div className="btn">
                                         <Button variant="contained"
