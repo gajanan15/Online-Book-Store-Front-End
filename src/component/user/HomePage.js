@@ -10,14 +10,26 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button"
 import CbHeader from "../utils/CbHeader";
 import "../../css/HomePage.css";
-
+import {AdminService} from "../../service/AdminService";
 
 class HomePage extends Component {
+    getBooks=()=>{
+        new AdminService().displaybook().then(response => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+    componentDidMount() {
+        this.getBooks();
+    }
+
     render() {
         return (
             <div>
                 <CbHeader/>
-                <div >
+                <div>
                     <Container maxWidth="md" className="maincontain">
                         <h2>Books</h2>
                         <Grid container spacing={3}>

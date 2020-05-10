@@ -11,4 +11,11 @@ export class AdminService {
          })
 
     }
+
+    displaybook=()=>{
+        return Axios({
+            method:'get',
+            url:`${Constant.apiUrl}books`,
+        })
+    }
 }
