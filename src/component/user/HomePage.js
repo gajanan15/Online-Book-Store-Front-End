@@ -21,11 +21,12 @@ class HomePage extends Component {
                     <Container maxWidth="md" className="maincontain">
                         <h2>Books</h2>
                         <Grid container spacing={3}>
-                        <Grid item xs={12} sm={3}>
+                        <Grid item xs={12} sm={4} md={3}>
                             <Card className="gridroot">
                                 <CardActionArea>
                                     <CardMedia
                                         component="img"
+                                        className="image1"
                                         alt="Contemplative Reptile"
                                         height="200"
                                         image={require("../../asset/images.png")}
@@ -49,11 +50,12 @@ class HomePage extends Component {
                                 </CardActions>
                             </Card>
                         </Grid>
-                        <Grid item xs={12} sm={3}>
+                        <Grid item xs={12} sm={4} md={3}>
                             <Card className="gridroot">
                                 <CardActionArea>
                                     <CardMedia
                                         component="img"
+                                        className="image1"
                                         alt="Contemplative Reptile"
                                         height="200"
                                         image={require("../../asset/images.png")}
@@ -78,11 +80,12 @@ class HomePage extends Component {
                                 </CardActions>
                             </Card>
                         </Grid>
-                            <Grid item xs={12} sm={3}>
+                            <Grid item xs={12} sm={4} md={3}>
                                 <Card className="gridroot">
                                     <CardActionArea>
                                         <CardMedia
                                             component="img"
+                                            className="image1"
                                             alt="Contemplative Reptile"
                                             height="200"
                                             image={require("../../asset/images.png")}
@@ -107,11 +110,12 @@ class HomePage extends Component {
                                     </CardActions>
                                 </Card>
                             </Grid>
-                            <Grid item xs={12} sm={3}>
+                            <Grid item xs={12} sm={4} md={3}>
                                 <Card className="gridroot">
                                     <CardActionArea>
                                         <CardMedia
                                             component="img"
+                                            className="image1"
                                             alt="Contemplative Reptile"
                                             height="200"
                                             image={require("../../asset/images.png")}
