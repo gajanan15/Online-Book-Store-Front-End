@@ -4,7 +4,6 @@
 
 .description {
     margin-top: 1%;
-    margin-bottom: 1%;
     width: 97%;
     margin-left: 1.5%;
 }
@@ -33,8 +32,9 @@ h1 {
 }
 
 .selectButton {
+    font-size: 1%;
     margin-left: 2%;
-    margin-bottom: 1%;
+    width: 2%;
 }
 
 .text {
@@ -50,13 +50,6 @@ h1 {
 
 .textfield1 {
     width: 100%;
-}
-.selectButton{
-    font-size: 110%;
-}
-
-.input1 {
-
 }
 
 .btn {

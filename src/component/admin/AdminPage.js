@@ -9,6 +9,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CbHeader from "../utils/CbHeader";
 import CustomSnackBar from "../utils/CustomSnackBar";
+import IconButton from "@material-ui/core/IconButton";
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 
 class AdminPage extends React.Component {
     constructor(props) {
@@ -209,6 +211,8 @@ class AdminPage extends React.Component {
     }
 
     render() {
+        const image = this.state.imageUrl;
+        let img = image.slice(12);
         return (
             <div>
                 <CbHeader/>
@@ -289,16 +293,21 @@ class AdminPage extends React.Component {
                                             name="description" className="textfield1"/>
                                     </div>
                                     <div className="input1">
-                                        <input type="file"
+                                        <label htmlFor="icon-button-file">
+                                            <IconButton color="primary" aria-label="upload picture" component="span" style={{paddingLeft:"2%"}}>
+                                                <AddAPhotoIcon style={{fontSize:"200%"}}/> </IconButton> </label>
+                                        <input
+                                                type="file"
                                                required={true}
-                                               name="imageUrl"
-                                               id="contained-button-file"
+                                                name="imageUrl"
+                                               id="icon-button-file"
                                                className="selectButton"
+                                                style={{visibility:"hidden"}}
                                                multiple
-                                               type="file"
-                                               accept="image/*"
+                                               accept="image/jpeg, image/png"
                                                onChange={this.changeState}
                                         />
+                                        <label>{img}</label>
                                     </div>
                                     <div className="btn">
                                         <Button variant="contained"
