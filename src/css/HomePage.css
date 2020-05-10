@@ -1,0 +1,12 @@
+.paper {
+    padding: 2px;
+    /*textAlign: 'center';*/
+    color: gray;
+}
+
+.maincontain{
+    /*background-color: #cfe8fc;*/
+    height: 100vh;
+    padding-top: 5%;
+    flex-direction: column;
+}

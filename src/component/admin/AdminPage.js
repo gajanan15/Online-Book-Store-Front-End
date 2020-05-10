@@ -10,7 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CbHeader from "../utils/CbHeader";
 import CustomSnackBar from "../utils/CustomSnackBar";
 import IconButton from "@material-ui/core/IconButton";
-import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
+import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 
 class AdminPage extends React.Component {
     constructor(props) {
@@ -294,8 +294,8 @@ class AdminPage extends React.Component {
                                     </div>
                                     <div className="input1">
                                         <label htmlFor="icon-button-file">
-                                            <IconButton color="primary" aria-label="upload picture" component="span" style={{paddingLeft:"2%"}}>
-                                                <AddAPhotoIcon style={{fontSize:"200%"}}/> </IconButton> </label>
+                                            <IconButton color="primary" aria-label="upload picture" component="span">
+                                                <AddPhotoAlternateIcon style={{fontSize:"250%"}}/> </IconButton> </label>
                                         <input
                                                 type="file"
                                                required={true}

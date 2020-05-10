@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="621a348e-9c9c-4ece-8463-2723a59b4285" name="Default Changelist" comment="">
+    <list default="true" id="928703e6-057c-4ccd-b2c2-250280c3272e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/component/user/HomePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/css/HomePage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/admin/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/admin/AdminPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/AddBookForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/AddBookForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/RouterComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/RouterComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,7 +41,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../REACT BACKEND" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/css" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -41,6 +52,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Kalyani\Desktop\React Final Project Frontend\cbbookstore\src\css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\REACT-PROJECT\cbbookstore\src\router" />
       <recent name="D:\REACT-PROJECT\cbbookstore\src\component\utils" />
@@ -94,12 +108,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
