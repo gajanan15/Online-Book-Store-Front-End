@@ -102,7 +102,7 @@ class AdminPage extends React.Component {
     }
 
     authorNameValidation=(event,error)=>{
-        let authorPattern="^[A-Za-z]+[ ]*[A-Za-z]*$"
+        let authorPattern="^[A-Za-z. ]+[ ]*[A-Za-z.]*$"
         if(!event.target.value.match(authorPattern)){
             this.setState({
                 [event.target.id]: "Author name cannot be empty",

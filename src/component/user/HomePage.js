@@ -13,9 +13,20 @@ import "../../css/HomePage.css";
 import {AdminService} from "../../service/AdminService";
 
 class HomePage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state={
+            data:[]
+        }
+    }
+
     getBooks=()=>{
         new AdminService().displaybook().then(response => {
-            console.log(response);
+            console.log(response.data);
+            this.setState({
+                data:response.data
+            })
         }).catch((error) => {
             console.log(error);
         })
@@ -26,134 +37,54 @@ class HomePage extends Component {
     }
 
     render() {
+        let data=this.state.data;
         return (
+
             <div>
                 <CbHeader/>
                 <div>
                     <Container maxWidth="md" className="maincontain">
                         <h2>Books</h2>
                         <Grid container spacing={3}>
-                        <Grid item xs={12} sm={4} md={3}>
-                            <Card className="gridroot">
-                                <CardActionArea>
-                                    <CardMedia
-                                        component="img"
-                                        className="image1"
-                                        alt="Contemplative Reptile"
-                                        height="200"
-                                        image={require("../../asset/images.png")}
-                                        title="Marley & Me" />
-                                    <CardContent>
-                                        <Typography variant="h6" component="h2">
-                                            Calling Out For You
-                                        </Typography>
-                                        <Typography variant="body2" color="textSecondary" component="p">
-                                            by Karin Fossum
-                                        </Typography>
-                                        <Typography component="h2" style={{marginBottom:"-2%"}}>
-                                            Rs.325
-                                        </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                                <CardActions>
-                                    <Button  style={{backgroundColor:"rgb(165,42,42)",color:"#fff",padding:"6px",fontSize:"12px"}}>
-                                        Add To Bag
-                                    </Button>
-                                </CardActions>
-                            </Card>
+                            {data.map((book)=> {
+                                return<Grid item xs={12} sm={4} md={3}>
+                                    <Card className="gridroot">
+                                        <CardActionArea>
+                                            <CardMedia
+                                                component="img"
+                                                className="image1"
+                                                alt="Contemplative Reptile"
+                                                height="200"
+                                                image={require(`../../asset/${book.imageUrl}`)}
+                                                title=""/>
+                                            <CardContent>
+                                                <Typography variant="h6" component="h2">
+                                                    {book.bookName}
+                                                </Typography>
+                                                <Typography variant="body2" color="textSecondary" component="p">
+                                                    by {book.authorName}
+                                                </Typography>
+                                                <Typography component="h2" style={{marginBottom: "-2%"}}>
+                                                    Rs.{book.bookPrice}
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                        <CardActions>
+                                            <Button style={{
+                                                backgroundColor: "rgb(165,42,42)",
+                                                color: "#fff",
+                                                padding: "6px",
+                                                fontSize: "14px",
+                                                width:"100%"
+                                            }}>
+                                                Add To Bag
+                                            </Button>
+                                        </CardActions>
+                                    </Card>
+                                </Grid>
+                            })}
                         </Grid>
-                        <Grid item xs={12} sm={4} md={3}>
-                            <Card className="gridroot">
-                                <CardActionArea>
-                                    <CardMedia
-                                        component="img"
-                                        className="image1"
-                                        alt="Contemplative Reptile"
-                                        height="200"
-                                        image={require("../../asset/images.png")}
-                                        title="Marley & Me" />
-
-                                    <CardContent>
-                                        <Typography variant="h6" component="h2">
-                                            Calling Out For You
-                                        </Typography>
-                                        <Typography variant="body2" color="textSecondary" component="p">
-                                            by Karin Fossum
-                                        </Typography>
-                                        <Typography component="h2" style={{marginBottom:"-2%"}}>
-                                            Rs.325
-                                        </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                                <CardActions>
-                                    <Button  style={{backgroundColor:"rgb(165,42,42)",color:"#fff",padding:"6px",fontSize:"12px"}}>
-                                        Add To Bag
-                                    </Button>
-                                </CardActions>
-                            </Card>
-                        </Grid>
-                            <Grid item xs={12} sm={4} md={3}>
-                                <Card className="gridroot">
-                                    <CardActionArea>
-                                        <CardMedia
-                                            component="img"
-                                            className="image1"
-                                            alt="Contemplative Reptile"
-                                            height="200"
-                                            image={require("../../asset/images.png")}
-                                            title="Marley & Me" />
-
-                                        <CardContent>
-                                            <Typography variant="h6" component="h2">
-                                                Calling Out For You
-                                            </Typography>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                                by Karin Fossum
-                                            </Typography>
-                                            <Typography component="h2" style={{marginBottom:"-2%"}}>
-                                                Rs.325
-                                            </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
-                                    <CardActions>
-                                        <Button  style={{backgroundColor:"rgb(165,42,42)",color:"#fff",padding:"6px",fontSize:"12px"}}>
-                                            Add To Bag
-                                        </Button>
-                                    </CardActions>
-                                </Card>
-                            </Grid>
-                            <Grid item xs={12} sm={4} md={3}>
-                                <Card className="gridroot">
-                                    <CardActionArea>
-                                        <CardMedia
-                                            component="img"
-                                            className="image1"
-                                            alt="Contemplative Reptile"
-                                            height="200"
-                                            image={require("../../asset/images.png")}
-                                            title="Marley & Me" />
-
-                                        <CardContent>
-                                            <Typography variant="h6" component="h2">
-                                                Calling Out For You
-                                            </Typography>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                                by Karin Fossum
-                                            </Typography>
-                                            <Typography component="h2" style={{marginBottom:"-2%"}}>
-                                                Rs.325
-                                            </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
-                                    <CardActions>
-                                        <Button  style={{backgroundColor:"rgb(165,42,42)",color:"#fff",padding:"6px",fontSize:"12px"}}>
-                                            Add To Bag
-                                        </Button>
-                                    </CardActions>
-                                </Card>
-                            </Grid>
-                        </Grid>
-                </Container>
+                    </Container>
                 </div>
 
             </div>
