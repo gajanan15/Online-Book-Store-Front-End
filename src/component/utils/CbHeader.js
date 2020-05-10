@@ -9,7 +9,7 @@ export class CbHeader extends Component {
     render() {
         return (
             <div className="main">
-                <AppBar position="static" style={{backgroundColor:'brown'}}>
+                <AppBar position="fixed" style={{backgroundColor:'brown'}}>
                     <Toolbar>
                     <MenuBookIcon  style={{fontSize:'200%'}}/>
                         <Typography className="title" variant="h6" noWrap>
