@@ -20,18 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="928703e6-057c-4ccd-b2c2-250280c3272e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/asset/Financial.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/asset/HackNew.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/asset/Harry Potter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/asset/HarryPotter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/asset/KarinFossum.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/asset/LionKing.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/asset/Marley&amp;Me.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/asset/TheAcademy.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/asset/images.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/admin/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/admin/AdminPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asset/Financial.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asset/HackNew.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asset/Harry Potter.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asset/HarryPotter.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asset/KarinFossum.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asset/LionKing.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asset/Marley&amp;Me.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asset/TheAcademy.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/user/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/user/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/HomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/HomePage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +68,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="SvnConfiguration">
@@ -69,12 +78,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f2e51342-a20b-4866-97bb-0d3c92d236e3" name="Default Changelist" comment="" />
+      <changelist id="928703e6-057c-4ccd-b2c2-250280c3272e" name="Default Changelist" comment="" />
       <created>1589125706981</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589125706981</updated>
       <workItem from="1589125709116" duration="5273000" />
+      <workItem from="1589172942548" duration="3403000" />
     </task>
     <servers />
   </component>
@@ -86,13 +96,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

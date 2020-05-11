@@ -4,6 +4,19 @@
     flex-direction: column;
 }
 
+button.MuiButtonBase-root.MuiCardActionArea-root{
+    height: 200px;
+    width: 100%;
+    display: flex;
+    text-align: inherit;
+    background-color: #F0F0F0;
+}
+
+img.MuiCardMedia-root.image1.MuiCardMedia-media.MuiCardMedia-img{
+    width: 50%;
+    height: 180px;
+}
+
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
     .maincontain{
         margin-top: 6%;
@@ -13,12 +26,62 @@
     .image1{
         height: 320px;
     }
+
+    button.MuiButtonBase-root.MuiCardActionArea-root{
+        height: 210px;
+        width: 100%;
+        display: flex;
+        text-align: inherit;
+        background-color: #F0F0F0;
+    }
+
+    img.MuiCardMedia-root.image1.MuiCardMedia-media.MuiCardMedia-img{
+        width: 40%;
+        height: 188px;
+    }
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 1){
+    .maincontain{
+        margin-top: 6%;
+        height: 100vh;
+    }
+
+    .image1{
+        height: 320px;
+    }
+
+    button.MuiButtonBase-root.MuiCardActionArea-root{
+        height: 245px;
+        width: 100%;
+        display: flex;
+        text-align: inherit;
+        background-color: #F0F0F0;
+    }
+
+    img.MuiCardMedia-root.image1.MuiCardMedia-media.MuiCardMedia-img{
+        width: 40%;
+        height: 215px;
+    }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
 
     .image1{
         height: 250px;
+    }
+
+    button.MuiButtonBase-root.MuiCardActionArea-root{
+        height: 210px;
+        width: 100%;
+        display: flex;
+        text-align: inherit;
+        background-color: #F0F0F0;
+    }
+
+    img.MuiCardMedia-root.image1.MuiCardMedia-media.MuiCardMedia-img{
+        width: 50%;
+        height: 165px;
     }
 }
 

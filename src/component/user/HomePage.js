@@ -39,15 +39,14 @@ class HomePage extends Component {
     render() {
         let data=this.state.data;
         return (
-
             <div>
                 <CbHeader/>
                 <div>
-                    <Container maxWidth="md" className="maincontain">
-                        <h2>Books</h2>
-                        <Grid container spacing={3}>
+                    <Container fixed className="maincontain">
+                        <h2>Books <sub style={{fontSize:"18px", color:"#c3c7c3"}}> ({data.length} items)</sub></h2>
+                        <Grid container spacing={6}>
                             {data.map((book)=> {
-                                return<Grid item xs={12} sm={4} md={3}>
+                                return<Grid item xs={12} sm={6} md={4} lg={3}>
                                     <Card className="gridroot">
                                         <CardActionArea>
                                             <CardMedia
@@ -57,8 +56,9 @@ class HomePage extends Component {
                                                 height="200"
                                                 image={require(`../../asset/${book.imageUrl}`)}
                                                 title=""/>
+                                        </CardActionArea>
                                             <CardContent>
-                                                <Typography variant="h6" component="h2">
+                                                <Typography variant="h6" component="h2" style={{fontSize:"16px"}}>
                                                     {book.bookName}
                                                 </Typography>
                                                 <Typography variant="body2" color="textSecondary" component="p">
@@ -68,7 +68,6 @@ class HomePage extends Component {
                                                     Rs.{book.bookPrice}
                                                 </Typography>
                                             </CardContent>
-                                        </CardActionArea>
                                         <CardActions>
                                             <Button style={{
                                                 backgroundColor: "rgb(165,42,42)",
