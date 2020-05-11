@@ -19,10 +19,21 @@
     font-size: 20px;
 }
 
-button.MuiButtonBase-root.MuiButtonBase-root{
+.page{
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+
+#btn-add-to-card{
     background-color: rgb(165,42,42);
     width: 100%;
 }
+
+/*button.MuiButtonBase-root.MuiButtonBase-root{*/
+/*    background-color: rgb(165,42,42);*/
+/*    width: 100%;*/
+/*}*/
 
 button.MuiButtonBase-root.MuiCardActionArea-root{
     height: 200px;

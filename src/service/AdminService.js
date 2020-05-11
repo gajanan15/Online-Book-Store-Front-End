@@ -8,14 +8,21 @@ export class AdminService {
             method:'post',
             url:`${Constant.apiUrl}admin/book`,
             data: data,
-         })
-
+        })
     }
 
-    displaybook=()=>{
+    displaybook=(page)=>{
         return Axios({
             method:'get',
+            params:{PageNo:page-1},
             url:`${Constant.apiUrl}books`,
+        })
+    }
+
+    getCount=()=>{
+        return Axios({
+            method:'get',
+            url:`${Constant.apiUrl}total/books`,
         })
     }
 }

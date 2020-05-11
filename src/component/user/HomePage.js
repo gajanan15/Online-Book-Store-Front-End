@@ -13,19 +13,22 @@ import Tooltip from '@material-ui/core/Tooltip';
 import CbHeader from "../utils/CbHeader";
 import {AdminService} from "../../service/AdminService";
 import "../../css/HomePage.css";
-import Zoom from "@material-ui/core/Zoom";
+import Pagination from "@material-ui/lab/Pagination";
 
 class HomePage extends Component {
 
     constructor(props) {
         super(props);
         this.state={
-            data:[]
+            data:[],
+            pageNo:1,
+            dataLength:0
         }
     }
 
     getBooks=()=>{
-        new AdminService().displaybook().then(response => {
+        new AdminService().displaybook(this.state.pageNo).then(response => {
+            console.log(response.data);
             this.setState({
                 data:response.data
             })
@@ -34,8 +37,31 @@ class HomePage extends Component {
         })
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.getBooks();
+    }
+
+    getCount=()=>{
+        new AdminService().getCount().then(response => {
+            this.setState({
+                dataLength:response.data
+            })
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+
     componentDidMount() {
         this.getBooks();
+        this.getCount();
+    }
+
+    alerts=(event,value)=>{
+        this.setState({
+            pageNo:value
+        })
+        this.getBooks()
     }
 
     render() {
@@ -45,14 +71,14 @@ class HomePage extends Component {
                 <CbHeader/>
                 <div>
                     <Container fixed className="maincontain">
-                        <h2>Books <sub style={{fontSize:"18px", color:"#c3c7c3"}}> ({data.length} items)</sub></h2>
+                        <h2>Books <sub style={{fontSize:"18px", color:"#c3c7c3"}}> ({this.state.dataLength} items)</sub></h2>
                         <Grid container spacing={6}>
                             {data.map((book)=> {
                                 return<Grid item xs={12} sm={6} md={4} lg={3}>
                                     <Card className="gridroot">
                                         <Tooltip disableFocusListener disableTouchListener
                                                  title={book.description}
-                                                 placement="right-end"
+                                                 placement="right-start"
                                                  className="info"
                                                  style={{fontSize:"25px"}}>
                                             <InfoOutlinedIcon/>
@@ -77,7 +103,7 @@ class HomePage extends Component {
                                                 </Typography>
                                             </CardContent>
                                         <CardActions>
-                                            <Button style={{color:"#fff"}} disabled={book.quantity===0 ? true : false}>
+                                            <Button id="btn-add-to-card" style={{color:"#fff"}} disabled={book.quantity===0 ? true : false}>
                                                 Add To Bag
                                             </Button>
                                         </CardActions>
@@ -85,6 +111,9 @@ class HomePage extends Component {
                                 </Grid>
                             })}
                         </Grid>
+                        <div className="page">
+                            <Pagination showFirstButton showLastButton count={this.state.dataLength/3} onChange={this.alerts}/>
+                        </div>
                     </Container>
                 </div>
             </div>
