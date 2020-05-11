@@ -8,9 +8,12 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button"
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import Tooltip from '@material-ui/core/Tooltip';
 import CbHeader from "../utils/CbHeader";
 import {AdminService} from "../../service/AdminService";
 import "../../css/HomePage.css";
+import Zoom from "@material-ui/core/Zoom";
 
 class HomePage extends Component {
 
@@ -47,6 +50,13 @@ class HomePage extends Component {
                             {data.map((book)=> {
                                 return<Grid item xs={12} sm={6} md={4} lg={3}>
                                     <Card className="gridroot">
+                                        <Tooltip disableFocusListener disableTouchListener
+                                                 title={book.description}
+                                                 placement="right-end"
+                                                 className="info"
+                                                 style={{fontSize:"25px"}}>
+                                            <InfoOutlinedIcon/>
+                                        </Tooltip>
                                         <CardActionArea>
                                             <CardMedia
                                                 component="img"
