@@ -92,14 +92,14 @@ class HomePage extends Component {
                                             <div id="stock-label" style={book.quantity===0 ? {visibility:"visible",color:"#FF0000"} : {visibility:"hidden"}}>Out Of Stock</div>
                                         </CardActionArea>
                                             <CardContent>
-                                                <Typography variant="h6" component="h2" style={{fontSize:"16px"}}>
-                                                    {book.bookName}
+                                                <Typography variant="h6" component="h2" style={{fontSize:"18px"}}>
+                                                    <b> {book.bookName}</b>
                                                 </Typography>
                                                 <Typography variant="body2" color="textSecondary" component="p">
                                                     by {book.authorName}
                                                 </Typography>
-                                                <Typography component="h2" style={{marginBottom: "-2%"}}>
-                                                    Rs.{book.bookPrice}
+                                                <Typography component="h2" style={{marginBottom: "-2%",marginTop:"3%"}}>
+                                                    <b> Rs.{book.bookPrice}</b>
                                                 </Typography>
                                             </CardContent>
                                         <CardActions>

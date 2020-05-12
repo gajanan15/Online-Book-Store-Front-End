@@ -16,7 +16,7 @@
     justify-content: center;
     height: 20%;
     width: 100%;
-    font-size: 20px;
+    font-size: 23px;
 }
 
 .page{
@@ -27,14 +27,15 @@
 
 #btn-add-to-card{
     background-color: rgb(165,42,42);
-    width: 100%;
+    width: 80%;
+    margin-bottom: 2%;
+    font-size: 90%;
+    align-content: center;
 }
 
-/*button.MuiButtonBase-root.MuiButtonBase-root{*/
-/*    background-color: rgb(165,42,42);*/
-/*    width: 100%;*/
-/*}*/
-
+.MuiCardActions-root {
+    justify-content: center;
+}
 button.MuiButtonBase-root.MuiCardActionArea-root{
     height: 200px;
     width: 100%;
