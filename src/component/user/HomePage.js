@@ -71,7 +71,7 @@ class HomePage extends Component {
                 <CbHeader/>
                 <div>
                     <Container fixed className="maincontain">
-                        <h2>Books <sub style={{fontSize:"18px", color:"#c3c7c3"}}> ({this.state.dataLength} items)</sub></h2>
+                        <h2>Books <p style={{fontSize:"18px", color:"#c3c7c3"}}> ({this.state.dataLength} items)</p></h2>
                         <Grid container spacing={6}>
                             {data.map((book)=> {
                                 return<Grid item xs={12} sm={6} md={4} lg={3}>
