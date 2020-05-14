@@ -25,12 +25,46 @@
     margin: 2%;
 }
 
+.maincontain-p{
+    font-size:18px;
+    color:#c3c7c3;
+    display: inline;
+}
+
+#bookname{
+    font-size:17px;
+}
+
+#authorname{
+    font-size:14px;
+}
+
+#bookprice{
+    margin-bottom: -2%;
+    margin-top:3%;
+}
+
 #btn-add-to-card{
     background-color: rgb(165,42,42);
     width: 80%;
     margin-bottom: 2%;
     font-size: 90%;
     align-content: center;
+}
+
+#stock-label{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+    width: 70%;
+    font-size: 23px;
 }
 
 .MuiCardActions-root {

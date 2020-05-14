@@ -71,7 +71,7 @@ class HomePage extends Component {
                 <CbHeader/>
                 <div>
                     <Container fixed className="maincontain">
-                        <h2>Books <p style={{fontSize:"18px", color:"#c3c7c3"}}> ({this.state.dataLength} items)</p></h2>
+                        <h2>Books <p className="maincontain-p"> ({this.state.dataLength} items)</p></h2>
                         <Grid container spacing={6}>
                             {data.map((book)=> {
                                 return<Grid item xs={12} sm={6} md={4} lg={3}>
@@ -92,13 +92,13 @@ class HomePage extends Component {
                                             <div id="stock-label" style={book.quantity===0 ? {visibility:"visible",color:"#FF0000"} : {visibility:"hidden"}}>Out Of Stock</div>
                                         </CardActionArea>
                                             <CardContent>
-                                                <Typography variant="h6" component="h2" style={{fontSize:"17px"}}>
+                                                <Typography variant="h6" component="h2" id="bookname">
                                                     <b> {book.bookName}</b>
                                                 </Typography>
-                                                <Typography variant="body2" color="textSecondary" component="p" style={{fontSize:"13px"}}>
+                                                <Typography variant="body2" color="textSecondary" component="p" id="authorname">
                                                     by {book.authorName}
                                                 </Typography>
-                                                <Typography component="h2" style={{marginBottom: "-2%",marginTop:"3%"}}>
+                                                <Typography component="h2" id="bookprice">
                                                     <b> Rs.{book.bookPrice}</b>
                                                 </Typography>
                                             </CardContent>
