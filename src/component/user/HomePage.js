@@ -73,16 +73,11 @@ class HomePage extends Component {
                     <Container fixed className="maincontain">
                         <h2>Books <p className="maincontain-p"> ({this.state.dataLength} items)</p></h2>
                         <Grid container spacing={6}>
-                            {data.map((book)=> {
+                            {data.map((book,index)=> {
                                 return<Grid item xs={12} sm={6} md={4} lg={3}>
                                     <Card className="gridroot">
-                                        <Tooltip disableFocusListener disableTouchListener
-                                                 title={book.description}
-                                                 placement="right-start"
-                                                 className="info"
-                                                 style={{fontSize:"25px"}}>
-                                            <InfoOutlinedIcon/>
-                                        </Tooltip>
+                                        <span className="tooltiptext" style={(index+1)%4===0 ? {marginLeft: "-315px"} : {marginLeft:"106px"}}>
+                                            <b>Book Description:</b><p className="tooltip-p">{book.description}</p></span>
                                         <CardActionArea>
                                             <CardMedia
                                                 component="img"
