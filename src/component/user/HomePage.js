@@ -103,7 +103,8 @@ class HomePage extends Component {
                                                 </Typography>
                                             </CardContent>
                                         <CardActions>
-                                            <Button id="btn-add-to-card" style={{color:"#fff"}} disabled={book.quantity===0 ? true : false}>
+                                            <Button style={book.quantity=== 0 ? {backgroundColor:"#d3d3d3",pointerEvents:"none",marginBottom: "2%",width:"60%"}
+                                                : {backgroundColor: "rgb(165,42,42)", width: "60%", marginBottom: "2%",color:"#fff"}}>
                                                 Add To Bag
                                             </Button>
                                         </CardActions>
