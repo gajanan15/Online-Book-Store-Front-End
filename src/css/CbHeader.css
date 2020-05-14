@@ -1,3 +1,55 @@
-.title{
+#appbar{
+    background-color:brown;
+    display: flex;
+}
+
+#tool{
+    margin-left: 10%;
+}
+
+#title{
     padding-left: 1%;
+    width: 30%;
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
+    svg.MuiSvgIcon-root{
+        font-size: 200%;
+    }
+
+    #tool{
+        margin-left: 1%;
+    }
+    #title{
+        width: 50%;
+        font-size: 100%;
+    }
+
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 1){
+    #title{
+        width: 70%;
+        font-size: 115%;
+    }
+
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+    #tool{
+        margin-left: 10%;
+    }
+    #title{
+        width: 30%;
+        font-size: 140%;
+    }
+
+    svg.MuiSvgIcon-root{
+        font-size: 200%;
+    }
+}
+@media only screen and (min-device-width: 1020px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+    #tool{
+        margin-left: 3%;
+    }
 }
