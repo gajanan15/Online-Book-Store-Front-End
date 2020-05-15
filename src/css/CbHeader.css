@@ -101,6 +101,10 @@
         font-size: 115%;
     }
 
+    .searchIcon{
+        margin-left: -4%;
+    }
+
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
@@ -115,9 +119,26 @@
     svg.MuiSvgIcon-root{
         font-size: 200%;
     }
+
+    .searchIcon{
+        padding:2px 30px;
+        height: 50%;
+        position: absolute;
+        color: grey;
+    }
+
+    .search{
+        margin-left: 0%;
+        width: 50%;
+    }
+
 }
 @media only screen and (min-device-width: 1020px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
     #tool{
         margin-left: 3%;
+    }
+
+    .search{
+        margin-left: -10%;
     }
 }
