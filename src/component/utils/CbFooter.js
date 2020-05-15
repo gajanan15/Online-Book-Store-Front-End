@@ -5,8 +5,8 @@ export class CbFooter extends Component {
     render() {
         return (
             <div>
-                <div className="footer">
-                    <p> &copy; Copyright 2020, The CB's BookStore Pvt Ltd. <br />
+                <div id="footer">
+                    <p id="footer-font"> &copy; Copyright 2020, The CB's BookStore Pvt Ltd. <br />
                         All Rights Reserved</p>
                 </div>
             </div>
