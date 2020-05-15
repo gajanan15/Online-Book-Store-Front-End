@@ -14,7 +14,7 @@ export class AdminService {
     displaybook=(page)=>{
         return Axios({
             method:'get',
-            params:{PageNo:page-1},
+            params:{PageNo:page-1,PageSize:8},
             url:`${Constant.apiUrl}books`,
         })
     }

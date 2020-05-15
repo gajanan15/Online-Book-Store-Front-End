@@ -22,7 +22,8 @@
     <list default="true" id="928703e6-057c-4ccd-b2c2-250280c3272e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/user/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/user/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/HomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/HomePage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/AddBookForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/AddBookForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/AdminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AdminService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +53,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../REACT-BACKUP/both 14 latest/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -72,11 +73,12 @@
       <workItem from="1589172942548" duration="3403000" />
       <workItem from="1589202906696" duration="11842000" />
       <workItem from="1589283463730" duration="5574000" />
+      <workItem from="1589556990702" duration="991000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -94,10 +96,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1589232573104">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="521" y="141" key="FileChooserDialogImpl" timestamp="1589552539398">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589232573104" />
+    <state x="521" y="141" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1589552539398" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1589128177946">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

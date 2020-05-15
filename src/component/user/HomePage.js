@@ -19,6 +19,7 @@ class HomePage extends Component {
     }
 
     getBooks=()=>{
+        console.log("response.data");
         new AdminService().displaybook(this.state.pageNo).then(response => {
             console.log(response.data);
             this.setState({
@@ -27,10 +28,6 @@ class HomePage extends Component {
         }).catch((error) => {
             console.log(error);
         })
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        this.getBooks();
     }
 
     getCount=()=>{
@@ -42,7 +39,6 @@ class HomePage extends Component {
             console.log(error);
         })
     }
-
 
     componentDidMount() {
         this.getBooks();
