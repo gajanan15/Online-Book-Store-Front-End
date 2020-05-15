@@ -25,4 +25,11 @@ export class AdminService {
             url:`${Constant.apiUrl}books/count`,
         })
     }
+
+    searchText=(searchtext,pageNo)=>{
+        return Axios({
+            method:'get',
+            url:`${Constant.apiUrl}books/${pageNo-1}/${searchtext}`
+        })
+    }
 }

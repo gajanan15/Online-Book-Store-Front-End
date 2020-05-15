@@ -15,12 +15,12 @@ class HomePage extends Component {
             data:[],
             pageNo:1,
             dataLength:0,
-            searchText:""
+            searchText:"",
+            myFlag:false
         }
     }
 
     getBooks=()=>{
-        console.log("response.data");
         new AdminService().displaybook(this.state.pageNo).then(response => {
             console.log(response.data);
             this.setState({
@@ -30,6 +30,8 @@ class HomePage extends Component {
             console.log(error);
         })
     }
+
+
 
     getCount=()=>{
         new AdminService().getCount().then(response => {
@@ -53,15 +55,28 @@ class HomePage extends Component {
         this.getBooks()
     }
 
-    getSearchText=(text)=>{
+    getSearchText = (text) => {
         if (text.trim().length === 0) {
             this.getBooks()
             this.getCount()
-        }else {
+        } else {
             this.setState({
-                searchText:text
-            })
+                searchText: text,
+                myFlag: true
+            }, () => this.searchAndFilter())
         }
+    }
+
+    searchAndFilter = () => {
+        new AdminService().searchAndFilter(this.state.pageNo, this.state.searchText).then(response => {
+            this.setState({
+                data: response.data.bookDetails,
+                dataLength: response.data.size
+            })
+            this.displaySearchBook(response.data.bookDetails, "", this.state.searchText, response.data.size)
+        }).catch((error) => {
+            this.displaySearchBook([], "error", "", 0)
+        })
     }
 
     render() {
