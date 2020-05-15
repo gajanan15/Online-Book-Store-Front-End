@@ -1,17 +1,31 @@
 import React, {Component} from 'react';
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import Button from "@material-ui/core/Button"
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import Tooltip from '@material-ui/core/Tooltip';
 import CbHeader from "../utils/CbHeader";
 import {AdminService} from "../../service/AdminService";
-import Pagination from "@material-ui/lab/Pagination";
-import CustomCard from "./CustomCard";
 import "../../css/HomePage.css";
+import Pagination from "@material-ui/lab/Pagination";
+import CustomSnackBar from "../utils/CustomSnackBar";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import CustomCard from "./CustomCard";
+import FormControl from "@material-ui/core/FormControl";
 
 class HomePage extends Component {
 
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             data: [],
             pageNo: 1,
             dataLength: 0,
@@ -28,23 +42,22 @@ class HomePage extends Component {
         }
     }
 
-    getBooks=()=>{
+    getBooks = () => {
         new AdminService().displaybook(this.state.pageNo).then(response => {
-            console.log(response.data);
             this.setState({
-                data:response.data
+                data: response.data,
+                temp: response.data
             })
         }).catch((error) => {
             console.log(error);
         })
     }
 
-
-
-    getCount=()=>{
+    getCount = () => {
         new AdminService().getCount().then(response => {
             this.setState({
-                dataLength:response.data
+                dataLength: response.data,
+                tempLength: response.data
             })
         }).catch((error) => {
             console.log(error);
@@ -56,12 +69,16 @@ class HomePage extends Component {
         this.getCount();
     }
 
-    alerts=(event,value)=>{
-        this.setState({
-            pageNo:value
-        })
-        this.getBooks()
+    alerts = (event, value) => {
+        if (!this.state.myFlag) {
+            this.state.pageNo = value
+            this.getBooks()
+        } else {
+            this.state.pageNo = value
+            this.searchAndFilter()
+        }
     }
+
 
     getSearchText = (text) => {
         if (text.trim().length === 0) {
@@ -94,6 +111,7 @@ class HomePage extends Component {
         }
         if (filteredData.length === 0 && !errormessage) {
             this.setState({
+                dataLength: 0,
                 data: this.state.tempTwo,
                 snackFlag: true,
                 snackMessage: `No books available with name ${input}`
@@ -106,6 +124,7 @@ class HomePage extends Component {
         } else {
             this.setState({
                 data: filteredData,
+                dataLength: countData
             })
         }
     }
