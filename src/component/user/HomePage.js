@@ -71,10 +71,12 @@ class HomePage extends Component {
                                 </Grid>
                             })}
                         </Grid>
+                    </Container>
+                    <Grid justify="center">
                         <div className="page">
                             <Pagination showFirstButton showLastButton count={Math.ceil(this.state.dataLength/8)} onChange={this.alerts}/>
                         </div>
-                    </Container>
+                    </Grid>
                 </div>
             </div>
         );

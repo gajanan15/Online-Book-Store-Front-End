@@ -9,11 +9,14 @@
     justify-content: center;
     margin: 2%;
 }
-
 .maincontain-p{
     font-size:18px;
     color:#c3c7c3;
     display:inline;
+}
+
+select.MuiOutlinedInput-input{
+    padding: 8px 14px 10px;
 }
 
 .MuiCardActions-root {
@@ -35,7 +38,7 @@ img.MuiCardMedia-root.image1.MuiCardMedia-media.MuiCardMedia-img{
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
     .maincontain{
         margin-top: 6%;
-        height: 100vh;
+        min-height: 520vh;
     }
 
     .image1{
@@ -54,12 +57,13 @@ img.MuiCardMedia-root.image1.MuiCardMedia-media.MuiCardMedia-img{
         width: 40%;
         height: 188px;
     }
+
 }
 
 @media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 1){
     .maincontain{
         margin-top: 6%;
-        height: 100vh;
+        min-height: 500vh;
     }
 
     .image1{
@@ -85,7 +89,9 @@ img.MuiCardMedia-root.image1.MuiCardMedia-media.MuiCardMedia-img{
     .image1{
         height: 250px;
     }
-
+    .maincontain{
+        min-height: 150vh;
+    }
     button.MuiButtonBase-root.MuiCardActionArea-root{
         height: 210px;
         width: 100%;
@@ -98,6 +104,7 @@ img.MuiCardMedia-root.image1.MuiCardMedia-media.MuiCardMedia-img{
         width: 50%;
         height: 165px;
     }
+
 }
 
 @media only screen and (min-device-width: 1020px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
@@ -105,4 +112,9 @@ img.MuiCardMedia-root.image1.MuiCardMedia-media.MuiCardMedia-img{
     .image1{
         height: 275px;
     }
+
+    .maincontain{
+        min-height: 100vh;
+    }
+
 }
