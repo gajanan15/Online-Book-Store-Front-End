@@ -40,6 +40,7 @@ class HomePage extends Component {
             searchText: "none",
             selectBoxValue: "NEWEST_ARRIVALS"
         }
+        this.searchBar = React.createRef();
     }
 
     getBooks = () => {
@@ -67,6 +68,7 @@ class HomePage extends Component {
     componentDidMount() {
         this.getBooks();
         this.getCount();
+        this.searchBar.current.handleSearchbar();
     }
 
     alerts = (event, value) => {

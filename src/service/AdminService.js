@@ -26,10 +26,10 @@ export class AdminService {
         })
     }
 
-    searchText=(searchtext,pageNo)=>{
+    searchAndFilter=(pageNo,searchText,filterName)=>{
         return Axios({
             method:'get',
-            url:`${Constant.apiUrl}books/${pageNo-1}/${searchtext}`
+            url:`${Constant.apiUrl}sort/${pageNo-1}/${searchText}/${filterName}`
         })
     }
 }
