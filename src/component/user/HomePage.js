@@ -54,9 +54,14 @@ class HomePage extends Component {
     }
 
     getSearchText=(text)=>{
+        if (text.trim().length === 0) {
+            this.getBooks()
+            this.getCount()
+        }else {
             this.setState({
                 searchText:text
             })
+        }
     }
 
     render() {
