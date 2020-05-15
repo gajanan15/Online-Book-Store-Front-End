@@ -26,6 +26,48 @@
     background-color: #2E1D1E;
 }
 
+
+.search{
+    display: flex;
+    margin-left: -15%;
+    width: 35%;
+    height: 5%;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.search:hover{
+    background-color:lightcyan
+}
+
+.MuiInputBase-root.inputRoot.inputInput{
+    margin-left: 10%;
+}
+
+.searchIcon{
+    padding:5px 15px;
+    height: 35%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+}
+
+.searchIcon:active{
+    color: yellow;
+}
+
+.inputRoot{
+    color: inherit;
+}
+
+.inputInput{
+    padding:1px 1px 1px 0px;
+    padding-left: 4px;
+    width: 100%;
+}
+
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
     svg.MuiSvgIcon-root{
         font-size: 200%;

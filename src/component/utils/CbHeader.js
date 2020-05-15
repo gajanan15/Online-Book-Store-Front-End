@@ -15,6 +15,10 @@ export class CbHeader extends Component {
         super(props);
     }
 
+    getText=()=>{
+
+    }
+
     render() {
         return (
             <div className="main">
@@ -36,7 +40,6 @@ export class CbHeader extends Component {
                                 onChange={(event) => this.getText(event)}
                             />
                         </div>
-
                     </Toolbar>
                 </AppBar>
             </div>

@@ -22,7 +22,7 @@
     <list default="true" id="928703e6-057c-4ccd-b2c2-250280c3272e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/utils/CbHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/utils/CbHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/AddBookForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/AddBookForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/CbHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/CbHeader.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +72,7 @@
       <workItem from="1589172942548" duration="3403000" />
       <workItem from="1589202906696" duration="11842000" />
       <workItem from="1589283463730" duration="5574000" />
-      <workItem from="1589556990702" duration="1422000" />
+      <workItem from="1589556990702" duration="1660000" />
     </task>
     <servers />
   </component>
