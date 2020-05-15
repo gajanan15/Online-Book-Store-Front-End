@@ -16,7 +16,11 @@ class HomePage extends Component {
             pageNo:1,
             dataLength:0,
             searchText:"",
-            myFlag:false
+            myFlag:false,
+            tempTwo:[],
+            snackFlag: false,
+            severity: "error",
+            snackMessage: "",
         }
     }
 
@@ -70,14 +74,22 @@ class HomePage extends Component {
     searchAndFilter = () => {
         new AdminService().searchAndFilter(this.state.pageNo, this.state.searchText).then(response => {
             this.setState({
-                data: response.data.bookDetails,
+                data: response.data,
                 dataLength: response.data.size
             })
-            this.displaySearchBook(response.data.bookDetails, "", this.state.searchText, response.data.size)
+            this.displaySearchBook(response.data,  response.data.size)
         }).catch((error) => {
-            this.displaySearchBook([], "error", "", 0)
+            this.displaySearchBook([], 0)
         })
     }
+
+    displaySearchBook = (filteredData, countData) => {
+            this.setState({
+                data: filteredData,
+                dataLength: countData
+            })
+        }
+
 
     render() {
         let data=this.state.data;
