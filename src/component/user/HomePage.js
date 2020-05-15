@@ -77,13 +77,18 @@ class HomePage extends Component {
                 data: response.data,
                 dataLength: response.data.size
             })
-            this.displaySearchBook(response.data,  response.data.size)
+            this.displaySearchBook(response.data,"" , response.data.size)
         }).catch((error) => {
-            this.displaySearchBook([], 0)
+            this.displaySearchBook([], "error",0)
         })
     }
 
-    displaySearchBook = (filteredData, countData) => {
+    displaySearchBook = (filteredData,errormessage, countData) => {
+        if (filteredData.length === 0 && errormessage) {
+            this.getBooks()
+            this.getCount()
+        }
+
             this.setState({
                 data: filteredData,
                 dataLength: countData
