@@ -110,29 +110,47 @@ class HomePage extends Component {
         }
     }
 
+    handleChange = (event) => {
+        this.setState({
+            selectBoxValue: event.target.value,
+        }, () => this.searchAndFilter())
+    }
 
     render() {
-        let data=this.state.data;
+        let data = this.state.data;
         return (
             <div>
-                <CbHeader getSearchText={this.getSearchText}/>
+                <CbHeader ref={this.searchBar} test={this.getSearchText}/>
                 <div>
-                    <Container fixed className="maincontain">
-                        <h2>Books <p className="maincontain-p"> ({this.state.dataLength} items)</p></h2>
-                        <Grid container spacing={5}>
-                            {data.map((book,index)=> {
-                                return<Grid item xs={12} sm={6} md={4} lg={3}>
-                                <CustomCard book={book} index={index}/>
+                    <Container className="maincontain">
+                        <div id="filter">
+                            <h2>Books <p className="maincontain-p"> ({this.state.dataLength} items)</p></h2>
+                            <Select
+                                native
+                                id="select-filter"
+                                variant="outlined"
+                                onChange={this.handleChange}>
+                                <option selected value={"None"}>Sort by</option>
+                                <option value={"LOW_TO_HIGH"}>LOW_TO_HIGH</option>
+                                <option value={"HIGH_TO_LOW"}>HIGH_TO_LOW</option>
+                            </Select>
+                        </div>
+                        <Grid container spacing={6}>
+                            {data.map((book, index) => {
+                                return <Grid item xs={12} sm={6} md={4} lg={3}>
+                                    <CustomCard book={book} index={index}/>
                                 </Grid>
                             })}
                         </Grid>
                     </Container>
-                    <Grid justify="center">
-                        <div className="page">
-                            <Pagination showFirstButton showLastButton count={Math.ceil(this.state.dataLength/8)} onChange={this.alerts}/>
-                        </div>
-                    </Grid>
                 </div>
+                <Grid container justify={"center"}>
+                    <Pagination showFirstButton showLastButton count={Math.ceil(this.state.dataLength / 8)}
+                                onChange={this.alerts}/>
+                </Grid>
+                {this.state.snackFlag &&
+                <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity}/>
+                }
             </div>
         );
     }
