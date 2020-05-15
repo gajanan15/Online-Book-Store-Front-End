@@ -22,7 +22,7 @@ export class AdminService {
     getCount=()=>{
         return Axios({
             method:'get',
-            url:`${Constant.apiUrl}total/books`,
+            url:`${Constant.apiUrl}books/count`,
         })
     }
 }
