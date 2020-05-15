@@ -12,15 +12,19 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
         this.state={
-            data:[],
-            pageNo:1,
-            dataLength:0,
-            searchText:"",
-            myFlag:false,
-            tempTwo:[],
+            data: [],
+            pageNo: 1,
+            dataLength: 0,
+            tempLength: 0,
+            temp: [],
             snackFlag: false,
             severity: "error",
             snackMessage: "",
+            tempTwo: [],
+            searchActivated: "",
+            myFlag: false,
+            searchText: "none",
+            selectBoxValue: "NEWEST_ARRIVALS"
         }
     }
 
@@ -72,28 +76,39 @@ class HomePage extends Component {
     }
 
     searchAndFilter = () => {
-        new AdminService().searchAndFilter(this.state.pageNo, this.state.searchText).then(response => {
+        new AdminService().searchAndFilter(this.state.pageNo, this.state.searchText, this.state.selectBoxValue).then(response => {
             this.setState({
-                data: response.data,
+                data: response.data.bookDetails,
                 dataLength: response.data.size
             })
-            this.displaySearchBook(response.data,"" , response.data.size)
+            this.displaySearchBook(response.data.bookDetails, "", this.state.searchText, response.data.size)
         }).catch((error) => {
-            this.displaySearchBook([], "error",0)
+            this.displaySearchBook([], "error", "", 0)
         })
     }
 
-    displaySearchBook = (filteredData,errormessage, countData) => {
+    displaySearchBook = (filteredData, errormessage, input, countData) => {
         if (filteredData.length === 0 && errormessage) {
             this.getBooks()
             this.getCount()
         }
-
+        if (filteredData.length === 0 && !errormessage) {
+            this.setState({
+                data: this.state.tempTwo,
+                snackFlag: true,
+                snackMessage: `No books available with name ${input}`
+            })
+            setTimeout(() => {
+                this.setState({
+                    snackFlag: false
+                })
+            }, 3000);
+        } else {
             this.setState({
                 data: filteredData,
-                dataLength: countData
             })
         }
+    }
 
 
     render() {
