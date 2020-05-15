@@ -148,12 +148,13 @@ class HomePage extends Component {
                             <h2>Books <p className="maincontain-p"> ({this.state.dataLength} items)</p></h2>
                             <Select
                                 native
-                                id="select-filter"
+                                className="select-filter"
                                 variant="outlined"
                                 onChange={this.handleChange}>
                                 <option selected value={"None"}>Sort by</option>
-                                <option value={"LOW_TO_HIGH"}>LOW_TO_HIGH</option>
-                                <option value={"HIGH_TO_LOW"}>HIGH_TO_LOW</option>
+                                <option value={"LOW_TO_HIGH"}>Price:LOW_TO_HIGH</option>
+                                <option value={"HIGH_TO_LOW"}>Price:HIGH_TO_LOW</option>
+                                <option value={"NEWEST_ARRIVALS"}> NEWEST_ARRIVALS </option>
                             </Select>
                         </div>
                         <Grid container spacing={6}>

@@ -19,6 +19,18 @@ select.MuiOutlinedInput-input{
     padding: 8px 14px 10px;
 }
 
+.select-filter{
+    width: 17%;
+    height:1%;
+    margin-top: 1.3%;
+    padding: -10px;
+}
+
+#filter{
+    display: flex;
+    justify-content: space-between;
+}
+
 .MuiCardActions-root {
     justify-content: center;
 }
