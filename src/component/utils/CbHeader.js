@@ -13,15 +13,10 @@ export class CbHeader extends Component {
 
     constructor(props){
         super(props);
-        this.state={
-            searchText:"",
-        }
     }
 
     getText = (event) => {
-        this.setState({
-            searchText:event.target.value,
-        })
+        this.props.getSearchText(event.target.value)
     }
 
     render() {

@@ -14,7 +14,8 @@ class HomePage extends Component {
         this.state={
             data:[],
             pageNo:1,
-            dataLength:0
+            dataLength:0,
+            searchText:""
         }
     }
 
@@ -52,11 +53,17 @@ class HomePage extends Component {
         this.getBooks()
     }
 
+    getSearchText=(text)=>{
+            this.setState({
+                searchText:text
+            })
+    }
+
     render() {
         let data=this.state.data;
         return (
             <div>
-                <CbHeader/>
+                <CbHeader getSearchText={this.getSearchText}/>
                 <div>
                     <Container fixed className="maincontain">
                         <h2>Books <p className="maincontain-p"> ({this.state.dataLength} items)</p></h2>
