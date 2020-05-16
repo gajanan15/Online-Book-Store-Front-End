@@ -72,8 +72,16 @@ class AdminPage extends React.Component {
         if(this.state.severity === "success")
         {
             setTimeout(() => {
-            window.location.reload(true);
-        }, 3000);
+                this.setState({
+                    bookName: "", authorName: "", description: "", isbn: "",
+                    quantity: "", bookPrice: "", publishingYear: "", imageUrl: "Select Book Image",
+                    book: " ", author: " ", Isbn: " ", descriptionOne: " ",
+                    year: " ", quantity1: " ", price: " ", err: "", abc: "", flag: false,
+                    snackFlag: false, snackMessage: "", bookError: "", authorError:"", isbnError:"",descriptionError:"",
+                    quantityError:"",priceError:"",yearError:"",severity:"error"
+                })
+                this.refs.form.reset();
+            }, 3000);
         }
         else {
             setTimeout(() => {
