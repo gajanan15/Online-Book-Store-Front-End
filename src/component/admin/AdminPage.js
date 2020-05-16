@@ -27,6 +27,14 @@ class AdminPage extends React.Component {
 
     handleReset = (e) => {
         this.refs.form.reset();
+        this.setState({
+            bookName: "", authorName: "", description: "", isbn: "",
+            quantity: "", bookPrice: "", publishingYear: "", imageUrl: "Select Book Image",
+            book: " ", author: " ", Isbn: " ", descriptionOne: " ",
+            year: " ", quantity1: " ", price: " ", err: "", abc: "", flag: false,
+            snackFlag: false, snackMessage: "", bookError: "", authorError:"", isbnError:"",descriptionError:"",
+            quantityError:"",priceError:"",yearError:"",severity:"error"
+        })
     }
 
     myData = () => {
@@ -54,7 +62,7 @@ class AdminPage extends React.Component {
                 this.clear()
             }).catch((response) => {
                 this.setState({
-                     snackMessage: "Fields cannot be empty",
+                    snackMessage: "Fields cannot be empty",
                     snackFlag: true,
                 })
                 this.clear()
@@ -99,7 +107,7 @@ class AdminPage extends React.Component {
                 [event.target.id]: "Book name cannot be empty",
                 [error]: `Invalid ${event.target.name}`,
                 err: true,
-        })
+            })
         } else {
             this.setState({
                 [event.target.id]: " ",
