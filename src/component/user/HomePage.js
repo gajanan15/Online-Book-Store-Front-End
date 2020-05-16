@@ -126,7 +126,7 @@ class HomePage extends Component {
         if (event.target.value === "None"){
             this.setState({
                 selectBoxValue: "NEWEST_ARRIVALS",
-            }, () => this.getBooks())
+            }, () => this.searchAndFilter())
         }
         else{
             this.setState({

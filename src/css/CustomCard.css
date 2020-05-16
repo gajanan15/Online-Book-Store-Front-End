@@ -4,7 +4,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    opacity: 0.9;
+    /*opacity: 0.5;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,22 +14,27 @@
 }
 
 .gridroot .tooltiptext {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
     visibility: hidden;
-    background-color: lightgrey;
+    background-color: whitesmoke;
     color: #2f2f2f;
-    padding: 5px;
+    padding: 20px;
     margin-top: 10px;
-    border-color: #2f2f2f;
+    border-top: 5px solid rgb(165,42,42);
     opacity: 1;
     font-size: 110%;
     align-content: center;
     align-items: center;
-    width: 32%;
+    width: 26.5%;
     height: fit-content;
 
+    /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
+}
+
+.gridroot:hover{
+    box-shadow: 1px 6px 9px 0 rgba(0, 0, 0, 0.2);
 }
 
 .gridroot:hover .tooltiptext {
@@ -48,10 +53,10 @@
     font-size:100%;
 }
 #bookname{
-    font-size:16px;
+    font-size:17px;
 }
 #authorname{
-    font-size:13px;
+    font-size:14px;
 }
 #bookprice{
     margin-bottom: -2%;

@@ -21,7 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="928703e6-057c-4ccd-b2c2-250280c3272e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/AdminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AdminService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/user/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/user/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/CustomCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/CustomCard.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,12 +86,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -117,10 +119,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1589128177912" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1589221675036">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1589662323227">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1589221675036" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1589662323227" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1589289687618">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
