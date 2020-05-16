@@ -1,25 +1,13 @@
 import React, {Component} from 'react';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Button from "@material-ui/core/Button"
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import Tooltip from '@material-ui/core/Tooltip';
 import CbHeader from "../utils/CbHeader";
 import {AdminService} from "../../service/AdminService";
 import "../../css/HomePage.css";
 import Pagination from "@material-ui/lab/Pagination";
 import CustomSnackBar from "../utils/CustomSnackBar";
-import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
 import CustomCard from "./CustomCard";
-import FormControl from "@material-ui/core/FormControl";
 
 class HomePage extends Component {
 
@@ -86,6 +74,9 @@ class HomePage extends Component {
         if (text.trim().length === 0) {
             this.getBooks()
             this.getCount()
+            this.setState({
+                searchText: "none"
+            })
         } else {
             this.setState({
                 searchText: text,
@@ -132,9 +123,16 @@ class HomePage extends Component {
     }
 
     handleChange = (event) => {
-        this.setState({
-            selectBoxValue: event.target.value,
-        }, () => this.searchAndFilter())
+        if (event.target.value === "None"){
+            this.setState({
+                selectBoxValue: "NEWEST_ARRIVALS",
+            }, () => this.getBooks())
+        }
+        else{
+            this.setState({
+                selectBoxValue: event.target.value,
+            }, () => this.searchAndFilter())
+        }
     }
 
     render() {
@@ -152,9 +150,9 @@ class HomePage extends Component {
                                 variant="outlined"
                                 onChange={this.handleChange}>
                                 <option selected value={"None"}>Sort by</option>
-                                <option value={"LOW_TO_HIGH"}>Price:LOW_TO_HIGH</option>
-                                <option value={"HIGH_TO_LOW"}>Price:HIGH_TO_LOW</option>
-                                <option value={"NEWEST_ARRIVALS"}> NEWEST_ARRIVALS </option>
+                                <option value={"LOW_TO_HIGH"}>Price:Low_to_High</option>
+                                <option value={"HIGH_TO_LOW"}>Price:High_to_Low</option>
+                                <option value={"NEWEST_ARRIVALS"}> Newest_Arrivals </option>
                             </Select>
                         </div>
                         <Grid container spacing={6}>
@@ -166,7 +164,7 @@ class HomePage extends Component {
                         </Grid>
                     </Container>
                 </div>
-                <Grid container justify={"center"}>
+                <Grid container className="page">
                     <Pagination showFirstButton showLastButton count={Math.ceil(this.state.dataLength / 8)}
                                 onChange={this.alerts}/>
                 </Grid>
