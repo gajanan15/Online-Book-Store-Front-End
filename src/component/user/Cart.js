@@ -22,7 +22,7 @@ class Cart extends Component {
                             <Typography variant="body2" color="textSecondary" id="authorName">CJ Miller</Typography>
                             <Typography component="h2" id="cost">Rs.50</Typography>
                         </div>
-                        <Button>
+                        <Button id="orderBtn">
                             Continue
                         </Button>
                     </Card>

@@ -1,0 +1,55 @@
+#cartcontainer {
+    margin-top: 7%;
+    min-height: 75.5vh;
+    margin-left: 3%;
+}
+
+.bookdiv {
+    border: 0.1px solid grey;
+    padding: 2%;
+    width: 84%;
+    height: 400px;
+}
+
+h4 {
+    font-size: 17px;
+    margin-top: -1%;
+}
+
+.img {
+    height: 16vh;
+    margin-top: 27%;
+}
+
+#bookname1 {
+    font-size: 15px;
+    padding-top: 2.2%;
+    font-weight: bold;
+    margin-left: 14%;
+    margin-top: -17%;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+#authorName {
+    font-size: 11.5px;
+    margin-left: 14%;
+    margin-top: 0.4%;
+}
+
+#cost {
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 14%;
+    margin-top: 0.4%;
+}
+
+#orderBtn {
+    background-color: rgb(165, 42, 42);
+    width: 20%;
+    color: #fff;
+    margin-top: 2%;
+    display: flex;
+    margin-left: 80%;
+}
