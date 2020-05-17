@@ -13,7 +13,7 @@
 }
 
 #footer-font {
-    font-size: 16px;
+    font-size: 13px;
     margin: 3px;
     padding: 3px;
     text-align: center;
@@ -24,6 +24,7 @@
     flex-direction: column-reverse;
     color: white;
     background-color: #2E1D1E;
+    margin-top: 2%;
 }
 
 
@@ -45,7 +46,7 @@
 }
 
 .searchIcon{
-    padding:5px 15px;
+    padding:8px 15px;
     height: 35%;
     position: absolute;
     display: flex;
@@ -54,9 +55,6 @@
     color: grey;
 }
 
-.searchIcon:active{
-    color: yellow;
-}
 
 .inputRoot{
     color: inherit;
@@ -66,6 +64,24 @@
     padding:1px 1px 1px 0px;
     padding-left: 4px;
     width: 100%;
+}
+
+
+.shoppingIcon{
+    margin-right: 3%;
+}
+
+.grow{
+    flex-grow: 1
+}
+
+.MuiBadge-anchorOriginTopRightRectangle {
+    top: 0;
+    right: 0;
+    transform: scale(1) translate(50%, -50%);
+    transform-origin: 100% 0%;
+    color: brown;
+    background-color: white;
 }
 
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
