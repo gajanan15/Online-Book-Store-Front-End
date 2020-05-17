@@ -53,3 +53,24 @@ h4 {
     display: flex;
     margin-left: 80%;
 }
+
+
+.plusminusdiv{
+    margin-top: 1%;
+    margin-right:58%;
+    margin-left: 12%;
+    display: flex;
+}
+
+
+#text {
+    margin-top: 5.5%;
+    width: 20%;
+    height: 1%;
+    margin-left: -3%;
+    margin-right: -3%;
+    font-size: 14px;
+    text-align: center;
+}
+
+
