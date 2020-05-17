@@ -33,6 +33,9 @@ class Cart extends Component {
                             <IconButton className="plus">
                                 <AddCircleOutlineIcon style={{fontSize: "90%", color: "rgb(165,42,42)"}}/>
                             </IconButton>
+
+                            <button className="remove">Remove
+                            </button>
                         </div>
                         <Button id="orderBtn">
                             Continue
