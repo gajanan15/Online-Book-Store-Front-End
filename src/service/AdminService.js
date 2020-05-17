@@ -1,35 +1,45 @@
-import  Axios from 'axios'
+import Axios from 'axios'
 import Constant from '../config/Constant'
 
 export class AdminService {
-    addbook=(e,data)=>{
+    addbook = (e, data) => {
         e.preventDefault();
-        return  Axios({
-            method:'post',
-            url:`${Constant.apiUrl}admin/book`,
+        return Axios({
+            method: 'post',
+            url: `${Constant.apiUrl}admin/book`,
             data: data,
         })
     }
 
-    displaybook=(page)=>{
+    displaybook = (page) => {
         return Axios({
-            method:'get',
-            params:{PageNo:page-1,PageSize:8},
-            url:`${Constant.apiUrl}books`,
+            method: 'get',
+            params: {PageNo: page - 1, PageSize: 8},
+            url: `${Constant.apiUrl}books`,
         })
     }
 
-    getCount=()=>{
+    getCount = () => {
         return Axios({
-            method:'get',
-            url:`${Constant.apiUrl}books/count`,
+            method: 'get',
+            url: `${Constant.apiUrl}books/count`,
         })
     }
 
-    searchAndFilter=(pageNo,searchText,filterName)=>{
+    searchAndFilter = (pageNo, searchText, filterName) => {
         return Axios({
-            method:'get',
-            url:`${Constant.apiUrl}sort/${pageNo-1}/${searchText}/${filterName}`
+            method: 'get',
+            url: `${Constant.apiUrl}sort/${pageNo - 1}/${searchText}/${filterName}`
         })
     }
+
+    addTOCart = (data) => {
+        return Axios({
+            method: 'post',
+            url: `${Constant.apiUrl}cart`,
+            data: data,
+        })
+    }
+
 }
+
