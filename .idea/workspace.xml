@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="928703e6-057c-4ccd-b2c2-250280c3272e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/component/user/CartItems.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/user/CustomCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/user/CustomCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/AdminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AdminService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/user/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/user/Cart.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

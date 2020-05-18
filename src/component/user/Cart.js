@@ -8,39 +8,66 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
+import {AdminService} from "../../service/AdminService";
+import CartItems from "./CartItems";
 
 class Cart extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [],
+            checkoutData: [],
+        }
+    }
+
+    componentDidMount() {
+        this.handleCart()
+    }
+
+    handleCart = () => {
+        new AdminService().myCart().then(response => {
+            console.log("in")
+            console.log(response.data)
+            this.setState({
+                checkoutData: response.data
+            })
+        }).catch((error) => {
+            console.log(error)
+            this.setState({
+                checkoutData: []
+            })
+        })
+    }
+
+
     render() {
+        let cartData = this.state.checkoutData
         return (
             <div>
                 <CbHeader/>
                 <Container id="cartcontainer" maxWidth="md">
-                    <Card className={"bookdiv"} variant="outlined">
-                        <h4>My Cart (0)</h4>
-                        <div>
-                            <img src={require("../../asset/Bleeds.jpg")} style={{height: "16vh"}}/>
+                    <Card className={cartData.length === 1 ? "bookdiv1" : "bookdiv"} variant="outlined">
+                        <h4>My Cart ({cartData.length})</h4>
+                        <div className={cartData.length <= 2 ? "no-scroll" : "scrollbar"}>
+                            {
+                                cartData.length > 0 ? cartData.map((books, index) => {
+                                    return <CartItems flag={this.state.disableFlag} handleSummary={this.setTotalValue}
+                                                      key={books.id}
+                                                      cartData={cartData} handleCart={this.handleCart}
+                                                      books={books} index={index}/>
+                                }) : <div className="nocartitems">
+                                    <img className="noitemsimage" src={require("../../asset/emptyCart.png")}
+                                         alt="Cart Is Empty"/>
+                                    <h3 id="emptycart">Please Add Books To Cart</h3>
+                                </div>
+                            }
                         </div>
-                        <div className="booksContainer" style={{marginLeft: "-1%", marginBottom: "-1.5%"}}>
-                            <Typography component="h2" id="bookname1">Bleeds</Typography>
-                            <Typography variant="body2" color="textSecondary" id="authorName">CJ Miller</Typography>
-                            <Typography component="h2" id="cost">Rs.50</Typography>
-                        </div>
-                        <div className="plusminusdiv">
-                            <IconButton id="minus">
-                                <RemoveCircleOutlineIcon style={{fontSize: "90%", color: "rgb(165,42,42)"}}/>
-                            </IconButton>
-                            <input id="text" value="1"></input>
-                            <IconButton className="plus">
-                                <AddCircleOutlineIcon style={{fontSize: "90%", color: "rgb(165,42,42)"}}/>
-                            </IconButton>
-
-                            <button className="remove">Remove
-                            </button>
-                        </div>
-                        <Button id="orderBtn">
+                        <Button onClick={this.handleCustomer}
+                                style={cartData.length === 0 ? {visibility: "hidden"} : {visibility: this.state.btn1}}
+                                id="orderBtn">
                             Continue
                         </Button>
-
                     </Card>
                 </Container>
                 <CbFooter/>
