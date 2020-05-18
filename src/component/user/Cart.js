@@ -68,6 +68,7 @@ class Cart extends Component {
                                 id="orderBtn">
                             Continue
                         </Button>
+
                     </Card>
                 </Container>
                 <CbFooter/>

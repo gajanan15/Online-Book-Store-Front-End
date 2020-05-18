@@ -1,17 +1,21 @@
 import React, {Component} from 'react';
-import Button from "@material-ui/core/Button";
-import CbFooter from "../utils/CbFooter";
-import CbHeader from "../utils/CbHeader";
-import Container from "@material-ui/core/Container";
-import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
-import {AdminService} from "../../service/AdminService";
-import Divider from "@material-ui/core/Divider";
 
 class CartItems extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 1,
+            changedCount: '',
+            disableDecrementButton: false,
+            disableIncrementButton: true,
+            totalPrice: this.props.books.bookPrice
+        }
+    }
+
     render() {
         return (
             <div className="mycart">
@@ -41,9 +45,6 @@ class CartItems extends Component {
                     </div>
                 </div>
                 <br/>
-                {this.props.index !== this.props.cartData.length - 1 ?
-                    <Divider/> : console.log()
-                }
             </div>
 
         );
