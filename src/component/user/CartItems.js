@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import Typography from "@material-ui/core/Typography";
+import {AdminService} from "../../service/AdminService";
+import '../../css/Cart.css';
 import IconButton from "@material-ui/core/IconButton";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
-import {AdminService} from "../../service/AdminService";
+import Divider from "@material-ui/core/Divider";
 
 class CartItems extends Component {
     constructor(props) {
@@ -15,6 +17,70 @@ class CartItems extends Component {
             disableIncrementButton: true,
             totalPrice: this.props.books.bookPrice
         }
+    }
+
+    onclick(type, id, bookid) {
+        if (this.state.count >= 0) {
+            this.setState({
+                count: type == 'add' ? this.state.count + 1 : this.state.count - 1,
+                changedCount: id
+            });
+        }
+        type === 'add' ? this.updateCount(id, this.state.count + 1) : this.updateCount(id, this.state.count - 1)
+    }
+
+    updateCount = (id, count) => {
+        const cartDTO = {
+            "authorName": this.props.books.authorName,
+            "bookID": id,
+            "bookName": this.props.books.bookName,
+            "bookPrice": this.props.books.bookPrice,
+            "quantity": count
+        }
+        console.log(cartDTO)
+        new AdminService().updateCart(cartDTO).then(response => {
+            this.props.handleCart()
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
+    disableDecrementButton = (type) => {
+        if (type == 'sub' && this.state.disableDecrementButton) {
+            this.setState({
+                disableDecrementButton: false
+            })
+        }
+        if (this.state.count === 5 || this.props.flag) {
+            this.setState({
+                disableDecrementButton: true
+            })
+        }
+    }
+
+    disableIncrementButton = (type) => {
+        if ((type == 'add' && this.state.disableIncrementButton) || this.props.flag) {
+            this.setState({
+                disableIncrementButton: true
+            })
+        }
+        if (this.state.count > 1) {
+            this.setState({
+                disableIncrementButton: false
+            })
+        }
+
+        if (this.state.count === 1 || this.props.flag) {
+            this.setState({
+                disableIncrementButton: true
+            })
+        }
+
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.disableDecrementButton()
+        this.disableIncrementButton()
     }
 
 
@@ -30,46 +96,38 @@ class CartItems extends Component {
                                 id="authorName">{this.props.books.authorName}</Typography>
                     <Typography component="h2" id="cost">Rs.
                         {this.props.books.bookPrice * this.props.books.quantity}</Typography>
-                    < div
-                        className="plusminusdiv">
-                        < IconButton
-                            id="minus"
-                            disabled={this.state.disableIncrementButton}
-                            onClick={()=>
-                                this.onclick('sub', this.props.books.bookID, this.props.books.id, this.props.books.bookPrice)
-                            }>
-                            <
-                                RemoveCircleOutlineIcon
-                                style={
-                                    this
-                                        .state.disableIncrementButton === true ? {color: "#d3d3d3", fontSize: "90%"} : {
-                                        fontSize: "90%",
-                                        color: "rgb(165,42,42)"
-                                    }
-                                }
-                            />
-                            < /IconButton>
-                                < input
-                                    id="text"
-                                    value={this.state.count}> < /input>
+                    <div className="plusminusdiv">
+                        <IconButton id="minus" disabled={this.state.disableIncrementButton}
+                                    onClick={() => this.onclick('sub', this.props.books.bookID, this.props.books.id, this.props.books.bookPrice)}>
+                            <RemoveCircleOutlineIcon style={this.state.disableIncrementButton === true ? {
+                                color: "#d3d3d3",
+                                fontSize: "90%"
+                            } : {fontSize: "90%", color: "rgb(165,42,42)"}}/>
+                        </IconButton>
 
-                                    < IconButton
-                                        className="plus"
-                                        disabled={this.state.disableDecrementButton}
-                                        onClick={() =>
-                                            this.onclick('add', this.props.books.bookID, this.props.books.id, this.props.books.bookPrice)
-                                        }>
-                                        <AddCircleOutlineIcon style={{fontSize: "90%", color: "rgb(165,42,42)"}}/>
-                                    </IconButton>
-                                    <button className="remove">Remove
-                                    </button>
+                        <input id="text" value={this.state.count}></input>
+
+                        <IconButton className="plus" disabled={this.state.disableDecrementButton}
+                                    onClick={() => this.onclick('add', this.props.books.bookID, this.props.books.id, this.props.books.bookPrice)}>
+                            <AddCircleOutlineIcon style={this.state.disableDecrementButton === true ? {
+                                color: "#d3d3d3",
+                                fontSize: "90%"
+                            } : {fontSize: "90%", color: "rgb(165,42,42)"}}/>
+                        </IconButton>
+
+                        <button className="remove" disabled={this.props.flag}
+                                >Remove
+                        </button>
                     </div>
                 </div>
                 <br/>
+                {this.props.index !== this.props.cartData.length - 1 ?
+                    <Divider/> : console.log()
+                }
             </div>
 
-    );
+        );
     }
-    }
+}
 
-    export default CartItems;
+export default CartItems;
