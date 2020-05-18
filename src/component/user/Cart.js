@@ -4,20 +4,20 @@ import CbFooter from "../utils/CbFooter";
 import CbHeader from "../utils/CbHeader";
 import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import {AdminService} from "../../service/AdminService";
 import CartItems from "./CartItems";
 
 class Cart extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             data: [],
+            btn1: "visible",
+            a: "hidden",
+            text: false,
+            count: 1,
             checkoutData: [],
+            changedCount: '',
         }
     }
 
@@ -68,7 +68,6 @@ class Cart extends Component {
                                 id="orderBtn">
                             Continue
                         </Button>
-
                     </Card>
                 </Container>
                 <CbFooter/>

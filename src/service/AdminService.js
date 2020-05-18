@@ -48,11 +48,18 @@ export class AdminService {
         })
     }
 
-    updateCart=(cartValues)=>{
+    updateCart = (cartValues) => {
         return Axios({
-            method:'put',
-            url:`${Constant.apiUrl}cart`,
-            data:cartValues
+            method: 'put',
+            url: `${Constant.apiUrl}cart`,
+            data: cartValues
+        })
+    }
+
+    remove = (id) => {
+        return Axios({
+            method: 'delete',
+            url: `${Constant.apiUrl}cart/${id}`
         })
     }
 }

@@ -81,6 +81,22 @@ h4 {
     font-size: 15px;
 }
 
+.nocartitems {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#emptycart {
+    align-self: center;
+}
+
+.noitemsimage {
+    height: 140px;
+    width: 180px;
+    align-self: center;
+}
+
 
 
 

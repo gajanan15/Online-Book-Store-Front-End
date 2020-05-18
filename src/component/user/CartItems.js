@@ -19,14 +19,32 @@ class CartItems extends Component {
         }
     }
 
+    checkAndRemove = (count, id, type) => {
+        if (count === 0) {
+            this.remove(id)
+        }
+        this.disableDecrementButton(type)
+        this.disableIncrementButton(type)
+    }
+
+    remove = (id) => {
+        new AdminService().remove(id).then(response => {
+            this.props.handleCart()
+        }).catch((error) => {
+            console.log("in error")
+            console.log(error)
+        })
+    }
+
     onclick(type, id, bookid) {
         if (this.state.count >= 0) {
             this.setState({
                 count: type == 'add' ? this.state.count + 1 : this.state.count - 1,
                 changedCount: id
-            });
+            }, () => this.checkAndRemove(this.state.count, bookid, type));
         }
         type === 'add' ? this.updateCount(id, this.state.count + 1) : this.updateCount(id, this.state.count - 1)
+
     }
 
     updateCount = (id, count) => {
@@ -116,7 +134,7 @@ class CartItems extends Component {
                         </IconButton>
 
                         <button className="remove" disabled={this.props.flag}
-                                >Remove
+                                onClick={() => this.remove(this.props.books.id)}>Remove
                         </button>
                     </div>
                 </div>
