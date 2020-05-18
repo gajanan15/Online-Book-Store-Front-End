@@ -41,5 +41,13 @@ export class AdminService {
         })
     }
 
+    myCart = () => {
+        return Axios({
+            method: 'get',
+            url: `${Constant.apiUrl}cart`
+        })
+    }
+
+
 }
 

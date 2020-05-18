@@ -23,6 +23,19 @@ class CustomCard extends Component {
         }
     }
 
+    myCartData = () => {
+        const cartDTO = {
+            "authorName": this.props.book.authorName,
+            "bookID": this.props.book.id,
+            "bookName": this.props.book.bookName,
+            "bookPrice": this.props.book.bookPrice,
+            "quantity": 1,
+            "bookImg": this.props.book.imageUrl
+        }
+        return cartDTO
+    }
+
+
     changeText = () => {
         if (this.state.title === "GO TO CART") {
             this.props.history.push("/cart");
