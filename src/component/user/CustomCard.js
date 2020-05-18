@@ -27,13 +27,16 @@ class CustomCard extends Component {
         if (this.state.title === "GO TO CART") {
             this.props.history.push("/cart");
         }
+        this.props.cartReference.current.handleBadgeCount(this.state.badgeSize, "addButton")
         new AdminService().addTOCart(this.myCartData()).then(response => {
         }).catch((error) => {
             console.log(error)
         })
+
         this.setState({title: "GO TO CART", color: "rgb(51,113,181)"}
         );
     }
+
 
     render() {
         let index = this.props.index;

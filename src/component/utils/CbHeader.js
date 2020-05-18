@@ -17,7 +17,8 @@ export class CbHeader extends Component {
         this.state = {
             searchField: [],
             tempData: [],
-            searchVisibility: false
+            searchVisibility: false,
+            counter: 0
         }
     }
 
@@ -31,15 +32,26 @@ export class CbHeader extends Component {
         this.props.test(event.target.value)
     }
 
-    render() {
+    handleBadgeCount(value, updateFactor) {
+        if (updateFactor === "updateButton")
+            this.setState({
+                counter: value
+            })
+        if (updateFactor === "addButton") {
+            this.setState({
+                counter: this.state.counter + 1
+            })
+        }
+    }
 
+    render() {
 
 
         return (
             <div className="main">
                 <AppBar position="fixed" id="appbar">
                     <Toolbar id="tool">
-                        <ImportContactsIcon style={{fontSize: '200%',marginLeft:"-0.2%"}}/>
+                        <ImportContactsIcon style={{fontSize: '200%', marginLeft: "-0.2%"}}/>
                         <Typography id="title" variant="h6" noWrap>
                             CB's Book Store
                         </Typography>
@@ -59,8 +71,8 @@ export class CbHeader extends Component {
                         <div className="grow"/>
                         {this.state.searchVisibility &&
                         <div className="shoppingIcon">
-                            <IconButton aria-label="show 4 new mails" >
-                                <Badge badgeContent={this.state.counter} >
+                            <IconButton aria-label="show 4 new mails">
+                                <Badge badgeContent={this.state.counter}>
                                     <Link style={{color: 'white'}} to={"/cart"}><ShoppingCartOutlinedIcon
                                         style={{fontSize: '120%', display: 'flex'}}/></Link>
                                 </Badge>

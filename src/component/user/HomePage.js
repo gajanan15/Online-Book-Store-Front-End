@@ -123,12 +123,11 @@ class HomePage extends Component {
     }
 
     handleChange = (event) => {
-        if (event.target.value === "None"){
+        if (event.target.value === "None") {
             this.setState({
                 selectBoxValue: "NEWEST_ARRIVALS",
             }, () => this.searchAndFilter())
-        }
-        else{
+        } else {
             this.setState({
                 selectBoxValue: event.target.value,
             }, () => this.searchAndFilter())
@@ -152,13 +151,13 @@ class HomePage extends Component {
                                 <option selected value={"None"}>Sort by</option>
                                 <option value={"LOW_TO_HIGH"}>Price:Low_to_High</option>
                                 <option value={"HIGH_TO_LOW"}>Price:High_to_Low</option>
-                                <option value={"NEWEST_ARRIVALS"}> Newest_Arrivals </option>
+                                <option value={"NEWEST_ARRIVALS"}> Newest_Arrivals</option>
                             </Select>
                         </div>
                         <Grid container spacing={6}>
                             {data.map((book, index) => {
                                 return <Grid item xs={12} sm={6} md={4} lg={3}>
-                                    <CustomCard book={book} index={index}/>
+                                    <CustomCard book={book} index={index} cartReference={this.searchBar}/>
                                 </Grid>
                             })}
                         </Grid>
