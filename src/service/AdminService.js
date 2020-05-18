@@ -48,6 +48,12 @@ export class AdminService {
         })
     }
 
-
+    updateCart=(cartValues)=>{
+        return Axios({
+            method:'put',
+            url:`${Constant.apiUrl}cart`,
+            data:cartValues
+        })
+    }
 }
 

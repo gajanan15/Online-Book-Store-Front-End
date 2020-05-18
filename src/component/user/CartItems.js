@@ -3,6 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
+import {AdminService} from "../../service/AdminService";
 
 class CartItems extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class CartItems extends Component {
         }
     }
 
+
     render() {
         return (
             <div className="mycart">
@@ -28,27 +30,46 @@ class CartItems extends Component {
                                 id="authorName">{this.props.books.authorName}</Typography>
                     <Typography component="h2" id="cost">Rs.
                         {this.props.books.bookPrice * this.props.books.quantity}</Typography>
-                    <div className="plusminusdiv">
-                        <IconButton id="minus">
-                            <RemoveCircleOutlineIcon style={{fontSize: "90%", color: "rgb(165,42,42)"}}/>
-                        </IconButton>
+                    < div
+                        className="plusminusdiv">
+                        < IconButton
+                            id="minus"
+                            disabled={this.state.disableIncrementButton}
+                            onClick={()=>
+                                this.onclick('sub', this.props.books.bookID, this.props.books.id, this.props.books.bookPrice)
+                            }>
+                            <
+                                RemoveCircleOutlineIcon
+                                style={
+                                    this
+                                        .state.disableIncrementButton === true ? {color: "#d3d3d3", fontSize: "90%"} : {
+                                        fontSize: "90%",
+                                        color: "rgb(165,42,42)"
+                                    }
+                                }
+                            />
+                            < /IconButton>
+                                < input
+                                    id="text"
+                                    value={this.state.count}> < /input>
 
-                        <input id="text" value={this.state.count}></input>
-
-                        <IconButton className="plus"
-                        >
-                            <AddCircleOutlineIcon style={{fontSize: "90%", color: "rgb(165,42,42)"}}/>
-                        </IconButton>
-
-                        <button className="remove">Remove
-                        </button>
+                                    < IconButton
+                                        className="plus"
+                                        disabled={this.state.disableDecrementButton}
+                                        onClick={() =>
+                                            this.onclick('add', this.props.books.bookID, this.props.books.id, this.props.books.bookPrice)
+                                        }>
+                                        <AddCircleOutlineIcon style={{fontSize: "90%", color: "rgb(165,42,42)"}}/>
+                                    </IconButton>
+                                    <button className="remove">Remove
+                                    </button>
                     </div>
                 </div>
                 <br/>
             </div>
 
-        );
+    );
     }
-}
+    }
 
-export default CartItems;
+    export default CartItems;
