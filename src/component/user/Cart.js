@@ -28,6 +28,11 @@ class Cart extends Component {
             checkoutData: [],
             changedCount: '',
             customerPanel: false,
+            customerName: "", mobileNo: "", pincode: "", locality: "", address: "", city: "", landmark: "", email: "",
+            name: " ", contact: " ", pinCode: " ", locaLity: " ", addRess: " ", ciTy: " ", landMark: " ", Email: " ",
+            nameError: "", numberError: "", pincodeError: "", localityError: "", addressError: "", cityError: "",
+            landmarkError: "", emailError: "", err: "",
+
         }
     }
 
@@ -59,6 +64,133 @@ class Cart extends Component {
         })
         this.state.disableFlag = true
     }
+
+    nameValidation = (event, error) => {
+        let namePattern = "^[A-Za-z. ]+[ ]*[A-Za-z.]*$"
+        if (!event.target.value.match(namePattern)) {
+            this.setState({
+                [event.target.id]: "Please enter valid name",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        } else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]: "",
+                err: false,
+            })
+        }
+    }
+
+    phoneNumberValidation = (event, error) => {
+        let phoneNumberPattern = "^[1-9]{1}[0-9]{9}$"
+        if (!event.target.value.match(phoneNumberPattern)) {
+            this.setState({
+                [event.target.id]: "Please enter valid phone number",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        } else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]: "",
+                err: false,
+            })
+        }
+    }
+
+    localityValidation = (event, error) => {
+        let localityPattern = "^[a-zA-Z]+"
+        if (!event.target.value.match(localityPattern)) {
+            this.setState({
+                [event.target.id]: "Please enter valid location",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        } else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]: "",
+                err: false,
+            })
+        }
+    }
+
+    pincodeValidation = (event, error) => {
+        let pincodePattern = "^[1-9]{1}[0-9]{2}[-]{0,1}[0-9]{3}$"
+        if (!event.target.value.match(pincodePattern)) {
+            this.setState({
+                [event.target.id]: "Please enter a valid 6 digits zip code",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        } else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]: "",
+                err: false,
+            })
+        }
+    }
+
+    addressValidation = (event, error) => {
+        let addressPattern = "^\\w{1,150}"
+        if (!event.target.value.match(addressPattern)) {
+            this.setState({
+                [event.target.id]: "Please enter Address between 150 character",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        } else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]: "",
+                err: false,
+            })
+        }
+    }
+
+    cityValidation = (event, error) => {
+        let cityPattern = "^[a-zA-Z]+"
+        if (!event.target.value.match(cityPattern)) {
+            this.setState({
+                [event.target.id]: "Please enter valid city name",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        } else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]: "",
+                err: false,
+            })
+        }
+    }
+
+    emailValidation = (event, error) => {
+        let emailPattern = "^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$"
+        if (!event.target.value.match(emailPattern)) {
+            this.setState({
+                [event.target.id]: "Please enter valid email address",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        } else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]: "",
+                err: false,
+            })
+        }
+    }
+
+    changeState = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value,
+        })
+        this.buttonVisibility()
+    }
+
 
     render() {
         let cartData = this.state.checkoutData
@@ -96,108 +228,140 @@ class Cart extends Component {
                         <ExpansionPanelDetails>
                             <div className="customerdiv">
                                 <div className="textbox secondtext">
-                                        <TextFields
-                                            required={true}
-                                            inputRef={(e) => (this.myTextField = e)}
-                                            label="Name"
-                                            id="name"
-                                            name="customerName"
-                                            variant="outlined"
-                                            className="textfields"
-                                        />
-                                        <TextFields
-                                            required={true}
-                                            label="Phone Number"
-                                            id="contact"
-                                            name="mobileNo"
-                                            variant="outlined"
-                                            className="textfields"
-                                        />
-                                </div>
-                                <div className="textbox secondtext">
                                     <TextFields
                                         required={true}
-                                        label="Pincode"
-                                        id="pinCode"
-                                        name="pincode"
+                                        inputRef={(e) => (this.myTextField = e)}
+                                        label="Name"
+                                        error={this.state.nameError}
+                                        id="name"
+                                        name="customerName"
+                                        onChange={this.changeState}
                                         variant="outlined"
-                                        className="textfields"
+                                        onBlur={(e) => this.nameValidation(e, "nameError")}
+                                        helperText={this.state.name}
+                                        className="textfields" disabled={this.state.text}
                                     />
                                     <TextFields
                                         required={true}
-                                        label="Locality"
-                                        id="locaLity"
-                                        name="locality"
+                                        label="Phone Number"
+                                        error={this.state.numberError}
+                                        id="contact"
+                                        name="mobileNo"
+                                        onChange={this.changeState}
+                                        onBlur={(e) => this.phoneNumberValidation(e, "numberError")}
+                                        helperText={this.state.contact}
                                         variant="outlined"
-                                        className="textfields"
+                                        className="textfields" disabled={this.state.text}
                                     />
-                                </div>
-                                <div className="address">
-                                    <TextFields
-                                        required={true}
-                                        style={{marginTop: "2%"}}
-                                        multiline rows={2} fullWidth inputProps={{maxLength: 150}}
-                                        label="Address"
-                                        id="addRess"
-                                        name="address"
-                                        placeholder={"Max 150 words"}
-                                        variant="outlined"
-                                        className="textfields1"
-                                    />
-                                </div>
+                            </div>
 
-                                <div className="customer-email">
-                                    <TextFields
-                                        required={true}
-                                        type="email"
-                                        style={{marginTop: "2%"}}
-                                        label="Email"
-                                        id="Email"
-                                        name="email"
-                                        variant="outlined"
-                                        className="textfields1"
+                            <div className="textbox secondtext">
+                                <TextFields
+                                    required={true}
+                                    label="Pincode"
+                                    id="pinCode"
+                                    error={this.state.pincodeError}
+                                    name="pincode"
+                                    onChange={this.changeState}
+                                    onBlur={(e) => this.pincodeValidation(e, "pincodeError")}
+                                    helperText={this.state.pinCode}
+                                    variant="outlined"
+                                    className="textfields" disabled={this.state.text}
+                                />
+                                <TextFields
+                                    required={true}
+                                    label="Locality"
+                                    id="locaLity"
+                                    error={this.state.localityError}
+                                    name="locality"
+                                    onChange={this.changeState}
+                                    onBlur={(e) => this.localityValidation(e, "localityError")}
+                                    helperText={this.state.locaLity}
+                                    variant="outlined"
+                                    className="textfields" disabled={this.state.text}
+                                />
+                            </div>
+                            <div className="address">
+                                <TextFields
+                                    required={true}
+                                    style={{marginTop: "2%"}}
+                                    multiline rows={2} fullWidth inputProps={{maxLength: 150}}
+                                    label="Address"
+                                    id="addRess"
+                                    error={this.state.addressError}
+                                    name="address"
+                                    onChange={this.changeState}
+                                    onBlur={(e) => this.addressValidation(e, "addressError")}
+                                    helperText={this.state.addRess}
+                                    placeholder={"Max 150 words"}
+                                    variant="outlined"
+                                    className="textfields1" disabled={this.state.text}
+                                />
+                            </div>
+
+                            <div className="customer-email">
+                                <TextFields
+                                    required={true}
+                                    type="email"
+                                    style={{marginTop: "2%"}}
+                                    label="Email"
+                                    id="Email"
+                                    error={this.state.emailError}
+                                    name="email"
+                                    onChange={this.changeState}
+                                    onBlur={(e) => this.emailValidation(e, "emailError")}
+                                    helperText={this.state.Email}
+                                    variant="outlined"
+                                    className="textfields1" disabled={this.state.text}
+                                />
+                            </div>
+
+
+                            <div className="secondtext">
+                                <TextFields
+                                    required={true}
+                                    label="City/Town"
+                                    id="ciTy"
+                                    error={this.state.cityError}
+                                    name="city"
+                                    onChange={this.changeState}
+                                    onBlur={(e) => this.cityValidation(e, "cityError")}
+                                    helperText={this.state.ciTy}
+                                    variant="outlined"
+                                    className="textfields" disabled={this.state.text}
+                                />
+                                <TextFields
+                                    label="Landmark"
+                                    id="landMark"
+                                    name="landmark"
+                                    variant="outlined"
+                                    onChange={this.changeState}
+                                    className="textfields" disabled={this.state.text}
+                                />
+                            </div>
+                            <div className="radiodiv">
+                                <Typography id="type-name">Type</Typography>
+                                <RadioGroup row aria-label="Type" name="position" defaultValue="top">
+                                    <FormControlLabel
+                                        value="top"
+                                        control={<Radio style={{color: "rgb(160,48,55)"}}/>}
+                                        label="Home"
+                                        labelPlacement="end" disabled={this.state.text}
                                     />
-                                </div>
-                                <div className="secondtext">
-                                    <TextFields
-                                        required={true}
-                                        label="City/Town"
-                                        id="ciTy"
-                                        name="city"
-                                        variant="outlined"
-                                        className="textfields"
+                                    <FormControlLabel
+                                        value="start"
+                                        control={<Radio style={{color: "rgb(160,48,55)"}}/>}
+                                        label="Work"
+                                        labelPlacement="end" disabled={this.state.text}
                                     />
-                                    <TextFields
-                                        label="Landmark"
-                                        id="landMark"
-                                        name="landmark"
-                                        variant="outlined"
-                                        className="textfields"
+                                    <FormControlLabel
+                                        value="end"
+                                        control={<Radio style={{color: "rgb(160,48,55)"}}/>}
+                                        label="Other"
+                                        labelPlacement="end" disabled={this.state.text}
                                     />
-                                </div>
-                                <div className="radiodiv">
-                                    <Typography id="type-name">Type</Typography>
-                                    <RadioGroup row aria-label="Type" name="position" defaultValue="top">
-                                        <FormControlLabel
-                                            value="top"
-                                            control={<Radio style={{color: "rgb(160,48,55)"}}/>}
-                                            label="Home"
-                                            labelPlacement="end"
-                                        />
-                                        <FormControlLabel
-                                            value="start"
-                                            control={<Radio style={{color: "rgb(160,48,55)"}}/>}
-                                            label="Work"
-                                            labelPlacement="end"
-                                        />
-                                        <FormControlLabel
-                                            value="end"
-                                            control={<Radio style={{color: "rgb(160,48,55)"}}/>}
-                                            label="Other"
-                                            labelPlacement="end"
-                                        />
-                                    </RadioGroup>
-                                    <Button id="customerBtn"
+                                </RadioGroup>
+                                <Button id="customerBtn"
                                             style={{backgroundColor: this.state.color}}>
                                         Continue
                                     </Button>
