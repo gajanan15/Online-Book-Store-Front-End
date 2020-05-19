@@ -32,6 +32,8 @@ class Cart extends Component {
             name: " ", contact: " ", pinCode: " ", locaLity: " ", addRess: " ", ciTy: " ", landMark: " ", Email: " ",
             nameError: "", numberError: "", pincodeError: "", localityError: "", addressError: "", cityError: "",
             landmarkError: "", emailError: "", err: "",
+            btnDisable: false,
+            color: "grey",
 
         }
     }
@@ -63,6 +65,23 @@ class Cart extends Component {
             disableFlag: true
         })
         this.state.disableFlag = true
+    }
+
+    handleFocus = () => {
+        this.myTextField.focus();
+        this.setState({
+            text: false,
+            btn2: true,
+            a:"hidden"
+        })
+    }
+
+    handleSummary = () => {
+        this.setState({
+            btn2: "hidden",
+            a: "visible",
+            text: true,
+        })
     }
 
     nameValidation = (event, error) => {
@@ -188,9 +207,7 @@ class Cart extends Component {
         this.setState({
             [event.target.name]: event.target.value,
         })
-        this.buttonVisibility()
     }
-
 
     render() {
         let cartData = this.state.checkoutData
@@ -216,7 +233,7 @@ class Cart extends Component {
                             }
                         </div>
                         <Button onClick={this.handleCustomer}
-                                style={cartData.length < 0 ? {visibility: "hidden"} : {visibility: this.state.btn1}}
+                                style={cartData.length === 0 ? {visibility: "hidden"} : {visibility: this.state.btn1}}
                                 id="orderBtn">
                             Continue
                         </Button>
@@ -226,6 +243,8 @@ class Cart extends Component {
                             <Typography id="customer-details">Customer Details</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
+                            <Button id="editBtn" onClick={this.handleFocus}
+                                    style={{visibility: this.state.a}}>Edit</Button>
                             <div className="customerdiv">
                                 <div className="textbox secondtext">
                                     <TextFields
@@ -361,8 +380,7 @@ class Cart extends Component {
                                         labelPlacement="end" disabled={this.state.text}
                                     />
                                 </RadioGroup>
-                                <Button id="customerBtn"
-                                            style={{backgroundColor: this.state.color}}>
+                                <Button id="customerBtn" onClick={this.handleSummary} disabled={this.state.btnDisable}>
                                         Continue
                                     </Button>
                                 </div>

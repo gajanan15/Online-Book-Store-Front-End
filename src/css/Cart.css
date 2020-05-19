@@ -179,6 +179,13 @@ h4 {
     margin-left:105%;
 }
 
+#editBtn{
+    position: absolute;
+    margin-left: 80%;
+    font-size:15px;
+    margin-top:-8%;
+}
+
 .address{
     margin-top: 1%;
 }
