@@ -97,6 +97,18 @@ h4 {
     align-self: center;
 }
 
+.customerdetails{
+    margin-top: 3%;
+    width: 84%;
+}
 
+#customer-details{
+    font-size:17px;
+    margin-left:3%;
+    font-weight: bold;
+}
 
-
+#summary{
+    border:1px  grey;
+    padding:1px
+}
