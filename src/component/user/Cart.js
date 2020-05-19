@@ -10,6 +10,11 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Radio from "@material-ui/core/Radio";
+import TextFields from '../utils/CustomTextFields'
+
 
 class Cart extends Component {
     constructor(props) {
@@ -74,12 +79,118 @@ class Cart extends Component {
                         </Button>
                     </Card>
                     <ExpansionPanel className="customerdetails" variant="outlined">
-                        <ExpansionPanelSummary
-                            aria-controls="panel1a-content"
-                            id="summary">
+                        <ExpansionPanelSummary aria-controls="panel1a-content" id="summary">
                             <Typography id="customer-details">Customer Details</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
+                            <div className="customerdiv">
+                                <div className="textbox secondtext">
+                                        <TextFields
+                                            required={true}
+                                            label="Name"
+                                            id="name"
+                                            name="customerName"
+                                            variant="outlined"
+                                            className="textfields"
+                                        />
+                                        <TextFields
+                                            required={true}
+                                            label="Phone Number"
+                                            id="contact"
+                                            name="mobileNo"
+                                            variant="outlined"
+                                            className="textfields"
+                                        />
+                                </div>
+                                <div className="textbox secondtext">
+                                    <TextFields
+                                        required={true}
+                                        label="Pincode"
+                                        id="pinCode"
+                                        name="pincode"
+                                        variant="outlined"
+                                        className="textfields"
+                                    />
+                                    <TextFields
+                                        required={true}
+                                        label="Locality"
+                                        id="locaLity"
+                                        name="locality"
+                                        variant="outlined"
+                                        className="textfields"
+                                    />
+                                </div>
+                                <div className="address">
+                                    <TextFields
+                                        required={true}
+                                        style={{marginTop: "2%"}}
+                                        multiline rows={2} fullWidth inputProps={{maxLength: 150}}
+                                        label="Address"
+                                        id="addRess"
+                                        name="address"
+                                        placeholder={"Max 150 words"}
+                                        variant="outlined"
+                                        className="textfields1"
+                                    />
+                                </div>
+
+                                <div className="customer-email">
+                                    <TextFields
+                                        required={true}
+                                        type="email"
+                                        style={{marginTop: "2%"}}
+                                        label="Email"
+                                        id="Email"
+                                        name="email"
+                                        variant="outlined"
+                                        className="textfields1"
+                                    />
+                                </div>
+                                <div className="secondtext">
+                                    <TextFields
+                                        required={true}
+                                        label="City/Town"
+                                        id="ciTy"
+                                        name="city"
+                                        variant="outlined"
+                                        className="textfields"
+                                    />
+                                    <TextFields
+                                        label="Landmark"
+                                        id="landMark"
+                                        name="landmark"
+                                        variant="outlined"
+                                        className="textfields"
+                                    />
+                                </div>
+                                <div className="radiodiv">
+                                    <Typography id="type-name">Type</Typography>
+                                    <RadioGroup row aria-label="Type" name="position" defaultValue="top">
+                                        <FormControlLabel
+                                            value="top"
+                                            control={<Radio style={{color: "rgb(160,48,55)"}}/>}
+                                            label="Home"
+                                            labelPlacement="end"
+                                        />
+                                        <FormControlLabel
+                                            value="start"
+                                            control={<Radio style={{color: "rgb(160,48,55)"}}/>}
+                                            label="Work"
+                                            labelPlacement="end"
+                                        />
+                                        <FormControlLabel
+                                            value="end"
+                                            control={<Radio style={{color: "rgb(160,48,55)"}}/>}
+                                            label="Other"
+                                            labelPlacement="end"
+                                        />
+                                    </RadioGroup>
+                                    <Button id="customerBtn"
+                                            style={{backgroundColor: this.state.color}}>
+                                        Continue
+                                    </Button>
+                                </div>
+                            </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                 </Container>
