@@ -27,6 +27,7 @@ class Cart extends Component {
             count: 1,
             checkoutData: [],
             changedCount: '',
+            customerPanel: false,
         }
     }
 
@@ -49,6 +50,15 @@ class Cart extends Component {
         })
     }
 
+    handleCustomer = () => {
+        this.myTextField.focus();
+        this.setState({
+            customerPanel: true,
+            btn1: "hidden",
+            disableFlag: true
+        })
+        this.state.disableFlag = true
+    }
 
     render() {
         let cartData = this.state.checkoutData
@@ -69,16 +79,17 @@ class Cart extends Component {
                                     <img className="noitemsimage" src={require("../../asset/emptyCart.png")}
                                          alt="Cart Is Empty"/>
                                     <h3 id="emptycart">Please Add Books To Cart</h3>
+
                                 </div>
                             }
                         </div>
                         <Button onClick={this.handleCustomer}
-                                style={cartData.length === 0 ? {visibility: "hidden"} : {visibility: this.state.btn1}}
+                                style={cartData.length < 0 ? {visibility: "hidden"} : {visibility: this.state.btn1}}
                                 id="orderBtn">
                             Continue
                         </Button>
                     </Card>
-                    <ExpansionPanel className="customerdetails" variant="outlined">
+                    <ExpansionPanel className="customerdetails" variant="outlined" expanded={this.state.customerPanel}>
                         <ExpansionPanelSummary aria-controls="panel1a-content" id="summary">
                             <Typography id="customer-details">Customer Details</Typography>
                         </ExpansionPanelSummary>
@@ -87,6 +98,7 @@ class Cart extends Component {
                                 <div className="textbox secondtext">
                                         <TextFields
                                             required={true}
+                                            inputRef={(e) => (this.myTextField = e)}
                                             label="Name"
                                             id="name"
                                             name="customerName"

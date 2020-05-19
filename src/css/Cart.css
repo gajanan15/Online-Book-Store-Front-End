@@ -102,6 +102,8 @@ h4 {
     width: 84%;
 }
 
+/*Customer Details Css*/
+
 #customer-details{
     font-size:17px;
     margin-left:3%;
@@ -111,4 +113,92 @@ h4 {
 #summary{
     border:1px  grey;
     padding:1px
+}
+
+.secondtext{
+    margin-bottom: 1%;
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#details{
+    border:1px  grey;
+    padding:1px
+}
+
+#summary{
+    border:1px  grey;
+    padding:1px
+}
+
+#name{
+    height:12px ;
+}
+
+#contact{
+    height:12px ;
+}
+
+#pincode{
+    height:12px ;
+}
+
+#locality{
+    height:12px ;
+}
+
+#address{
+    height:20px ;
+}
+
+#city{
+    height:12px ;
+}
+
+#landmark{
+    height:12px ;
+}
+
+.textfields{
+    width: 48.5%;
+    margin-left: 40%;
+    height: 59px;
+}
+
+.textfields1 {
+    width: 80%;
+    margin-left: 10%;
+    height: 72px;
+}
+.customerdiv{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 1%;
+    margin-top:-2%;
+    width:75%;
+}
+
+#customerBtn{
+    background-color: rgb(160,48,60);
+    width: 26%;
+    margin-bottom: 2%;
+    color:#fff;
+    display:flex;
+    margin-left:105%;
+}
+
+.address{
+    margin-top: 1%;
+}
+
+.customer-email{
+    width: 125%;
+    margin-top: 4%;
+}
+
+.customerdetails{
+    margin-top: 3%;
+    width: 88%;
 }
