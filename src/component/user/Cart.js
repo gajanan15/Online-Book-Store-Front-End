@@ -387,6 +387,14 @@ class Cart extends Component {
                             </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
+                    <ExpansionPanel className="ordersummary" variant="outlined">
+                        <ExpansionPanelSummary aria-controls="panel1a-content" id="details">
+                            <Typography id="customer-details">Order Summary</Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
+                        </ExpansionPanelDetails>
+                    </ExpansionPanel>
+
                 </Container>
                 <CbFooter/>
             </div>
