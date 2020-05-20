@@ -205,5 +205,32 @@ h4 {
 
 .ordersummary{
     margin-top: 3%;
-    width: 84%;
+    width: 88%;
+}
+
+#summryBtn{
+    background-color: rgb(160,48,60);
+    width: 20%;
+    color:#fff;
+    display:flex;
+    margin-left:79%;
+    margin-top: 2%;
+    font-size: 14px;
+}
+
+#summary-bookname{
+    font-size: 15px;
+    margin-left:20px;
+    font-weight: bold;
+}
+
+#summary-authorname{
+    font-size: 11.5px;
+    margin-left: 20px;
+}
+
+#summary-cost{
+    font-size: 13px;
+    font-weight:bold;
+    margin-left: 20px;
 }

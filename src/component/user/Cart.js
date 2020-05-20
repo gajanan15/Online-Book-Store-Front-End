@@ -235,7 +235,7 @@ class Cart extends Component {
                             }
                         </div>
                         <Button onClick={this.handleCustomer}
-                                style={cartData.length < 0 ? {visibility: "hidden"} : {visibility: this.state.btn1}}
+                                style={cartData.length === 0 ? {visibility: "hidden"} : {visibility: this.state.btn1}}
                                 id="orderBtn">
                             Continue
                         </Button>
