@@ -28,6 +28,7 @@ class Cart extends Component {
             checkoutData: [],
             changedCount: '',
             customerPanel: false,
+            summaryPanel: false,
             customerName: "", mobileNo: "", pincode: "", locality: "", address: "", city: "", landmark: "", email: "",
             name: " ", contact: " ", pinCode: " ", locaLity: " ", addRess: " ", ciTy: " ", landMark: " ", Email: " ",
             nameError: "", numberError: "", pincodeError: "", localityError: "", addressError: "", cityError: "",
@@ -81,6 +82,7 @@ class Cart extends Component {
             btn2: "hidden",
             a: "visible",
             text: true,
+            summaryPanel: true
         })
     }
 
@@ -233,7 +235,7 @@ class Cart extends Component {
                             }
                         </div>
                         <Button onClick={this.handleCustomer}
-                                style={cartData.length === 0 ? {visibility: "hidden"} : {visibility: this.state.btn1}}
+                                style={cartData.length < 0 ? {visibility: "hidden"} : {visibility: this.state.btn1}}
                                 id="orderBtn">
                             Continue
                         </Button>
@@ -387,11 +389,34 @@ class Cart extends Component {
                             </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
-                    <ExpansionPanel className="ordersummary" variant="outlined">
+                    <ExpansionPanel className="ordersummary" variant="outlined" expanded={this.state.summaryPanel}>
                         <ExpansionPanelSummary aria-controls="panel1a-content" id="details">
                             <Typography id="customer-details">Order Summary</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
+                            <div className="detailsblock" style={{marginLeft: "1%", width: "100%"}}>
+                                <div>
+                                    <div>
+                                        <div style={{display: "flex", marginTop: "-2%"}}>
+                                            <div>
+                                                <img src={require("../../asset/becham.jpg")} className="img"/>
+                                            </div>
+                                                    <div style={{marginLeft: "1%", marginTop: "2%"}}>
+                                                        <Typography id="summary-bookname"
+                                                                    component="h2">The Beckham Experiment</Typography>
+                                                        <Typography variant="body2" color="textSecondary"
+                                                                    id="summary-authorname">Grant Wahl</Typography>
+                                                        <Typography component="h2"
+                                                                    id="summary-cost">Rs.1000</Typography>
+                                                    </div>
+                                                </div>
+                                                <br/>
+                                            </div>
+                                </div>
+                                <Button id="summryBtn">
+                                    Place Order
+                                </Button>
+                            </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
 
