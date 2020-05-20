@@ -14,6 +14,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import TextFields from '../utils/CustomTextFields'
+import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 
 
 class Cart extends Component {
@@ -212,6 +213,15 @@ class Cart extends Component {
     }
 
     render() {
+
+        const theme = createMuiTheme({
+            palette: {
+                primary: {
+                    main: '#a52a2a',
+                },
+            },
+        });
+
         let cartData = this.state.checkoutData
         return (
             <div>
@@ -249,6 +259,7 @@ class Cart extends Component {
                                     style={{visibility: this.state.a}}>Edit</Button>
                             <div className="customerdiv">
                                 <div className="textbox secondtext">
+                                    <ThemeProvider theme={theme}>
                                     <TextFields
                                         required={true}
                                         inputRef={(e) => (this.myTextField = e)}
@@ -274,8 +285,8 @@ class Cart extends Component {
                                         variant="outlined"
                                         className="textfields" disabled={this.state.text}
                                     />
+                                </ThemeProvider>
                             </div>
-
                             <div className="textbox secondtext">
                                 <TextFields
                                     required={true}
