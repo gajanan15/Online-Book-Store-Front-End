@@ -23,6 +23,7 @@ class Cart extends Component {
         this.state = {
             data: [],
             btn1: "visible",
+            btn2: "visible",
             a: "hidden",
             text: false,
             count: 1,
@@ -80,11 +81,38 @@ class Cart extends Component {
 
     handleSummary = () => {
         this.setState({
+            summaryPanel: true,
             btn2: "hidden",
             a: "visible",
             text: true,
-            summaryPanel: true
+            disableFlag: true
         })
+        this.state.disableFlag = true
+        this.buttonVisibility()
+    }
+
+    formCheck() {
+        return this.state.customerName.trim().length > 0 && this.state.mobileNo.trim().length > 0 && this.state.pincode.trim().length > 0 && this.state.locality.trim().length > 0 &&
+            this.state.address.trim().length > 0 && this.state.city.trim().length > 0 && this.state.landmark.trim().length > 0 && this.state.email.trim().length > 0;
+    }
+
+    errorCheck() {
+        return this.state.name.trim().length === 0 && this.state.contact.trim().length === 0 && this.state.pinCode.trim().length === 0 && this.state.locaLity.trim().length === 0 &&
+            this.state.addRess.trim().length === 0 && this.state.ciTy.trim().length === 0 && this.state.landMark.trim().length === 0 && this.state.Email.trim().length === 0;
+    }
+
+    buttonVisibility() {
+        if (this.errorCheck() && this.formCheck()) {
+            this.setState({
+                color: "maroon",
+                btnDisable: false
+            })
+        } else {
+            this.setState({
+                color: "grey",
+                btnDisable: true
+            })
+        }
     }
 
     nameValidation = (event, error) => {
@@ -210,6 +238,7 @@ class Cart extends Component {
         this.setState({
             [event.target.name]: event.target.value,
         })
+        this.buttonVisibility()
     }
 
     render() {
@@ -251,7 +280,10 @@ class Cart extends Component {
                         </Button>
                     </Card>
                     <ExpansionPanel className="customerdetails" variant="outlined" expanded={this.state.customerPanel}>
-                        <ExpansionPanelSummary aria-controls="panel1a-content" id="summary">
+                        <ExpansionPanelSummary
+                            aria-controls="panel1a-content"
+                            id="summary"
+                        >
                             <Typography id="customer-details">Customer Details</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
@@ -260,146 +292,153 @@ class Cart extends Component {
                             <div className="customerdiv">
                                 <div className="textbox secondtext">
                                     <ThemeProvider theme={theme}>
+                                        <TextFields
+                                            required={true}
+                                            inputRef={(e) => (this.myTextField = e)}
+                                            label="Name"
+                                            error={this.state.nameError}
+                                            id="name"
+                                            name="customerName"
+                                            onChange={this.changeState}
+                                            variant="outlined"
+                                            onBlur={(e) => this.nameValidation(e, "nameError")}
+                                            helperText={this.state.name}
+                                            className="textfields" disabled={this.state.text}
+                                        />
+                                        <TextFields
+                                            required={true}
+                                            label="Phone Number"
+                                            error={this.state.numberError}
+                                            id="contact"
+                                            name="mobileNo"
+                                            onChange={this.changeState}
+                                            onBlur={(e) => this.phoneNumberValidation(e, "numberError")}
+                                            helperText={this.state.contact}
+                                            variant="outlined"
+                                            className="textfields" disabled={this.state.text}
+                                        />
+                                    </ThemeProvider>
+                                </div>
+
+                                <div className="textbox secondtext">
                                     <TextFields
                                         required={true}
-                                        inputRef={(e) => (this.myTextField = e)}
-                                        label="Name"
-                                        error={this.state.nameError}
-                                        id="name"
-                                        name="customerName"
+                                        label="Pincode"
+                                        id="pinCode"
+                                        error={this.state.pincodeError}
+                                        name="pincode"
                                         onChange={this.changeState}
+                                        onBlur={(e) => this.pincodeValidation(e, "pincodeError")}
+                                        helperText={this.state.pinCode}
                                         variant="outlined"
-                                        onBlur={(e) => this.nameValidation(e, "nameError")}
-                                        helperText={this.state.name}
                                         className="textfields" disabled={this.state.text}
                                     />
                                     <TextFields
                                         required={true}
-                                        label="Phone Number"
-                                        error={this.state.numberError}
-                                        id="contact"
-                                        name="mobileNo"
+                                        label="Locality"
+                                        id="locaLity"
+                                        error={this.state.localityError}
+                                        name="locality"
                                         onChange={this.changeState}
-                                        onBlur={(e) => this.phoneNumberValidation(e, "numberError")}
-                                        helperText={this.state.contact}
+                                        onBlur={(e) => this.localityValidation(e, "localityError")}
+                                        helperText={this.state.locaLity}
                                         variant="outlined"
                                         className="textfields" disabled={this.state.text}
                                     />
-                                </ThemeProvider>
-                            </div>
-                            <div className="textbox secondtext">
-                                <TextFields
-                                    required={true}
-                                    label="Pincode"
-                                    id="pinCode"
-                                    error={this.state.pincodeError}
-                                    name="pincode"
-                                    onChange={this.changeState}
-                                    onBlur={(e) => this.pincodeValidation(e, "pincodeError")}
-                                    helperText={this.state.pinCode}
-                                    variant="outlined"
-                                    className="textfields" disabled={this.state.text}
-                                />
-                                <TextFields
-                                    required={true}
-                                    label="Locality"
-                                    id="locaLity"
-                                    error={this.state.localityError}
-                                    name="locality"
-                                    onChange={this.changeState}
-                                    onBlur={(e) => this.localityValidation(e, "localityError")}
-                                    helperText={this.state.locaLity}
-                                    variant="outlined"
-                                    className="textfields" disabled={this.state.text}
-                                />
-                            </div>
-                            <div className="address">
-                                <TextFields
-                                    required={true}
-                                    style={{marginTop: "2%"}}
-                                    multiline rows={2} fullWidth inputProps={{maxLength: 150}}
-                                    label="Address"
-                                    id="addRess"
-                                    error={this.state.addressError}
-                                    name="address"
-                                    onChange={this.changeState}
-                                    onBlur={(e) => this.addressValidation(e, "addressError")}
-                                    helperText={this.state.addRess}
-                                    placeholder={"Max 150 words"}
-                                    variant="outlined"
-                                    className="textfields1" disabled={this.state.text}
-                                />
-                            </div>
+                                </div>
+                                <div className="address">
+                                    <TextFields
+                                        required={true}
+                                        style={{marginTop: "2%"}}
+                                        multiline rows={2} fullWidth inputProps={{maxLength: 150}}
+                                        label="Address"
+                                        id="addRess"
+                                        error={this.state.addressError}
+                                        name="address"
+                                        onChange={this.changeState}
+                                        onBlur={(e) => this.addressValidation(e, "addressError")}
+                                        helperText={this.state.addRess}
+                                        placeholder={"Max 150 words"}
+                                        variant="outlined"
+                                        className="textfields1" disabled={this.state.text}
+                                    />
+                                </div>
 
-                            <div className="customer-email">
-                                <TextFields
-                                    required={true}
-                                    type="email"
-                                    style={{marginTop: "2%"}}
-                                    label="Email"
-                                    id="Email"
-                                    error={this.state.emailError}
-                                    name="email"
-                                    onChange={this.changeState}
-                                    onBlur={(e) => this.emailValidation(e, "emailError")}
-                                    helperText={this.state.Email}
-                                    variant="outlined"
-                                    className="textfields1" disabled={this.state.text}
-                                />
-                            </div>
+                                <div className="customer-email">
+                                    <TextFields
+                                        required={true}
+                                        type="email"
+                                        style={{marginTop: "2%"}}
+                                        label="Email"
+                                        id="Email"
+                                        error={this.state.emailError}
+                                        name="email"
+                                        onChange={this.changeState}
+                                        onBlur={(e) => this.emailValidation(e, "emailError")}
+                                        helperText={this.state.Email}
+                                        variant="outlined"
+                                        className="textfields1" disabled={this.state.text}
+                                    />
+                                </div>
 
 
-                            <div className="secondtext">
-                                <TextFields
-                                    required={true}
-                                    label="City/Town"
-                                    id="ciTy"
-                                    error={this.state.cityError}
-                                    name="city"
-                                    onChange={this.changeState}
-                                    onBlur={(e) => this.cityValidation(e, "cityError")}
-                                    helperText={this.state.ciTy}
-                                    variant="outlined"
-                                    className="textfields" disabled={this.state.text}
-                                />
-                                <TextFields
-                                    label="Landmark"
-                                    id="landMark"
-                                    name="landmark"
-                                    variant="outlined"
-                                    onChange={this.changeState}
-                                    className="textfields" disabled={this.state.text}
-                                />
-                            </div>
-                            <div className="radiodiv">
-                                <Typography id="type-name">Type</Typography>
-                                <RadioGroup row aria-label="Type" name="position" defaultValue="top">
-                                    <FormControlLabel
-                                        value="top"
-                                        control={<Radio style={{color: "rgb(160,48,55)"}}/>}
-                                        label="Home"
-                                        labelPlacement="end" disabled={this.state.text}
+                                <div className="secondtext">
+                                    <TextFields
+                                        required={true}
+                                        label="City/Town"
+                                        id="ciTy"
+                                        error={this.state.cityError}
+                                        name="city"
+                                        onChange={this.changeState}
+                                        onBlur={(e) => this.cityValidation(e, "cityError")}
+                                        helperText={this.state.ciTy}
+                                        variant="outlined"
+                                        className="textfields" disabled={this.state.text}
                                     />
-                                    <FormControlLabel
-                                        value="start"
-                                        control={<Radio style={{color: "rgb(160,48,55)"}}/>}
-                                        label="Work"
-                                        labelPlacement="end" disabled={this.state.text}
+                                    <TextFields
+                                        label="Landmark"
+                                        id="landMark"
+                                        name="landmark"
+                                        variant="outlined"
+                                        onChange={this.changeState}
+                                        className="textfields" disabled={this.state.text}
                                     />
-                                    <FormControlLabel
-                                        value="end"
-                                        control={<Radio style={{color: "rgb(160,48,55)"}}/>}
-                                        label="Other"
-                                        labelPlacement="end" disabled={this.state.text}
-                                    />
-                                </RadioGroup>
-                                <Button id="customerBtn" onClick={this.handleSummary} disabled={this.state.btnDisable}>
+                                </div>
+                                <div className="radiodiv">
+                                    <Typography id="type-name">Type</Typography>
+                                    <RadioGroup row aria-label="Type" name="position" defaultValue="top">
+                                        <FormControlLabel
+                                            value="top"
+                                            control={<Radio style={{color: "rgb(160,48,55)"}}/>}
+                                            label="Home"
+                                            labelPlacement="end" disabled={this.state.text}
+                                        />
+                                        <FormControlLabel
+                                            value="start"
+                                            control={<Radio style={{color: "rgb(160,48,55)"}}/>}
+                                            label="Work"
+                                            labelPlacement="end" disabled={this.state.text}
+                                        />
+                                        <FormControlLabel
+                                            value="end"
+                                            control={<Radio style={{color: "rgb(160,48,55)"}}/>}
+                                            label="Other"
+                                            labelPlacement="end" disabled={this.state.text}
+                                        />
+                                    </RadioGroup>
+
+                                    <Button onClick={this.handleSummary} id="customerBtn"
+                                            disabled={this.state.btnDisable}
+                                            style={{backgroundColor: this.state.color,visibility: this.state.btn2}}>
                                         Continue
                                     </Button>
+
+
                                 </div>
                             </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
+
                     <ExpansionPanel className="ordersummary" variant="outlined" expanded={this.state.summaryPanel}>
                         <ExpansionPanelSummary aria-controls="panel1a-content" id="details">
                             <Typography id="customer-details">Order Summary</Typography>
