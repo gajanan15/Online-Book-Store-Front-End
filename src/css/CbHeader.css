@@ -4,11 +4,11 @@
 }
 
 #tool{
-    margin-left: 10%;
+    margin-left: 2%;
 }
 
 #title{
-    padding-left: 1%;
+    padding-left: 2%;
     width: 30%;
 }
 
@@ -30,11 +30,31 @@
 
 .search{
     display: flex;
-    margin-left: -15%;
+    margin-left: -10%;
     width: 35%;
     height: 5%;
     border-radius: 5px;
     background-color: white;
+}
+
+.loginsignup{
+    border-bottom: white solid 5px;
+    margin-right: 4%;
+}
+
+#shopping-icon{
+    font-size: 120%;
+    display: flex;
+}
+
+#main-logo{
+    font-size: 200%;
+    margin-left: 2%;
+}
+
+.loginsignup1{
+    border-bottom: rgb(160,48,55) solid 5px;
+    margin-right: 4%;
 }
 
 .search:hover{
@@ -46,7 +66,7 @@
 }
 
 .searchIcon{
-    padding:8px 15px;
+    padding:7px 10px;
     height: 35%;
     position: absolute;
     display: flex;
@@ -55,6 +75,9 @@
     color: grey;
 }
 
+.searchIcon:active{
+    color: yellow;
+}
 
 .inputRoot{
     color: inherit;
@@ -66,7 +89,6 @@
     width: 100%;
 }
 
-
 .shoppingIcon{
     margin-right: 3%;
 }
@@ -75,13 +97,10 @@
     flex-grow: 1
 }
 
-.MuiBadge-anchorOriginTopRightRectangle {
-    top: 0;
-    right: 0;
-    transform: scale(1) translate(50%, -50%);
-    transform-origin: 100% 0%;
-    color: brown;
-    background-color: white;
+svg.MuiSvgIcon-root.userIcon{
+    margin-top: 22%;
+    font-size: 200%;
+    color: white;
 }
 
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
@@ -95,18 +114,31 @@
     #title{
         width: 50%;
         font-size: 100%;
+        margin-left: 2%;
     }
 
     .searchIcon{
-        margin-left: 5%;
+        margin-left: 25%;
         height: 50%;
         position: absolute;
-        color: grey;
+        color: white;
     }
 
     .search{
         width: 0;
-        margin-left: 10%;
+        margin-left: -37%;
+    }
+
+    .badge-carticon{
+        margin-left: 60%;
+    }
+
+    #shopping-icon{
+        font-size: 95%;
+    }
+
+    .shoppingIcon{
+        margin-right: 1.8%;
     }
 
 }
@@ -118,43 +150,80 @@
     }
 
     .searchIcon{
-        margin-left: -4%;
+        margin-left: 12%;
+    }
+
+    #tool{
+        margin-left: 2%;
     }
 
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
     #tool{
-        margin-left: 10%;
+        margin-left: 2%;
     }
     #title{
         width: 30%;
         font-size: 140%;
+        margin-left: -0.5%;
     }
 
-    svg.MuiSvgIcon-root{
-        font-size: 200%;
+    #main-logo{
+        margin-left: 7%;
+    }
+
+    #footer{
+        width: 116%;
+        margin-left: -6%;
     }
 
     .searchIcon{
-        padding:2px 30px;
+        padding: 18px 29px;
         height: 50%;
         position: absolute;
         color: grey;
+        margin-left: -3%;
     }
 
     .search{
-        margin-left: 0%;
-        width: 50%;
+        margin-left: -5%;
+        width: 28%;
+    }
+
+    .badge-carticon{
+        margin-left: -800%;
+    }
+
+    #shopping-icon{
+        font-size: 95%;
+        margin-left: 217%;
+    }
+
+    .shoppingIcon{
+        margin-right: -2%;
     }
 
 }
-@media only screen and (min-device-width: 1020px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+
+@media only screen and (min-device-width: 1023px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
     #tool{
-        margin-left: 3%;
+        margin-left: 2.3%;
     }
 
     .search{
         margin-left: -10%;
     }
+
+    #main-logo {
+        font-size: 248%;
+        margin-left: 2.5%;
+    }
+
+    #title {
+        padding-left: 2%;
+        width: 32%;
+        font-size: 135%;
+    }
+
 }

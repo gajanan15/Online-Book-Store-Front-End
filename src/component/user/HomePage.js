@@ -139,8 +139,8 @@ class HomePage extends Component {
         return (
             <div>
                 <CbHeader ref={this.searchBar} test={this.getSearchText}/>
-                <div>
-                    <Container className="maincontain">
+                <div className="maincarddiv">
+                    <Container className="maincontain" id="maincontainer">
                         <div id="filter">
                             <h2>Books <p className="maincontain-p"> ({this.state.dataLength} items)</p></h2>
                             <Select
@@ -156,8 +156,8 @@ class HomePage extends Component {
                         </div>
                         <Grid container spacing={6}>
                             {data.map((book, index) => {
-                                return <Grid item xs={12} sm={6} md={4} lg={3}>
-                                    <CustomCard book={book} index={index} cartReference={this.searchBar}/>
+                                return <Grid key={book.id} item xs={12} sm={6} md={4} lg={3}>
+                                    <CustomCard key={book.id} book={book} index={index} cartReference={this.searchBar}/>
                                 </Grid>
                             })}
                         </Grid>

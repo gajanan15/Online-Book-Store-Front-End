@@ -4,7 +4,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    /*opacity: 0.5;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,8 +26,6 @@
     align-items: center;
     width: 26.5%;
     height: fit-content;
-
-    /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
 }
@@ -53,12 +50,46 @@
     font-size:100%;
 }
 #bookname{
-    font-size:17px;
+    font-size:15px;
 }
 #authorname{
-    font-size:14px;
+    font-size:12px;
 }
 #bookprice{
     margin-bottom: -2%;
     margin-top:3%;
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+
+    .gridroot .tooltiptext {
+        box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
+        visibility: hidden;
+        padding: 20px;
+        margin-top: 10px;
+        border-top: 5px solid rgb(165,42,42);
+        font-size: 110%;
+        align-items: center;
+        width: 60%;
+        height: fit-content;
+        position: absolute;
+        z-index: 1;
+    }
+}
+
+@media only screen and (min-device-width: 750px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+    .gridroot .tooltiptext {
+        box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
+        visibility: hidden;
+        padding: 20px;
+        margin-top: 10px;
+        border-top: 5px solid rgb(165,42,42);
+        font-size: 110%;
+        align-items: center;
+        width: 50%;
+        height: fit-content;
+        position: absolute;
+        z-index: 1;
+    }
+
 }

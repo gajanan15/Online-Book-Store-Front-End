@@ -51,7 +51,7 @@ export class CbHeader extends Component {
             <div className="main">
                 <AppBar position="fixed" id="appbar">
                     <Toolbar id="tool">
-                        <ImportContactsIcon style={{fontSize: '200%', marginLeft: "-0.2%"}}/>
+                        <ImportContactsIcon id="main-logo"/>
                         <Typography id="title" variant="h6" noWrap>
                             CB's Book Store
                         </Typography>
@@ -72,9 +72,10 @@ export class CbHeader extends Component {
                         {this.state.searchVisibility &&
                         <div className="shoppingIcon">
                             <IconButton aria-label="show 4 new mails">
-                                <Badge badgeContent={this.state.counter}>
-                                    <Link style={{color: 'white'}} to={"/cart"}><ShoppingCartOutlinedIcon
-                                        style={{fontSize: '120%', display: 'flex'}}/></Link>
+                                <Badge className="badge-carticon" badgeContent={this.state.counter}>
+                                    <Link style={{color: 'white'}} to={"/cart"}>
+                                        <ShoppingCartOutlinedIcon id="cart-icon"/>
+                                    </Link>
                                 </Badge>
                             </IconButton>
                         </div>
