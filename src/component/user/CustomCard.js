@@ -90,7 +90,7 @@ class CustomCard extends Component {
                             marginBottom: "2%",
                             width: "60%"
                         }
-                        : {backgroundColor: "rgb(165,42,42)", width: "60%", marginBottom: "2%", color: "#fff"}}
+                        : {backgroundColor: this.state.color, width: "60%", marginBottom: "2%", color: "#fff"}}
                             onClick={this.changeText}
                             value={this.state.title}
                     >
