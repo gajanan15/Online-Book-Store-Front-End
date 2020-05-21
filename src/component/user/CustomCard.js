@@ -64,7 +64,7 @@ class CustomCard extends Component {
                         component="img"
                         className="image1"
                         height="200"
-                        image={require(`../../asset/${book.imageUrl}`)}/>
+                        image={book.imageUrl}/>
 
                     <div id="stock-label" style={book.quantity === 0 ? {
                         visibility: "visible",
