@@ -31,7 +31,6 @@ class CartItems extends Component {
         new AdminService().remove(id).then(response => {
             this.props.handleCart()
         }).catch((error) => {
-            console.log("in error")
             console.log(error)
         })
     }
@@ -55,7 +54,6 @@ class CartItems extends Component {
             "bookPrice": this.props.books.bookPrice,
             "quantity": count
         }
-        console.log(cartDTO)
         new AdminService().updateCart(cartDTO).then(response => {
             this.props.handleCart()
         }).catch((error) => {

@@ -1,43 +1,47 @@
+
 .root {
-    width: 100%;
+    width: 85%;
 }
 
-.mainform{
-    min-height: 81.5vh;
+#maincard {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    width:60%;
+    height: 20%;
+}
+
+#mainform{
+    min-height: 75vh;
 }
 
 .description {
-    margin-top: 1%;
+    margin-top: 2%;
+    margin-bottom: -4%;
     width: 97%;
     margin-left: 1.5%;
 }
 .firsttextbox{
-    margin-top: 4%;
+    margin-top: 2%;
+    margin-bottom: 1%;
     display: flex;
     justify-content: space-around;
 }
 
-.maincard {
-    display: flex;
-    justify-content: center;
-    Width: 60%;
-    margin: auto;
-    margin-top: 2%;
-    height: 30%;
-    width: 50%;
-}
-.formContent {
+#formContent {
     width: 150%;
-    margin-left: -24%;
+    margin-left: -18%;
 }
 
 h1 {
     margin-top: 6%;
     text-align: center;
+    font-size: 26px;
 }
 
 .selectButton {
-    font-size: 1%;
+    font-size: 0.5%;
     width: 1%;
 }
 
@@ -49,8 +53,32 @@ h1 {
 
 .textfield {
     width: 47%;
-
 }
+
+#book{
+    height: 14px;
+}
+
+#author{
+    height: 14px;
+}
+
+#Isbn{
+    height: 14px;
+}
+
+#quantity1{
+    height: 14px;
+}
+
+#price{
+    height: 14px;
+}
+
+#year{
+    height: 14px;
+}
+
 
 .textfield1 {
     width: 100%;
@@ -63,18 +91,20 @@ h1 {
 }
 
 .input1{
-    padding-top: -1%;
+    margin-top: 2%;
+    margin-left: -1.5%;
 }
 
 .button {
-    width: 35%;
+    width: 25%;
 }
 
 @media only screen and (max-width: 500px) {
 
     .root {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
+        margin-left: 7%;
     }
 
     .firsttextbox{
@@ -84,7 +114,6 @@ h1 {
         align-items: flex-start;
         width: 210%;
     }
-
 
     .text {
         display: flex;
@@ -99,39 +128,76 @@ h1 {
         margin-left: 0.5%;
     }
 
-    .maincard {
+    #maincard {
         width: 90%;
     }
 
     h1 {
-        margin-top: 18%;
+        margin-top: 20%;
         font-size: 150%;
     }
 
-    .formContent {
-        width: 90%;
+    #formContent {
+        width: 100%;
         margin-left: 1%;
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
     }
+
+    .button {
+        width: 45%;
+    }
+
+    .input1{
+        margin-left: -6%;
+    }
+
 }
 
 @media only screen and (min-device-width: 750px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
-    .maincard {
+    #maincard {
         width: 80%;
     }
-    .formContent{
-        width: 100%;
-        margin-left: 1%;
+    #formContent{
+        width: 110%;
+        margin-left: 3%;
     }
 
     h1 {
-        margin-top: 15%;
+        margin-top: 10%;
+        font-size: 32px;
     }
 
-    .mainform{
-        min-height: 83.3vh;
+    #mainform{
+        min-height: 86.3vh;
     }
+
+    #book{
+        font-size: 20px;
+    }
+
+    #author{
+        font-size: 20px;
+    }
+
+
+    #Isbn{
+        font-size: 20px;
+    }
+
+    #quantity1{
+        font-size: 20px;
+    }
+
+    #price{
+        font-size: 20px;
+    }
+
+    #year{
+        font-size: 20px;
+    }
+
 }
 
 @media only screen and (min-device-width: 1020px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
@@ -147,4 +213,5 @@ h1 {
     .mainform{
         min-height: 85vh;
     }
+
 }

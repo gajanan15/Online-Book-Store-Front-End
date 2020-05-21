@@ -47,8 +47,6 @@ class Cart extends Component {
 
     handleCart = () => {
         new AdminService().myCart().then(response => {
-            console.log("in")
-            console.log(response.data)
             this.setState({
                 checkoutData: response.data
             })
