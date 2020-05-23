@@ -62,5 +62,13 @@ export class AdminService {
             url: `${Constant.apiUrl}cart/${id}`
         })
     }
+
+    customerEmail=(data)=>{
+        return Axios({
+            method:'post',
+            url:`${Constant.apiUrl}send`,
+            data:data
+        })
+    }
 }
 

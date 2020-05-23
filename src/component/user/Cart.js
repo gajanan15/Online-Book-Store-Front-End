@@ -41,6 +41,44 @@ class Cart extends Component {
         }
     }
 
+    handleChange = () => {
+        const min = 1;
+        const max = 100000000;
+        const rand = min + Math.random() * (max - min);
+        this.setState({
+                random: Math.ceil(this.state.random + rand)
+            }, () => this.props.history.push(`/order/successful/${this.state.random}`)
+        )
+
+        let newVar = this.state.checkoutData.map((books, index) => {
+            return (books.bookPrice * books.quantity)
+        });
+
+        let totalValue = newVar.reduce((a, b) => a + b);
+
+        const order = {
+            "customerName": this.state.customerName,
+            "mobileNo": this.state.mobileNo,
+            "pincode": this.state.pincode,
+            "locality": this.state.locality,
+            "address": this.state.address,
+            "city": this.state.city,
+            "landmark": this.state.landmark,
+            "email": this.state.email,
+            "bookName": this.state.checkoutData.map((books, index) => {
+                return books.bookName
+            }),
+            "bookPrice": totalValue,
+            "quantity": this.state.checkoutData.length
+        }
+        new AdminService().customerEmail(order).then(response => {
+            console.log(response)
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
+
     componentDidMount() {
         this.handleCart()
     }
@@ -73,7 +111,7 @@ class Cart extends Component {
         this.setState({
             text: false,
             btn2: true,
-            a:"hidden"
+            a: "hidden"
         })
     }
 
@@ -427,7 +465,7 @@ class Cart extends Component {
 
                                     <Button onClick={this.handleSummary} id="customerBtn"
                                             disabled={this.state.btnDisable}
-                                            style={{backgroundColor: this.state.color,visibility: this.state.btn2}}>
+                                            style={{backgroundColor: this.state.color, visibility: this.state.btn2}}>
                                         Continue
                                     </Button>
 
@@ -449,19 +487,19 @@ class Cart extends Component {
                                             <div>
                                                 <img src={require("../../asset/becham.jpg")} className="img"/>
                                             </div>
-                                                    <div style={{marginLeft: "1%", marginTop: "2%"}}>
-                                                        <Typography id="summary-bookname"
-                                                                    component="h2">The Beckham Experiment</Typography>
-                                                        <Typography variant="body2" color="textSecondary"
-                                                                    id="summary-authorname">Grant Wahl</Typography>
-                                                        <Typography component="h2"
-                                                                    id="summary-cost">Rs.1000</Typography>
-                                                    </div>
-                                                </div>
-                                                <br/>
+                                            <div style={{marginLeft: "1%", marginTop: "2%"}}>
+                                                <Typography id="summary-bookname"
+                                                            component="h2">The Beckham Experiment</Typography>
+                                                <Typography variant="body2" color="textSecondary"
+                                                            id="summary-authorname">Grant Wahl</Typography>
+                                                <Typography component="h2"
+                                                            id="summary-cost">Rs.1000</Typography>
                                             </div>
+                                        </div>
+                                        <br/>
+                                    </div>
                                 </div>
-                                <Button id="summryBtn">
+                                <Button onClick={this.handleChange} id="summryBtn">
                                     Place Order
                                 </Button>
                             </div>
