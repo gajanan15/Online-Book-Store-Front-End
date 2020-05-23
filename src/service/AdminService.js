@@ -70,5 +70,13 @@ export class AdminService {
             data:data
         })
     }
+
+    uploadFile=(formData)=>{
+        return Axios({
+            method:'post',
+            data:formData,
+            url:`${Constant.apiUrl}admin/books/image`
+        })
+    }
 }
 

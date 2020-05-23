@@ -17,11 +17,11 @@ class AdminPage extends React.Component {
         super(props);
         this.state = {
             bookName: "", authorName: "", description: "", isbn: "",
-            quantity: "", bookPrice: "", publishingYear: "", imageUrl: "Select Book Image",
+            quantity: "", bookPrice: "", publishingYear: "", imageUrl: "", imageName:"Select Book Image",
             book: " ", author: " ", Isbn: " ", descriptionOne: " ",
             year: " ", quantity1: " ", price: " ", err: "", abc: "", flag: false,
             snackFlag: false, snackMessage: "", bookError: "", authorError:"", isbnError:"",descriptionError:"",
-            quantityError:"",priceError:"",yearError:"",severity:"error"
+            quantityError:"",priceError:"",yearError:"",severity:"error",color:"black"
         };
     }
 
@@ -227,26 +227,20 @@ class AdminPage extends React.Component {
     }
 
     imagePath = (event) => {
-        const image = event.target.value;
-        let img = image.slice(12);
-        if(image.includes(".jpg") || image.includes(".png")){
+        const formData = new FormData();
+        formData.append('file',event.target.files[0]);
+        new AdminService().uploadFile(formData).then(response=>{
             this.setState({
-                [event.target.name]: img,
+                imageName: response.data.message === "Only .jpg & .png Image Are Allowed" ? "Only .jpg & .png Image Are Allowed" : response.data.fileName ,
+                color: response.data.message === "Only .jpg & .png Image Are Allowed" ? "red" : "black",
+                imageUrl:response.data.fileDownloadUri
             })
-        }else {
-            this.setState({
-                snackFlag:true,
-                severity:"error",
-                snackMessage:"Only .jpg and .png file are allowed"
-            })
-            setTimeout(() => {
-                this.setState({
-                    snackFlag:false
-                })
-            }, 3000);
-        }
+        }).catch(response=>{
+            console.log(response)
+        })
 
     }
+
 
 
     render() {
@@ -345,7 +339,7 @@ class AdminPage extends React.Component {
                                             accept="image/jpeg, image/png"
                                             onChange={(e) => this.imagePath(e)}
                                         />
-                                        <label>{this.state.imageUrl}</label>
+                                        <label style={{color:this.state.color,display: "inline-block"}}>{this.state.imageName}</label>
                                     </div>
                                     <div className="btn">
                                         <Button variant="contained"
