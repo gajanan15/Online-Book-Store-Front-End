@@ -33,7 +33,7 @@ export class AdminService {
         })
     }
 
-    addTOCart = (data) => {
+    addToCart = (data) => {
         return Axios({
             method: 'post',
             url: `${Constant.apiUrl}cart`,

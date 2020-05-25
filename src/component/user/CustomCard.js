@@ -24,32 +24,30 @@ class CustomCard extends Component {
     }
 
     myCartData = () => {
+
         const cartDTO = {
-            "authorName": this.props.book.authorName,
-            "bookID": this.props.book.id,
-            "bookName": this.props.book.bookName,
-            "bookPrice": this.props.book.bookPrice,
+            "id": this.props.book.id,
             "quantity": 1,
-            "bookImg": this.props.book.imageUrl
+            "totalPrice":this.props.book.bookPrice
         }
         return cartDTO
     }
-
 
     changeText = () => {
         if (this.state.title === "GO TO CART") {
             this.props.history.push("/cart");
         }
-        this.props.cartReference.current.handleBadgeCount(this.state.badgeSize, "addButton")
-        new AdminService().addTOCart(this.myCartData()).then(response => {
-        }).catch((error) => {
-            console.log(error)
-        })
-
-        this.setState({title: "GO TO CART", color: "rgb(51,113,181)"}
-        );
+        if (this.state.title !== "GO TO CART") {
+            new AdminService().addToCart(this.myCartData()).then(response => {
+                this.setState({
+                    title: "GO TO CART", color: "rgb(51,113,181)"
+                })
+                this.props.cartReference.current.try(this.state.badgeSize, "addButton")
+            }).catch((error) => {
+                console.log(error)
+            })
+        }
     }
-
 
     render() {
         let index = this.props.index;
