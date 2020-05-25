@@ -8,6 +8,10 @@ class SignUp extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            emailID: '',
+            password: '',
+            fullname: '',
+            phoneNumber: '',
             loginChecked: true,
             signupChecked: false
         }
@@ -20,6 +24,12 @@ class SignUp extends Component {
         if ([target.name].includes("signup")) {
             this.setState({loginChecked: false, signupChecked: true})
         }
+    }
+
+    changeState = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value,
+        })
     }
 
     render() {
@@ -44,6 +54,56 @@ class SignUp extends Component {
                                 <input id="tab-2" type="radio" name="signup" className="sign-up"
                                        checked={this.state.signupChecked} onClick={this.handleTabSelection}/>
                                 <label htmlFor="tab-2" className="tab2">SignUp</label>
+                                <div className="login-form">
+                                    <div className="sign-up-htm">
+                                            <div className="group">
+                                                <TextField id="fullName"
+                                                           name="fullname"
+                                                           label="Full Name"
+                                                           variant="outlined"
+                                                           value={this.state.fullname}
+                                                           fullWidth required autoComplete="off"
+                                                           onChange={this.changeState}
+                                                />
+                                            </div>
+                                            <div className="group">
+                                                <TextField id="emailId"
+                                                           name="emailID"
+                                                           label="Email Id"
+                                                           variant="outlined"
+                                                           value={this.state.emailID}
+                                                           fullWidth required autoComplete="off"
+                                                           onChange={this.changeState}
+                                                />
+                                            </div>
+                                            <div className="group">
+                                                <TextField id="passWord"
+                                                           name="password"
+                                                           label="Password"
+                                                           value={this.state.password}
+                                                           type="password"
+                                                           variant="outlined"
+                                                           fullWidth required autoComplete="off"
+                                                           onChange={this.changeState}
+                                                />
+                                            </div>
+                                            <div className="group">
+                                                <TextField id="number"
+                                                           name="phoneNumber"
+                                                           label="Phone Number"
+                                                           value={this.state.phoneNumber}
+                                                           variant="outlined"
+                                                           fullWidth required autoComplete="off"
+                                                           onChange={this.changeState}
+                                                />
+                                            </div>
+                                            <div className="group">
+                                                <button className="login-button">Sign
+                                                    Up
+                                                </button>
+                                            </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </Card>

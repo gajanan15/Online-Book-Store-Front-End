@@ -28,3 +28,82 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.login-form {
+    min-height: 345px;
+    position: relative;
+    perspective: 1000px;
+    /* transform-style: preserve-3d; */
+}
+
+.login-form .group {
+    margin-bottom: 6.5px;
+}
+
+.login-form .group .label,
+.login-form .group .login-button{
+    width: 100%;
+    color: #fff;
+    font-size: 110%;
+    display: block;
+}
+
+.login-form .group .input,
+.login-form .group .login-button{
+    border: none;
+    padding: 10px 10px;
+}
+
+.login-form .group input[data-type="password"] {
+    text-security: circle;
+    -webkit-text-security: circle;
+}
+
+.login-form .group .label {
+    margin-top: 6%;
+    color: #000;
+    font-size: 10px;
+}
+
+.login-form .group .login-button{
+    background: rgb(165, 42, 42);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-form .group label .icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    position: relative;
+    display: inline-block;
+    background: rgba(255, 255, 255, .1);
+}
+
+.login-form .group label .icon:before,
+.login-form .group label .icon:after {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background: #000;
+    position: absolute;
+}
+
+.login-form .group label .icon:before {
+    left: 3px;
+    width: 5px;
+    bottom: 6px;
+}
+
+.login-form .group label .icon:after {
+    top: 6px;
+    right: 0;
+}
+
+.login-form .group .check:checked + label {
+    color: #000;
+}
+
+.login-html .sign-up:checked + .tab2 + .login-form .sign-up-htm {
+    transform: rotate(0);
+}
