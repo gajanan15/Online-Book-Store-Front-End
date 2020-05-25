@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import '../../css/LoginPage.css'
 import Card from "@material-ui/core/Card";
 import Login from '../../asset/login.png'
+import TextField from "@material-ui/core/TextField";
+import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 
 class SignUp extends Component {
 
@@ -111,6 +113,15 @@ class SignUp extends Component {
     }
 
     render() {
+
+        const theme = createMuiTheme({
+            palette: {
+                primary: {
+                    main: '#a52a2a',
+                },
+            },
+        });
+
         return (
             <div className="hero" style={{background: "#b3b3b3"}}>
                 <div className="user-login-form">
@@ -134,6 +145,7 @@ class SignUp extends Component {
                                 <label htmlFor="tab-2" className="tab2">SignUp</label>
                                 <div className="login-form">
                                     <div className="sign-up-htm">
+                                        <ThemeProvider theme={theme}>
                                             <div className="group">
                                                 <TextField id="fullName"
                                                            name="fullname"
@@ -193,6 +205,7 @@ class SignUp extends Component {
                                                     Up
                                                 </button>
                                             </div>
+                                        </ThemeProvider>
                                     </div>
                                 </div>
                             </div>
