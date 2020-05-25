@@ -33,7 +33,6 @@
     min-height: 345px;
     position: relative;
     perspective: 1000px;
-    /* transform-style: preserve-3d; */
 }
 
 .login-form .group {

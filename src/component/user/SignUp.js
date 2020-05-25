@@ -8,12 +8,90 @@ class SignUp extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            emailId: ' ',
             emailID: '',
             password: '',
+            passWord: ' ',
             fullname: '',
+            fullName: ' ',
+            number: ' ',
             phoneNumber: '',
+            emailError: '',
+            passwordError: '',
+            nameError: '',
+            numberError: '',
+            error: '',
+            err: false,
             loginChecked: true,
             signupChecked: false
+        }
+    }
+
+    fullNameValidation = (event, error) => {
+        let fullNamePattern = "^.{3,50}$"
+        if (!event.target.value.match(fullNamePattern)) {
+            this.setState({
+                [event.target.id]: "Enter valid name",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        } else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]: "",
+                err: false,
+            })
+        }
+    }
+
+    emailValidation = (event, error) => {
+        let emailPattern = "^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$"
+        if (!event.target.value.match(emailPattern)) {
+            this.setState({
+                [event.target.id]: "Enter valid email id",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        } else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]: "",
+                err: false,
+            })
+        }
+    }
+
+    passwordValidation = (event, error) => {
+        let passwordPattern = "^((?=[^@|#|&|%|$]*[@|&|#|%|$][^@|#|&|%|$]*$)*(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9#@$?]{8,})$"
+        if (!event.target.value.match(passwordPattern)) {
+            this.setState({
+                [event.target.id]: "Enter valid password",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        } else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]: "",
+                err: false,
+            })
+        }
+    }
+
+    numberValidation = (event, error) => {
+        let phoneNumberPattern = "^([6-9]{1}[0-9]{9})$"
+        if (!event.target.value.match(phoneNumberPattern)) {
+            this.setState({
+                [event.target.id]: "Enter valid phone number",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        } else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]: "",
+                err: false,
+            })
         }
     }
 
@@ -64,6 +142,9 @@ class SignUp extends Component {
                                                            value={this.state.fullname}
                                                            fullWidth required autoComplete="off"
                                                            onChange={this.changeState}
+                                                           error={this.state.nameError}
+                                                           onBlur={(e) => this.fullNameValidation(e, "nameError")}
+                                                           helperText={this.state.fullName}
                                                 />
                                             </div>
                                             <div className="group">
@@ -74,6 +155,9 @@ class SignUp extends Component {
                                                            value={this.state.emailID}
                                                            fullWidth required autoComplete="off"
                                                            onChange={this.changeState}
+                                                           error={this.state.emailError}
+                                                           onBlur={(e) => this.emailValidation(e, "emailError")}
+                                                           helperText={this.state.emailId}
                                                 />
                                             </div>
                                             <div className="group">
@@ -85,6 +169,9 @@ class SignUp extends Component {
                                                            variant="outlined"
                                                            fullWidth required autoComplete="off"
                                                            onChange={this.changeState}
+                                                           error={this.state.passwordError}
+                                                           onBlur={(e) => this.passwordValidation(e, "passwordError")}
+                                                           helperText={this.state.passWord}
                                                 />
                                             </div>
                                             <div className="group">
@@ -95,6 +182,10 @@ class SignUp extends Component {
                                                            variant="outlined"
                                                            fullWidth required autoComplete="off"
                                                            onChange={this.changeState}
+                                                           error={this.state.numberError}
+                                                           onBlur={(e) => this.numberValidation(e, "numberError")}
+                                                           helperText={this.state.number}
+
                                                 />
                                             </div>
                                             <div className="group">
