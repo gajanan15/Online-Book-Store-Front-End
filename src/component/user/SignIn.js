@@ -63,9 +63,18 @@ class SignIn extends Component {
 
     render() {
 
+        const theme = createMuiTheme({
+            palette: {
+                primary: {
+                    main: '#a52a2a',
+                },
+            },
+        });
+
         return (
             <div>
                 <div className="sign-in-htm">
+                    <ThemeProvider theme={theme}>
                         <div className="group1">
                             <TextField id="emailId"
                                        name="emailID"
@@ -99,6 +108,7 @@ class SignIn extends Component {
                         <div className="group1">
                             <button className="login-button">Login</button>
                         </div>
+                    </ThemeProvider>
                 </div>
             </div>
         );
