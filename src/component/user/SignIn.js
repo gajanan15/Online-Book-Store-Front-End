@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import TextField from "@material-ui/core/TextField";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
-import {AdminService} from "../../service/AdminService";
-import CustomSnackBar from "../utils/CustomSnackBar";
 import {withRouter} from 'react-router';
 
 class SignIn extends Component {
@@ -10,8 +8,50 @@ class SignIn extends Component {
     constructor(props){
         super(props);
         this.state={
+            emailId:' ',
+            passWord:' ',
+            emailError:'',
+            passwordError:'',
             emailID:"",
             password:"",
+            error:'',
+            err:false,
+        }
+    }
+
+    emailValidation=(event,error)=>{
+        let emailPattern="^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$"
+        if(!event.target.value.match(emailPattern)){
+            this.setState({
+                [event.target.id]: "Enter valid email id",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        }
+        else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]:"",
+                err: false,
+            })
+        }
+    }
+
+    passwordValidation=(event,error)=>{
+        let passwordPattern="^((?=[^@|#|&|%|$]*[@|&|#|%|$][^@|#|&|%|$]*$)*(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9#@$?]{8,})$"
+        if(!event.target.value.match(passwordPattern)){
+            this.setState({
+                [event.target.id]: "Enter valid password",
+                [error]: `Invalid ${event.target.name}`,
+                err: true,
+            })
+        }
+        else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]:"",
+                err: false,
+            })
         }
     }
 
@@ -34,6 +74,9 @@ class SignIn extends Component {
                                        value={this.state.emailID}
                                        fullWidth required autoComplete="off"
                                        onChange={this.changeState}
+                                       error={this.state.emailError}
+                                       onBlur={(e)=>this.emailValidation(e,"emailError")}
+                                       helperText={this.state.emailId}
                             />
                         </div>
                         <div className="group1">
@@ -45,6 +88,9 @@ class SignIn extends Component {
                                        variant="outlined"
                                        fullWidth required autoComplete="off"
                                        onChange={this.changeState}
+                                       error={this.state.passwordError}
+                                       onBlur={(e)=>this.passwordValidation(e,"passwordError")}
+                                       helperText={this.state.passWord}
                                        />
                         </div>
                         <div className="foot-lnk">
