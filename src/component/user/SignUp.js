@@ -4,6 +4,9 @@ import Card from "@material-ui/core/Card";
 import Login from '../../asset/login.png'
 import TextField from "@material-ui/core/TextField";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
+import {AdminService} from "../../service/AdminService";
+import CustomSnackBar from "../utils/CustomSnackBar";
+import SignIn from '../user/SignIn';
 
 class SignUp extends Component {
 
@@ -25,7 +28,8 @@ class SignUp extends Component {
             error: '',
             err: false,
             loginChecked: true,
-            signupChecked: false
+            signupChecked: false,
+            snackFlag: false, snackMessage: "", severity: 'success'
         }
     }
 
@@ -112,6 +116,65 @@ class SignUp extends Component {
         })
     }
 
+    userRegistration = () => {
+        const registerData = {
+            fullName: this.state.fullname,
+            emailID: this.state.emailID,
+            password: this.state.password,
+            mobileNumber: this.state.phoneNumber
+        }
+
+        new AdminService().register(registerData).then(response => {
+            let severity = response.data.message === "Verification Mail Has Been Sent Successfully" ? "success" : "error"
+            severity === "success" ? this.snackStateMessage(response.data.message, severity) : this.snackStateMessage(response.data.message, severity);
+            this.clear()
+        }).catch(error => {
+            console.log(error)
+        })
+
+    }
+
+    clear = () => {
+        if (this.state.severity === "success") {
+            setTimeout(() => {
+                this.setState({
+                    emailId: ' ',
+                    emailID: '',
+                    password: '',
+                    passWord: ' ',
+                    fullname: '',
+                    fullName: ' ',
+                    number: ' ',
+                    phoneNumber: '',
+                    emailError: '',
+                    passwordError: '',
+                    nameError: '',
+                    numberError: '',
+                    error: '',
+                    err: false,
+                    loginChecked: true,
+                    signupChecked: false,
+                    snackFlag: false, snackMessage: "", severity: 'success'
+                })
+            }, 3000);
+        } else {
+            setTimeout(() => {
+                this.setState({
+                    snackFlag: false, snackMessage: "", severity: 'error'
+                })
+            }, 3000);
+        }
+    }
+
+    snackStateMessage = (response, severityLevel) => {
+        this.setState({
+            snackMessage: response,
+            snackFlag: true,
+            severity: severityLevel,
+        },()=>this.clear())
+    }
+
+
     render() {
 
         const theme = createMuiTheme({
@@ -144,6 +207,7 @@ class SignUp extends Component {
                                        checked={this.state.signupChecked} onClick={this.handleTabSelection}/>
                                 <label htmlFor="tab-2" className="tab2">SignUp</label>
                                 <div className="login-form">
+                                    <SignIn snack={this.snackStateMessage}/>
                                     <div className="sign-up-htm">
                                         <ThemeProvider theme={theme}>
                                             <div className="group">
@@ -201,7 +265,7 @@ class SignUp extends Component {
                                                 />
                                             </div>
                                             <div className="group">
-                                                <button className="login-button">Sign
+                                                <button className="login-button" onClick={this.userRegistration}>Sign
                                                     Up
                                                 </button>
                                             </div>
@@ -212,6 +276,9 @@ class SignUp extends Component {
                         </div>
                     </Card>
                 </div>
+                {this.state.snackFlag &&
+                <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity}/>
+                }
             </div>
         );
     }

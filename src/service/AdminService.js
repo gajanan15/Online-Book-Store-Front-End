@@ -78,5 +78,14 @@ export class AdminService {
             url:`${Constant.apiUrl}admin/books/image`
         })
     }
+
+    register=(registerData)=>{
+        return Axios({
+            method:'post',
+            url:`${Constant.apiUrl}user/register`,
+            data:registerData
+        })
+    }
+
 }
 
