@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import TextField from "@material-ui/core/TextField";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 import {withRouter} from 'react-router';
+import {AdminService} from "../../service/AdminService";
+import CustomSnackBar from "../utils/CustomSnackBar";
 
 class SignIn extends Component {
 
@@ -61,6 +63,52 @@ class SignIn extends Component {
         })
     }
 
+    userLogin=()=>{
+        const loginData={
+            emailID:this.state.emailID,
+            password:this.state.password,
+        }
+
+        const loginOrLogout =  window.location.href.includes('/user/login')
+
+        new AdminService().login(loginData).then(response=>{
+            let severity=response.data==="LOGIN SUCCESSFUL" ? "success" : "error"
+            severity === "success"? this.props.snack(response.data,severity): this.props.snack(response.data.message,severity);
+            severity === "success"?localStorage.setItem('Authorization',response.headers.authorization) : localStorage.setItem('Authorization',"null")
+            this.clear(severity)
+            !loginOrLogout ? window.location.reload(true) : this.clear(severity)
+        }).catch(error=>{
+            console.log(error)
+        })
+    }
+
+    clear=(severity)=>{
+        if(severity === "success")
+        {
+            setTimeout(() => {
+                this.setState({
+                    emailId:' ',
+                    passWord:' ',
+                    emailError:'',
+                    passwordError:'',
+                    emailID:"",
+                    password:"",
+                    error:'',
+                    err:false,
+                    snackFlag: false, snackMessage: "",severity:'success'
+                },()=>this.props.history.push(`/`))
+            }, 3000);
+        }
+        if(severity === "error"){
+            setTimeout(() => {
+                this.setState({
+                    snackFlag: false, snackMessage: "",severity:'error'
+                })
+            }, 3000);
+        }
+    }
+
+
     render() {
 
         const theme = createMuiTheme({
@@ -110,6 +158,9 @@ class SignIn extends Component {
                         </div>
                     </ThemeProvider>
                 </div>
+                {this.state.snackFlag &&
+                <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity} />
+                }
             </div>
         );
     }

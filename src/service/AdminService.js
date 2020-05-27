@@ -87,5 +87,13 @@ export class AdminService {
         })
     }
 
+    login=(loginData)=>{
+        return Axios({
+            method:'post',
+            url:`${Constant.apiUrl}user/login`,
+            data:loginData
+        })
+    }
+
 }
 
