@@ -267,3 +267,59 @@ a {
     margin-bottom: 20px;
     margin-top: -10px;
 }
+
+@media (max-width: 600px){
+    .form-box{
+        display: none;
+    }
+    .login-box {
+        height: 453px;
+        width: 90%;
+        align-self: center;
+        box-shadow: 0 8px 16px 0 rgba(255, 0, 0, 0.8);
+        position: absolute;
+        margin-left: 0;
+
+    }
+    .user-login-form{
+        width: 100%;
+        margin-left: 0;
+        margin-top: -15%;
+        display:flex;
+        justify-content: center;
+    }
+    .login-html .tab1 {
+        font-size: 20px;
+        margin-right:32%;
+        margin-left: 12%;
+    }
+    .login-html .tab2 {
+        font-size: 20px;
+    }
+    .login-html{
+        padding: 24px 30px 47px 30px;
+    }
+}
+@media (min-width: 767px) and (max-width:1024px){
+    .user-login-form{
+        margin-top: 25%;
+        margin-left: 35%;
+        display:flex;
+    }
+    .form-box {
+        width: 610px;
+    }
+    .login-html{
+        padding: 24px 35px 47px 35px;
+    }
+    .login-html .tab1 {
+        margin-right:32%;
+        margin-left: 12%;
+    }
+}
+@media (min-width:200px) and (max-width:320px){
+    .login-html .tab1 {
+        margin-right:21%;
+        margin-left: 11%;
+    }
+}
