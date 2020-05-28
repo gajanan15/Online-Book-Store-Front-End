@@ -1,0 +1,58 @@
+
+.mainformorder{
+    min-height: 88.9vh;
+}
+
+.successfulimage{
+    width: 18%;
+    margin-left: 40%;
+    margin-top: 6%;
+}
+.messageorder{
+    font-size: 28px;
+    text-align: center;
+}
+
+#btn{
+    background-color: rgb(165,42,42);
+    color: white;
+    margin-left: 42%;
+    margin-top: 2%;
+    width: 15%;
+    font-size: 14px;
+}
+
+#firstLine{
+    line-height:1px;
+    font-size: 18px;
+    margin-right: 2%;
+}
+
+#secondLine{
+    margin-left: -2%;
+    margin-bottom: 1%;
+    font-size: 18px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-left: 24%;
+    border:3.5px solid #e6e6e6;
+}
+
+td{
+    max-width: 300px;
+    border:3.5px solid #e6e6e6;
+    background-color: #fff;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+    padding: 10px;
+}
+
+th{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #e6e6e6;
+}
