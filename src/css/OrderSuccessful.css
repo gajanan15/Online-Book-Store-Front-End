@@ -56,3 +56,131 @@ th{
     padding-bottom: 10px;
     background-color: #e6e6e6;
 }
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+    .successfulimage {
+        width: 45%;
+        margin-left: 27%;
+        margin-top: 24%;
+    }
+
+    #firstLine {
+        line-height: 1px;
+        font-size: 14px;
+        margin-left: 6%;
+    }
+
+    #secondLine {
+        margin-left: 3%;
+        margin-bottom: 4%;
+        font-size: 14px;
+    }
+
+    .mainformorder {
+        min-height: 91.5vh;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-left: 8%;
+        border:3.5px solid #e6e6e6;
+    }
+
+    td{
+        max-width: 100px;
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    th{
+        padding-top: 6px;
+        padding-bottom: 4px;
+        background-color: #e6e6e6;
+    }
+
+    #btn{
+        background-color: rgb(165,42,42);
+        color: white;
+        margin-left: 26%;
+        margin-top: 6%;
+        width: 45%;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 1){
+    table {
+        border-collapse: collapse;
+        margin-left: 12%;
+        border:3.5px solid #e6e6e6;
+    }
+
+    .mainformorder {
+        min-height: 92.5vh;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+
+    .successfulimage {
+        width: 38%;
+        margin-left: 32%;
+        margin-top: 15%;
+    }
+
+    #firstLine {
+        line-height: 1px;
+        font-size: 28px;
+    }
+
+    #secondLine {
+        margin-left: -1%;
+        font-size: 28px;
+    }
+
+    .mainformorder {
+        min-height: 120.5vh;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-left: 10%;
+        border: 3.5px solid #e6e6e6;
+    }
+
+    td{
+        max-width: 270px;
+        font-size: 22px;
+        padding: 5px;
+    }
+
+    th{
+        padding-top: 6px;
+        padding-bottom: 4px;
+        background-color: #e6e6e6;
+        font-size: 22px;
+    }
+
+    #btn{
+        background-color: rgb(165,42,42);
+        color: white;
+        margin-left: 34%;
+        margin-top: 6%;
+        width: 35%;
+        font-size: 22px;
+    }
+
+    @media only screen and (min-device-width: 1020px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+        table {
+            border-collapse: collapse;
+            margin-left: 18%;
+            border: 3.5px solid #e6e6e6;
+        }
+
+        .mainformorder {
+            min-height: 95vh;
+        }
+
+    }
+
+}
