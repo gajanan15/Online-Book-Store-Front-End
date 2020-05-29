@@ -62,6 +62,7 @@ export class AdminService {
     remove = (id) => {
         return Axios({
             method: 'delete',
+            headers:{token: localStorage.getItem('Authorization')},
             url: `${Constant.apiUrl}cart/${id}`
         })
     }
