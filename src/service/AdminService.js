@@ -36,6 +36,7 @@ export class AdminService {
     addToCart = (data) => {
         return Axios({
             method: 'post',
+            headers:{token: localStorage.getItem('Authorization')},
             url: `${Constant.apiUrl}cart`,
             data: data,
         })
