@@ -42,7 +42,7 @@ class CustomCard extends Component {
                 this.setState({
                     title: "GO TO CART", color: "rgb(51,113,181)"
                 })
-                this.props.cartReference.current.try(this.state.badgeSize, "addButton")
+                    this.props.cartReference.current.handleBadgeCount(this.state.badgeSize, "addButton")
             }).catch((error) => {
                 console.log(error)
             })

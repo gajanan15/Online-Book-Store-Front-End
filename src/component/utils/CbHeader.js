@@ -15,6 +15,9 @@ import CardContent from "@material-ui/core/CardContent";
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import SignUp from "../user/SignUp";
 
 export class CbHeader extends Component {
     constructor(props) {
@@ -31,6 +34,7 @@ export class CbHeader extends Component {
             logorsign:"LOGIN/SIGNUP",
             redirect:"user/login"
         }
+
     }
 
     handleSearchbar = () => {
@@ -81,16 +85,41 @@ export class CbHeader extends Component {
         }
     }
 
+    handleClose = () => {
+        this.setState({
+            visibilityOfDialogBox: false
+        })
+    }
+
+    isLoggedIn = () => {
+        let user = localStorage.getItem('Authorization');
+        if(user){
+            this.setState({
+                logorsign: "LOGOUT",
+                redirect: "cart",
+                userLoggedIn: true
+            })}
+        if(user == "null" || user == "undefined"){
+            this.setState({
+                logorsign: "LOGIN/SIGNUP",
+                redirect: "login",
+                userLoggedIn: false
+            })}
+    }
+
+    componentDidMount() {
+        this.isLoggedIn()
+    }
+
     render() {
-
-
         return (
             <div className="main">
+
                 <AppBar position="fixed" id="appbar">
                     <Toolbar id="tool">
                         <ImportContactsIcon id="main-logo"/>
                         <Typography id="title" variant="h6" noWrap>
-                            CB's Book Store
+                            <Link to={"/"}>CB's Book Store</Link>
                         </Typography>
                         {this.state.searchVisibility &&
                         <div className="search">
@@ -105,21 +134,32 @@ export class CbHeader extends Component {
                             />
                         </div>
                         }
+
                         <div className="grow"/>
                         {this.state.searchVisibility &&
                         <div className="shoppingIcon">
-                            <IconButton aria-label="show 4 new mails">
+                            <IconButton aria-label="show 4 new mails" id="shopping-icon" >
                                 <Badge className="badge-carticon" badgeContent={this.state.counter}>
-                                    <Link style={{color: 'white'}} to={"/cart"}>
-                                        <ShoppingCartOutlinedIcon id="cart-icon"/>
-                                    </Link>
+                                    <Link style={{color: 'white'}} to={`/${this.state.redirect}`}><ShoppingCartOutlinedIcon id="cart-icon"/></Link>
                                 </Badge>
                             </IconButton>
                         </div>
                         }
-                        <PersonOutlineSharpIcon className="userIcon"/>
+
+                        {this.state.searchVisibility &&
+                        <div className={this.state.visibilityValueOfLogin === "visible" ?
+                            "loginsignup" : "loginsignup1"}>
+                            <PersonOutlineSharpIcon className="userIcon" onClick={this.handleLoginBoxVisibility}/>
+                        </div>
+                        }
                     </Toolbar>
                 </AppBar>
+                <Dialog className="maindialoguebox" aria-labelledby="customized-dialog-title"
+                        open={this.state.visibilityOfDialogBox} onClose={this.handleClose}>
+                    <DialogContent className="dialoguecontent" id="customized-dialog-title">
+                        <SignUp/>
+                    </DialogContent>
+                </Dialog>
 
                 {!this.state.userLoggedIn ?
                     <Card className="loginsignupcard" style={{visibility: this.state.visibilityValueOfLogin}} variant="outlined">

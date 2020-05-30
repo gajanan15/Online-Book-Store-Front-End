@@ -37,6 +37,11 @@
     background-color: white;
 }
 
+.loginsignup{
+    border-bottom: white solid 5px;
+    margin-right: 4%;
+}
+
 #shopping-icon{
     font-size: 120%;
     display: flex;
@@ -45,6 +50,11 @@
 #main-logo{
     font-size: 200%;
     margin-left: 2%;
+}
+
+.loginsignup1{
+    border-bottom: rgb(160,48,55) solid 5px;
+    margin-right: 4%;
 }
 
 .search:hover{
@@ -79,6 +89,21 @@
     width: 100%;
 }
 
+#userName-logincart{
+    font-weight: bold;
+}
+
+#order-title{
+    font-size: small;
+    margin-top: 2%;
+    display: flex;
+    align-items: flex-end;
+}
+
+#order-icon{
+    margin-right: 6px;
+}
+
 .shoppingIcon{
     margin-right: 3%;
 }
@@ -87,18 +112,18 @@
     flex-grow: 1
 }
 
-.MuiBadge-anchorOriginTopRightRectangle {
+
+
+button.MuiButtonBa.MuiBadge-anchorOriginTopRightRectangle {
     top: 0;
     right: 0;
     transform: scale(1) translate(50%, -50%);
     transform-origin: 100% 0%;
     color: brown;
     background-color: white;
-}
-
-button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.loginorsignupbutton{
-    width: 20px;
-}
+}se-root.MuiButton-root.MuiButton-contained.loginorsignupbutton{
+     width: 20px;
+ }
 
 button.MuiButtonBase-root.MuiButton-root.MuiButton-text.loginorsignupbutton{
     border: solid 1px rgb(150, 0, 0);
@@ -125,21 +150,36 @@ button.MuiButtonBase-root.MuiButton-root.MuiButton-text.loginorsignupbutton{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-#userName-logincart{
-    font-weight: bold;
-}
-
-#order-title{
-    font-size: small;
-    margin-top: 2%;
+.MuiDialogContent-root.dialoguecontent {
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
+    padding: 0px;
+    margin-bottom: 700px;
+
 }
 
-#order-icon{
-    margin-right: 6px;
+svg.MuiSvgIcon-root.userIcon{
+    margin-top: 22%;
+    font-size: 200%;
+    color: white;
 }
 
+.MuiPaper-root.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm.MuiPaper-elevation24.MuiPaper-rounded{
+    position: inherit;
+}
+
+.MuiDialogContent-root.dialoguecontent {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    margin-bottom: 700px;
+
+}
+
+#subName{
+    font-size: small ;
+    margin-top: 2%;
+}
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
     svg.MuiSvgIcon-root{
         font-size: 200%;
