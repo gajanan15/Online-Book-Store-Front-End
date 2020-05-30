@@ -88,10 +88,10 @@ class HomePage extends Component {
     searchAndFilter = () => {
         new AdminService().searchAndFilter(this.state.pageNo, this.state.searchText, this.state.selectBoxValue).then(response => {
             this.setState({
-                data: response.data.bookDetails,
+                data: response.data.books,
                 dataLength: response.data.size
             })
-            this.displaySearchBook(response.data.bookDetails, "", this.state.searchText, response.data.size)
+            this.displaySearchBook(response.data.books, "", this.state.searchText, response.data.size)
         }).catch((error) => {
             this.displaySearchBook([], "error", "", 0)
         })

@@ -9,6 +9,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import PersonOutlineSharpIcon from '@material-ui/icons/PersonOutlineSharp';
 import {Link} from 'react-router-dom'
 
 export class CbHeader extends Component {
@@ -80,6 +81,7 @@ export class CbHeader extends Component {
                             </IconButton>
                         </div>
                         }
+                        <PersonOutlineSharpIcon className="userIcon"/>
                     </Toolbar>
                 </AppBar>
             </div>
