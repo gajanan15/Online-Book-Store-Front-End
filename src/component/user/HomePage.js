@@ -53,9 +53,21 @@ class HomePage extends Component {
         })
     }
 
+    getUser = () =>{
+        new AdminService().userDetails().then(response=>{
+            this.setState({
+                name:response.data.fullName,
+                userData:response.data
+            })
+        }).catch((error) =>{
+            console.log(error)
+        })
+    }
+
     componentDidMount() {
         this.getBooks();
         this.getCount();
+        this.getUser();
         this.searchBar.current.handleSearchbar();
     }
 

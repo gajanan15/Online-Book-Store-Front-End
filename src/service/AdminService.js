@@ -99,5 +99,13 @@ export class AdminService {
         })
     }
 
+    userDetails=()=>{
+        return Axios({
+            headers:{token: localStorage.getItem('Authorization')},
+            method:'get',
+            url:`${Constant.apiUrl}customer`,
+        })
+    }
+
 }
 
