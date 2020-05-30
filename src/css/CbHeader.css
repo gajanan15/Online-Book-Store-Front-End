@@ -180,6 +180,7 @@ svg.MuiSvgIcon-root.userIcon{
     font-size: small ;
     margin-top: 2%;
 }
+
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
     svg.MuiSvgIcon-root{
         font-size: 200%;
@@ -206,8 +207,40 @@ svg.MuiSvgIcon-root.userIcon{
         margin-left: -37%;
     }
 
+    svg.MuiSvgIcon-root.userIcon{
+        font-size: 2.5rem;
+        color: white;
+    }
+
     .badge-carticon{
         margin-left: 60%;
+    }
+
+    .userIcon{
+        margin-left: 5%;
+    }
+
+    .loginsignupcard{
+        position: absolute;
+        transform: translate(342%, 40%);
+        width: 53%;
+        z-index: 999;
+        margin-left: -138%;
+        height: 25%;
+    }
+
+    .loginsignupcard1{
+        position: absolute;
+        transform: translate(342%, 40%);
+        width: 53%;
+        z-index: 999;
+        margin-left: -140%;
+        height: 25%;
+    }
+
+    .userName-logincart{
+        font-size: 5%;
+
     }
 
     #shopping-icon{
@@ -234,9 +267,32 @@ svg.MuiSvgIcon-root.userIcon{
         margin-left: 2%;
     }
 
+    .loginsignupcard{
+        position: absolute;
+        transform: translate(342%, 45%);
+        width: 53%;
+        z-index: 999;
+        margin-left: -138%;
+        height: 20%;
+    }
+
+    .loginsignupcard1{
+        position: absolute;
+        transform: translate(342%, 35%);
+        width: 53%;
+        z-index: 999;
+        margin-left: -138%;
+        height: 25%;
+    }
+
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+
+    .grow {
+        flex-grow: 0;
+        margin-left: 9%;
+    }
 
     #tool{
         margin-left: 2%;
@@ -273,6 +329,47 @@ svg.MuiSvgIcon-root.userIcon{
         margin-left: -800%;
     }
 
+    .loginsignupcard{
+        position: absolute;
+        transform: translate(680%, 40%);
+        width: 30%;
+        z-index: 999;
+        margin-left: -132%;
+        height: 18%;
+    }
+
+    .loginsignupcard1{
+        position: absolute;
+        transform: translate(680%, 40%);
+        width: 30%;
+        z-index: 999;
+        margin-left: -132%;
+        height: 18%;
+    }
+
+    .loginsignup1{
+        margin-right: 0%;
+        margin-left: 6%;
+    }
+
+    .loginsignup{
+        border-bottom: white solid 5px;
+        margin-right: 0%;
+        margin-left: 6%;
+    }
+
+    #mainName{
+        font-size: 22px;
+    }
+
+    #subName{
+        font-size: 15px;
+    }
+
+    .userIcon{
+        margin-right: -50%;
+    }
+
     #shopping-icon{
         font-size: 95%;
         margin-left: 217%;
@@ -292,6 +389,11 @@ svg.MuiSvgIcon-root.userIcon{
         margin-left: -10%;
     }
 
+    /*.grow {*/
+    /*    flex-grow: 0;*/
+    /*    margin-left: 20%;*/
+    /*}*/
+
     #main-logo {
         font-size: 248%;
         margin-left: 2.5%;
@@ -303,8 +405,45 @@ svg.MuiSvgIcon-root.userIcon{
         font-size: 135%;
     }
 
+    .grow {
+        flex-grow: 0;
+        margin-left: 16.5%;
+    }
+
+    svg.MuiSvgIcon-root.userIcon {
+        margin-top: 22%;
+        font-size: 255%;
+        color: white;
+    }
+
     .badge-carticon{
         margin-left: -100%;
+    }
+
+    .loginsignupcard {
+        position: absolute;
+        transform: translate(442%, 42%);
+        width: 20%;
+        z-index: 999;
+        margin-left: -16%;
+        height: 12%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+
+
+    .loginsignupcard1 {
+        position: absolute;
+        transform: translate(442%, 42%);
+        width: 20%;
+        z-index: 999;
+        margin-left: -16%;
+        height: 12%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+
+    #userName-logincart {
+        font-weight: bold;
+        font-size: 105%;
     }
 
 }
