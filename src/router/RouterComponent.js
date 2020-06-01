@@ -5,6 +5,7 @@ import HomePage from "../component/user/HomePage";
 import Cart from "../component/user/Cart";
 import SignUp from "../component/user/SignUp";
 import OrderSuccessful from "../component/user/OrderSuccessful";
+import ForgotPassword from "../component/user/ForgotPassword";
 
 class RouterComponent extends React.Component {
 constructor(props) {
@@ -19,6 +20,7 @@ constructor(props) {
                 <Route path={"/cart"} component={Cart} exact={true}/>
                 <Route path={"/orders/successful/:random"} component={OrderSuccessful} exact/>
                 <Route path={"/user/login"} component={SignUp} exact/>
+                <Route path={"/forgot/password"} component={ForgotPassword} exact/>
              </Switch>
         );
     }
