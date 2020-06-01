@@ -29,6 +29,28 @@ class ForgotPassword extends Component {
         }
     }
 
+    getDetails=()=>{
+        new AdminService().forgetPassword(this.state.emailID).then(response=>{
+            this.setState({
+                severity:response.data.message==="Reset Password Link Has Been Sent To Your Email Address" ? "success" : "error",
+                snackMessage:response.data.message,
+                snackFlag:true,
+                emailID:response.data.message==="Reset Password Link Has Been Sent To Your Email Address" ? " " : this.state.emailID
+            })
+        }).catch((error) =>{
+            console.log(error)
+        })
+        this.clear()
+    }
+
+    clear=()=>{
+        setTimeout(() => {
+            this.setState({
+                snackFlag: false,
+            })
+        }, 2000);
+    }
+
 
     emailValidation=(event,error)=>{
         let emailPattern="^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$"
@@ -69,9 +91,9 @@ class ForgotPassword extends Component {
         });
 
         return (
-                <div>
-                    <CbHeader/>
-                    <div className="forgotmain">
+            <div>
+                <CbHeader/>
+                <div className="forgotmain">
                     <div id="forgotdiv">
                         <h1>Forgot Your Password?</h1>
                         <Card id="forgotpasswordcart" variant="outlined">
@@ -96,17 +118,20 @@ class ForgotPassword extends Component {
                                         </ThemeProvider>
                                     </div>
                                     <div>
-                                        <Button id="resetbtn">Submit</Button>
+                                        <Button id="resetbtn" onClick={this.getDetails}>Submit</Button>
                                     </div>
                                 </div>
                             </CardContent>
                         </Card>
-                        <div id="createbtn" onclick={this.routeChange}>
-                            <Button>Create Account </Button>
+                        <div id="createbtn">
+                            <Button onclick={this.routeChange}>Create Account </Button>
                         </div>
                     </div>
-                    </div>
                 </div>
+                {this.state.snackFlag &&
+                <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity}/>
+                }
+            </div>
         );
     }
 }

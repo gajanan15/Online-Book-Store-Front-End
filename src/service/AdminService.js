@@ -107,5 +107,13 @@ export class AdminService {
         })
     }
 
+    forgetPassword=(emailID)=>{
+        return Axios({
+            method:'post',
+            params:{emailID:emailID},
+            url:`${Constant.apiUrl}user/forget/password`,
+        })
+    }
+
 }
 
