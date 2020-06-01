@@ -29,6 +29,25 @@ class ForgotPassword extends Component {
         }
     }
 
+
+    emailValidation=(event,error)=>{
+        let emailPattern="^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$"
+        if(!event.target.value.match(emailPattern)){
+            this.setState({
+                [event.target.id]: "Enter valid email id",
+                [error]: `Invalid ${event.target.name}`,
+                errorStatus: true,
+            })
+        }
+        else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]:"",
+                errorStatus: false,
+            })
+        }
+    }
+
     changeState = (event) => {
         this.setState({
             [event.target.name]: event.target.value,
@@ -63,14 +82,17 @@ class ForgotPassword extends Component {
                                     </Typography>
                                     <div id="forgotEmailText">
                                         <ThemeProvider theme={theme}>
-                                        <TextField id="forgetEmailId"
-                                                   name="emailID"
-                                                   label="Email Id"
-                                                   variant="outlined"
-                                                   value={this.state.emailID}
-                                                   fullWidth required autoComplete="off"
-                                                   onChange={this.changeState}
-                                        />
+                                            <TextField id="forgetEmailId"
+                                                       name="emailID"
+                                                       label="Email Id"
+                                                       variant="outlined"
+                                                       value={this.state.emailID}
+                                                       fullWidth required autoComplete="off"
+                                                       error={this.state.forgetEmailError}
+                                                       onChange={this.changeState}
+                                                       onBlur={(e)=>this.emailValidation(e,"forgetEmailError")}
+                                                       helperText={this.state.forgetEmailId}
+                                            />
                                         </ThemeProvider>
                                     </div>
                                     <div>
