@@ -6,6 +6,7 @@ import Cart from "../component/user/Cart";
 import SignUp from "../component/user/SignUp";
 import OrderSuccessful from "../component/user/OrderSuccessful";
 import ForgotPassword from "../component/user/ForgotPassword";
+import ResetPassword from "../component/user/ResetPassword";
 
 class RouterComponent extends React.Component {
 constructor(props) {
