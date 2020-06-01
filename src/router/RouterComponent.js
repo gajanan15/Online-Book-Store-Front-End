@@ -22,6 +22,7 @@ constructor(props) {
                 <Route path={"/orders/successful/:random"} component={OrderSuccessful} exact/>
                 <Route path={"/user/login"} component={SignUp} exact/>
                 <Route path={"/forgot/password"} component={ForgotPassword} exact/>
+                <Route path={"/reset/password/:token"} component={ResetPassword} exact/>
              </Switch>
         );
     }
