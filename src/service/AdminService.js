@@ -115,5 +115,13 @@ export class AdminService {
         })
     }
 
+    resetPassword=(password,token)=>{
+        return Axios({
+            method:'post',
+            params:{password:password,token:token},
+            url:`${Constant.apiUrl}user/confirm/password/`,
+        })
+    }
+
 }
 

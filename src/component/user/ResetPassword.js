@@ -78,6 +78,44 @@ class ResetPassword extends Component {
         }
     }
 
+    getDetails=()=>{
+        if(this.state.password === this.state.confirmPassWord){
+            new AdminService().resetPassword(this.state.password,this.props.match.params.token).then(response=>{
+                console.log("in data resetpass")
+                console.log(response)
+
+                this.setState({
+                    severity:response.data.message==="Password Has Been Reset" ? "success" : "error",
+                    snackMessage:response.data.message,
+                    snackFlag:true
+                })
+            }).catch((error) =>{
+                console.log(error)
+            })}
+        else {
+
+            this.setState({
+                severity: "error",
+                snackMessage:"Password does not match",
+                snackFlag:true
+            })
+        }
+        this.clear()
+    }
+
+    clear=()=>{
+        setTimeout(() => {
+            if(this.state.severity === "success"){
+                { this.props.history.push("/user/login")}
+            }else {
+                this.props.history.push("/forgot/resend/email")
+            }
+            this.setState({
+                snackFlag: false,
+            })
+        }, 2000);
+    }
+
 
     render() {
         return (
@@ -90,6 +128,7 @@ class ResetPassword extends Component {
                             <CardContent>
                                 <div id="resetContent">
                                     <div id="resetPassword">
+                                        <ThemeProvider theme={theme}>
                                         <TextField id="new"
                                                    name="password"
                                                    label="New Password"
@@ -115,9 +154,10 @@ class ResetPassword extends Component {
                                                    onBlur={(e)=>this.passwordValidation(e,"confirmPasswordError")}
                                                    helperText={this.state.confirm}
                                         />
+                                        </ThemeProvider>
                                     </div>
                                     <div>
-                                        <Button id="resetbtn">Reset Password</Button>
+                                        <Button id="resetbtn" onClick={this.getDetails}>Reset Password</Button>
                                     </div>
                                 </div>
                             </CardContent>
