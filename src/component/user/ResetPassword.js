@@ -37,6 +37,48 @@ class ResetPassword extends Component {
         })
     }
 
+    checkPassword = (event,error) => {
+        if(this.state.password !== event.target.value){
+            this.setState({
+                [event.target.id]:"Password Does Not Match",
+                [error]: `Invalid ${event.target.name}`,
+                errorStatus: true,
+            })
+        }
+        if(this.state.password === event.target.value){
+            this.setState({
+                [event.target.name]: event.target.value,
+                [event.target.id]:" ",
+                confirmPasswordError: "",
+                errorStatus: false,
+            })
+        }
+        this.setState({
+            [event.target.name]: event.target.value,
+            confirmPasswordError: " ",
+            errorStatus: false,
+        })
+    }
+
+    passwordValidation=(event,error)=>{
+        let passwordPattern="^((?=[^@|#|&|%|$]*[@|&|#|%|$][^@|#|&|%|$]*$)*(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9#@$?]{8,})$"
+        if(!event.target.value.match(passwordPattern)){
+            this.setState({
+                [event.target.id]: "Enter valid password",
+                [error]: `Invalid ${event.target.name}`,
+                errorStatus: true,
+            })
+        }
+        else {
+            this.setState({
+                [event.target.id]: " ",
+                [error]:"",
+                errorStatus: false,
+            })
+        }
+    }
+
+
     render() {
         return (
             <div>
@@ -48,24 +90,31 @@ class ResetPassword extends Component {
                             <CardContent>
                                 <div id="resetContent">
                                     <div id="resetPassword">
-                                            <TextField id="new"
-                                                       name="password"
-                                                       label="New Password"
-                                                       variant="outlined"
-                                                       type="password"
-                                                       value={this.state.password}
-                                                       fullWidth required autoComplete="off"
-                                                       onChange={this.changeState}
-                                            />
+                                        <TextField id="new"
+                                                   name="password"
+                                                   label="New Password"
+                                                   variant="outlined"
+                                                   type="password"
+                                                   value={this.state.password}
+                                                   fullWidth required autoComplete="off"
+                                                   error={this.state.newPasswordError}
+                                                   onChange={this.changeState}
+                                                   onBlur={(e)=>this.passwordValidation(e,"newPasswordError")}
+                                                   helperText={this.state.new}
+                                        />
 
-                                            <TextField id="confirm"
-                                                       name="confirmPassWord"
-                                                       label="Confirm Password"
-                                                       variant="outlined"
-                                                       type="password"
-                                                       value={this.state.confirmPassWord}
-                                                       fullWidth required autoComplete="off"
-                                            />
+                                        <TextField id="confirm"
+                                                   name="confirmPassWord"
+                                                   label="Confirm Password"
+                                                   variant="outlined"
+                                                   type="password"
+                                                   value={this.state.confirmPassWord}
+                                                   fullWidth required autoComplete="off"
+                                                   error={this.state.confirmPasswordError}
+                                                   onChange={(e)=>this.checkPassword(e,"confirmPasswordError")}
+                                                   onBlur={(e)=>this.passwordValidation(e,"confirmPasswordError")}
+                                                   helperText={this.state.confirm}
+                                        />
                                     </div>
                                     <div>
                                         <Button id="resetbtn">Reset Password</Button>
@@ -75,6 +124,9 @@ class ResetPassword extends Component {
                         </Card>
                     </div>
                 </div>
+                {this.state.snackFlag &&
+                <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity}/>
+                }
             </div>
         );
     }
