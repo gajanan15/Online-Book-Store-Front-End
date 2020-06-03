@@ -8,6 +8,8 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {createMuiTheme} from "@material-ui/core/styles";
 import '../../css/ForgotPassword.css'
+import {AdminService} from "../../service/AdminService";
+import CustomSnackBar from "../utils/CustomSnackBar";
 
 class ResendEmail extends Component {
     constructor(props){
@@ -24,6 +26,47 @@ class ResendEmail extends Component {
             snackMessage: ""
         }
     }
+
+    getVerify=()=>{
+        new AdminService().resendMail(this.state.emailID).then(response=>{
+            this.setState({
+                severity:response.data.message==="Verification Mail Has Been Sent Successfullys" ? "success" : "error",
+                snackMessage:response.data.message,
+                snackFlag:true,
+                emailID:response.data.message==="Verification Mail Has Been Sent Successfully" ? " " : this.state.emailID
+            })
+        }).catch((error) =>{
+            console.log(error)
+        })
+        this.clear()
+    }
+
+    handleButton=()=>{
+        window.location.href.includes('forgot')?this.getDetails():this.getVerify()
+    }
+
+    getDetails=()=>{
+        new AdminService().forgetPassword(this.state.emailID).then(response=>{
+            this.setState({
+                severity:response.data.message==="Reset Password Link Has Been Sent To Your Email Address" ? "success" : "error",
+                snackMessage:response.data.message,
+                snackFlag:true,
+                emailID:response.data.message==="Reset Password Link Has Been Sent To Your Email Address" ? " " : this.state.emailID
+            })
+        }).catch((error) =>{
+            console.log(error)
+        })
+        this.clear()
+    }
+
+    clear=()=>{
+        setTimeout(() => {
+            this.setState({
+                snackFlag: false,
+            })
+        }, 2000);
+    }
+
 
     emailValidation=(event,error)=>{
         let emailPattern="^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$"
@@ -96,6 +139,9 @@ class ResendEmail extends Component {
                         </Card>
                     </div>
                 </div>
+                {this.state.snackFlag &&
+                <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity}/>
+                }
             </div>
         );
     }

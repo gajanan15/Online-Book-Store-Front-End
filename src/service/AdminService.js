@@ -131,5 +131,11 @@ export class AdminService {
         })
     }
 
+    resendMail=(emailID)=>{
+        return Axios({
+            method:'post',
+            url:`${Constant.apiUrl}user/resend/email/${emailID}`
+        })
+    }
 }
 
