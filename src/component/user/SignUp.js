@@ -184,9 +184,9 @@ class SignUp extends Component {
                 },
             },
         });
-
+        const loginOrLogout = window.location.href.includes('/user/login')
         return (
-            <div className="hero" style={{background: "#b3b3b3"}}>
+            <div className="hero" style={loginOrLogout ? {background: "#b3b3b3"} : {background: "transparent"}}>
                 <div className="user-login-form">
                     <Card className="form-box" style={{borderRadius: "5%", backgroundColor: "#f2f2f2"}}>
                         <img src={Login} alt="Not found" className="login-img"/>

@@ -154,7 +154,7 @@ class SignIn extends Component {
                             <a href="/forgot/password">Forgot Password?</a>
                         </div>
                         <div className="group1">
-                            <button className="login-button">Login</button>
+                            <button className="login-button" onClick={this.userLogin}>Login</button>
                         </div>
                     </ThemeProvider>
                 </div>

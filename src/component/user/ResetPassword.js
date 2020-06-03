@@ -118,6 +118,13 @@ class ResetPassword extends Component {
 
 
     render() {
+        const theme = createMuiTheme({
+            palette: {
+                primary: {
+                    main: '#a52a2a',
+                },
+            },
+        });
         return (
             <div>
                 <CbHeader/>

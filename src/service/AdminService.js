@@ -123,5 +123,13 @@ export class AdminService {
         })
     }
 
+    verifyEmail=(token)=>{
+        return Axios({
+            method:'post',
+            params:{token:token},
+            url:`${Constant.apiUrl}user/verify/mail`
+        })
+    }
+
 }
 
