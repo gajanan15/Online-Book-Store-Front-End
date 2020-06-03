@@ -8,6 +8,7 @@ import OrderSuccessful from "../component/user/OrderSuccessful";
 import ForgotPassword from "../component/user/ForgotPassword";
 import ResetPassword from "../component/user/ResetPassword";
 import VerificationSuccessful from "../component/user/VerificationSuccessful";
+import ResendEmail from "../component/user/ResendEmail";
 
 class RouterComponent extends React.Component {
 constructor(props) {
@@ -25,6 +26,7 @@ constructor(props) {
                 <Route path={"/forgot/password"} component={ForgotPassword} exact/>
                 <Route path={"/reset/password/:token"} component={ResetPassword} exact/>
                 <Route path={"/verify/email/:token"} component={VerificationSuccessful} exact/>
+                <Route path={"/resend/email"} component={ResendEmail} exact/>
              </Switch>
         );
     }
