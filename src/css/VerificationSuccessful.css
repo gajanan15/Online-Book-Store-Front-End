@@ -1,0 +1,36 @@
+.verificationdiv {
+    margin-top: 11%;
+    min-height: 66vh;
+}
+
+#verificationimg {
+    margin-left: 32.5%;
+    height: 35%;
+    width: 35%;
+}
+
+#verificationtypo {
+    margin-left: 33%;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#loginverificationbtn {
+    background-color: brown;
+    width: 20%;
+    color:#fff;
+    font-size: 14px;
+    margin-top: 2%;
+    border-radius: 7px;
+    outline: none;
+}
+
+.loginverificationdiv button {
+    height: 50px;
+}
+
+.loginverificationdiv {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
