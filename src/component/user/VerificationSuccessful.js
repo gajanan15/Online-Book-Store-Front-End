@@ -11,7 +11,6 @@ class VerificationSuccessful extends Component {
 
     getConfirmation=()=>{
         new AdminService().verifyEmail(this.props.match.params.token).then(response=>{
-            console.log(response);
             response.data.message === "session time out" ? this.props.history.push("/resend/email") : this.props.history.push(`/verify/email/${this.props.match.params.token}`);
         }).catch(response=>{
             console.log(response)

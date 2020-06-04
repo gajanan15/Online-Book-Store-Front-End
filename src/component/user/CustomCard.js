@@ -8,9 +8,10 @@ import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import "../../css/CustomCard.css";
 import {AdminService} from "../../service/AdminService";
-
+import {withRouter} from 'react-router';
 
 class CustomCard extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -19,12 +20,12 @@ class CustomCard extends Component {
             title: "Add To Bag",
             color: "rgb(165,42,42)",
             counter: 0,
-            badgeSize: ''
+            badgeSize: '',
+            addedInCart:false
         }
     }
 
     myCartData = () => {
-
         const cartDTO = {
             "id": this.props.book.id,
             "quantity": 1,
@@ -42,11 +43,41 @@ class CustomCard extends Component {
                 this.setState({
                     title: "GO TO CART", color: "rgb(51,113,181)"
                 })
-                    this.props.cartReference.current.handleBadgeCount(this.state.badgeSize, "addButton")
+                this.props.cartReference.current.handleBadgeCount(this.state.badgeSize, "addButton")
             }).catch((error) => {
-                console.log(error)
+                this.props.history.push("/user/login")
             })
         }
+    }
+
+    componentDidMount() {
+        let user = localStorage.getItem('Authorization')
+        if(user !== null) {
+            this.handleButtonState()
+        }
+    }
+
+    handleButtonState = () => {
+        new AdminService().myCart().then(response => {
+            this.handleButton(response.data.data)
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
+    handleButton = (data) => {
+        this.setState({
+            badgeSize: data.length
+        })
+        data.filter(data => {
+            if (data.bookDetails.id === this.props.book.id) {
+                this.setState({
+                    title: "GO TO CART", color: "rgb(51,113,181)"
+                })
+            }
+            return null
+        })
+        this.props.cartReference.current.handleBadgeCount(data.length, "updateButton")
     }
 
     render() {
@@ -61,9 +92,8 @@ class CustomCard extends Component {
                     <CardMedia
                         component="img"
                         className="image1"
-                        height="200"
+                        height="100"
                         image={book.imageUrl}/>
-
                     <div id="stock-label" style={book.quantity === 0 ? {
                         visibility: "visible",
                         color: "#FF0000"
@@ -82,16 +112,9 @@ class CustomCard extends Component {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button style={book.quantity === 0 ? {
-                            backgroundColor: "#d3d3d3",
-                            pointerEvents: "none",
-                            marginBottom: "2%",
-                            width: "60%"
-                        }
-                        : {backgroundColor: this.state.color, width: "60%", marginBottom: "2%", color: "#fff"}}
-                            onClick={this.changeText}
-                            value={this.state.title}
-                    >
+                    <Button onClick={this.changeText} value={this.state.title} style={book.quantity === 0
+                        ? {backgroundColor: "#d3d3d3", pointerEvents: "none", marginBottom: "2%", width: "60%"}
+                        : {backgroundColor: this.state.color, width: "60%", marginBottom: "2%", color: "#fff"}}>
                         {this.state.title}
                     </Button>
                 </CardActions>
@@ -100,4 +123,4 @@ class CustomCard extends Component {
     }
 }
 
-export default CustomCard;
+export default withRouter(CustomCard);

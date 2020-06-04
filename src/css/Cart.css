@@ -1,27 +1,80 @@
-#cartcontainer {
-    margin-top: 7%;
+/*My Cart Css*/
+#cartcontainer{
+    /*margin-top:7%;*/
     min-height: 75.5vh;
     margin-left: 3%;
 }
 
-.bookdiv {
-    border: 0.1px solid grey;
-    padding: 2%;
-    width: 84%;
-    height: 400px;
+.books-container{
+    margin-left: -1%;
+    margin-bottom:-1.5%;
 }
 
-h4 {
+.address{
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.bookdiv{
+    border:0.1px solid grey;
+    padding:2%;
+    width: 84%;
+    height:415px;
+}
+
+.bookdiv1{
+    border:0.1px solid grey;
+    padding:2%;
+    width: 84%;
+    height:265px;
+}
+
+.scrollbar{
+    height:278px;
+    overflow-y:scroll;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+.scrollbar::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px gainsboro;
+    border-radius: 10px;
+}
+
+/* Handle */
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #aaadb3;
+    border-radius: 10px;
+}
+
+.customerdetails{
+    margin-top: 3%;
+    width: 84%;
+}
+
+.ordersummary{
+    margin-top: 3%;
+    width: 84%;
+}
+
+h4{
     font-size: 17px;
     margin-top: -1%;
 }
 
-.img {
-    height: 16vh;
+.img{
+    height:16vh;
     margin-top: 27%;
 }
 
-#bookname1 {
+.mycart-img{
+    height:16vh;
+}
+
+#bookname1{
     font-size: 15px;
     padding-top: 2.2%;
     font-weight: bold;
@@ -32,36 +85,62 @@ h4 {
 
 }
 
-#authorName {
+#authorName{
     font-size: 11.5px;
     margin-left: 14%;
     margin-top: 0.4%;
 }
 
-#cost {
-    font-size: 13px;
+.customer-email{
+    width: 125%;
+    margin-top: 4%;
+}
+
+#cost{
+    font-size:13px;
     font-weight: bold;
     margin-left: 14%;
     margin-top: 0.4%;
 }
 
-#orderBtn {
-    background-color: rgb(165, 42, 42);
-    width: 20%;
-    color: #fff;
-    margin-top: 2%;
-    display: flex;
-    margin-left: 80%;
+
+.mycart{
+    margin-bottom: 5%;
+    max-height: 18vh;
 }
 
-
-.plusminusdiv {
+.plusminusdiv{
     margin-top: 1%;
-    margin-right: 58%;
+    margin-right:58%;
     margin-left: 12%;
     display: flex;
 }
 
+#plusminubtn{
+    font-size:90%;
+    color:rgb(165,42,42);
+}
+
+#plusminubtn1{
+    font-size:90%;
+    color: #d3d3d3;
+}
+
+.nocartitems{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.noitemsimage{
+    height: 140px;
+    width: 180px;
+    align-self: center;
+}
+
+#emptycart {
+    align-self: center;
+}
 
 #text {
     margin-top: 5.5%;
@@ -72,7 +151,6 @@ h4 {
     font-size: 14px;
     text-align: center;
 }
-
 .remove {
     border: none;
     background-color: white;
@@ -81,23 +159,20 @@ h4 {
     font-size: 15px;
 }
 
-.nocartitems {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-#emptycart {
-    align-self: center;
-}
-
-.noitemsimage {
-    height: 140px;
-    width: 180px;
-    align-self: center;
+#orderBtn{
+    background-color: rgb(165,42,42);
+    width: 20%;
+    /*margin-bottom: 2%;*/
+    color:#fff;
+    margin-top: 2%;
+    display:flex;
+    margin-left:80%;
 }
 
 /*Customer Details Css*/
+.radiodiv{
+    margin-top: 1%;
+}
 
 #customer-details{
     font-size:17px;
@@ -106,11 +181,12 @@ h4 {
 }
 
 .secondtext{
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     margin-top: 3%;
     display: flex;
     justify-content: space-between;
 }
+
 
 #details{
     border:1px  grey;
@@ -123,11 +199,11 @@ h4 {
 }
 
 #name{
-    height:20px ;
+    height:12px ;
 }
 
 #contact{
-    height:20px ;
+    height:12px ;
 }
 
 #pincode{
@@ -179,35 +255,8 @@ h4 {
     margin-left:105%;
 }
 
-#editBtn{
-    position: absolute;
-    margin-left: 80%;
-    font-size:15px;
-    margin-top:-8%;
-}
 
-.address{
-    margin-top: 1%;
-}
-
-.customer-email{
-    width: 125%;
-    margin-top: 4%;
-}
-
-.customerdetails{
-    margin-top: 3%;
-    width: 88%;
-}
-
-
-/*Order Summary*/
-
-.ordersummary{
-    margin-top: 3%;
-    width: 88%;
-}
-
+/*Oredr Summary*/
 #summryBtn{
     background-color: rgb(160,48,60);
     width: 20%;
@@ -220,7 +269,7 @@ h4 {
 
 #summary-bookname{
     font-size: 15px;
-    margin-left:20px;
+    margin-left:18px;
     font-weight: bold;
 }
 
@@ -233,4 +282,56 @@ h4 {
     font-size: 13px;
     font-weight:bold;
     margin-left: 20px;
+}
+
+#editBtn{
+    position: absolute;
+    margin-left: 80%;
+    font-size:15px;
+    margin-top:-8%;
+}
+
+ul.breadcrumb {
+    margin-left: 2%;
+    margin-top: 7%;
+}
+
+.detailsblock{
+    margin-left: 1%;
+    width: 100%;
+}
+
+.details-content{
+    display: flex;
+    margin-top: -2%;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+    display: inline;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+    padding: 4px;
+    color: #9D9D9D;
+    content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+    color: #9D9D9D;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.details-block{
+    height: 150px;
+}
+
+.oredr-summary-books-div{
+    margin-left: 1%;
+    margin-top: 2%;
 }

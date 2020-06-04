@@ -137,5 +137,14 @@ export class AdminService {
             url:`${Constant.apiUrl}user/resend/email/${emailID}`
         })
     }
+
+    getDetails=(data)=>{
+        return Axios({
+            headers:{token: localStorage.getItem('Authorization')},
+            method:'post',
+            url:`${Constant.apiUrl}customer`,
+            data:data
+        })
+    }
 }
 

@@ -15,6 +15,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import TextFields from '../utils/CustomTextFields'
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
+import Divider from "@material-ui/core/Divider";
 
 
 class Cart extends Component {
@@ -34,8 +35,8 @@ class Cart extends Component {
             customerName: "", mobileNo: "", pincode: "", locality: "", address: "", city: "", landmark: "", email: "",
             name: " ", contact: " ", pinCode: " ", locaLity: " ", addRess: " ", ciTy: " ", landMark: " ", Email: " ",
             nameError: "", numberError: "", pincodeError: "", localityError: "", addressError: "", cityError: "",
-            landmarkError: "", emailError: "", err: "",
-            btnDisable: false,
+            landmarkError: "", emailError: "", err: "",totalPrice:"",
+            btnDisable: true,
             color: "grey",
 
         }
@@ -78,6 +79,27 @@ class Cart extends Component {
         })
     }
 
+    getDetails=()=>{
+        const data={
+            pincode:this.state.pincode,
+            locality:this.state.locality,
+            address:this.state.address,
+            city:this.state.city,
+            landmark:this.state.landmark,
+            addressType:this.state.addressType,
+        }
+
+        new AdminService().getDetails(data).then(response=>{
+            console.log(response)
+        }).catch((error) =>{
+            console.log(error)
+        })
+    }
+
+    handleCheckOut=()=>{
+        this.handleChange()
+        this.getDetails()
+    }
 
     componentDidMount() {
         this.handleCart()
@@ -86,10 +108,9 @@ class Cart extends Component {
     handleCart = () => {
         new AdminService().myCart().then(response => {
             this.setState({
-                checkoutData: response.data
+                checkoutData: response.data.data
             })
         }).catch((error) => {
-            console.log(error)
             this.setState({
                 checkoutData: []
             })
@@ -104,6 +125,7 @@ class Cart extends Component {
             disableFlag: true
         })
         this.state.disableFlag = true
+        this.setTotalValue()
     }
 
     handleFocus = () => {
@@ -127,14 +149,23 @@ class Cart extends Component {
         this.buttonVisibility()
     }
 
+    setTotalValue = () => {
+        let newVar = this.state.checkoutData.map((books, index) => {
+            return (books.bookDetails.bookPrice * books.quantity)
+        });
+        this.state.totalPrice = newVar.reduce((a, b) => a + b)
+    }
+
+
+
     formCheck() {
-        return this.state.customerName.trim().length > 0 && this.state.mobileNo.trim().length > 0 && this.state.pincode.trim().length > 0 && this.state.locality.trim().length > 0 &&
-            this.state.address.trim().length > 0 && this.state.city.trim().length > 0 && this.state.landmark.trim().length > 0 && this.state.email.trim().length > 0;
+        return this.state.pincode.trim().length > 0 && this.state.locality.trim().length > 0 &&
+            this.state.address.trim().length > 0 && this.state.city.trim().length > 0;
     }
 
     errorCheck() {
-        return this.state.name.trim().length === 0 && this.state.contact.trim().length === 0 && this.state.pinCode.trim().length === 0 && this.state.locaLity.trim().length === 0 &&
-            this.state.addRess.trim().length === 0 && this.state.ciTy.trim().length === 0 && this.state.landMark.trim().length === 0 && this.state.Email.trim().length === 0;
+        return this.state.pinCode.trim().length === 0 && this.state.locaLity.trim().length === 0 &&
+            this.state.addRess.trim().length === 0 && this.state.ciTy.trim().length === 0;
     }
 
     buttonVisibility() {
@@ -291,6 +322,11 @@ class Cart extends Component {
         return (
             <div>
                 <CbHeader/>
+                <ul className="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li>My Cart</li>
+                </ul>
+
                 <Container id="cartcontainer" maxWidth="md">
                     <Card className={cartData.length === 1 ? "bookdiv1" : "bookdiv"} variant="outlined">
                         <h4>My Cart ({cartData.length})</h4>
@@ -298,14 +334,15 @@ class Cart extends Component {
                             {
                                 cartData.length > 0 ? cartData.map((books, index) => {
                                     return <CartItems flag={this.state.disableFlag} handleSummary={this.setTotalValue}
-                                                      key={books.id}
+                                                      key={books.id} price= {books.totalPrice}
                                                       cartData={cartData} handleCart={this.handleCart}
-                                                      books={books} index={index}/>
+                                                      cartID={books.id}
+                                                      quantity={books.quantity}
+                                                      books={books.bookDetails} index={index}/>
                                 }) : <div className="nocartitems">
                                     <img className="noitemsimage" src={require("../../asset/emptyCart.png")}
                                          alt="Cart Is Empty"/>
                                     <h3 id="emptycart">Please Add Books To Cart</h3>
-
                                 </div>
                             }
                         </div>
@@ -480,26 +517,34 @@ class Cart extends Component {
                             <Typography id="customer-details">Order Summary</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
-                            <div className="detailsblock" style={{marginLeft: "1%", width: "100%"}}>
-                                <div>
-                                    <div>
-                                        <div style={{display: "flex", marginTop: "-2%"}}>
-                                            <div>
-                                                <img src={require("../../asset/becham.jpg")} className="img"/>
+
+                            <div className="detailsblock">
+                                <div className={cartData.length === 1 ? "details-block" : cartData.length === 2 ? "no-scroll" : "scrollbar"}>
+                                    {
+                                        cartData.map((books, index) =>
+                                            <div key={index}>
+                                                <div className="details-content">
+                                                    <div>
+                                                        <img src={books.bookDetails.imageUrl} alt={"Not found"}
+                                                             className="img"/>
+                                                    </div>
+                                                    <div className="oredr-summary-books-div">
+                                                        <Typography id="summary-bookname"
+                                                                    component="h2">{books.bookDetails.bookName}</Typography>
+                                                        <Typography variant="body2" color="textSecondary"
+                                                                    id="summary-authorname">{books.bookDetails.authorName}</Typography>
+                                                        <Typography component="h2"
+                                                                    id="summary-cost">Rs. {books.totalPrice}</Typography>
+                                                    </div>
+                                                </div>
+                                                <br/>
+                                                <Divider/><br/>
                                             </div>
-                                            <div style={{marginLeft: "1%", marginTop: "2%"}}>
-                                                <Typography id="summary-bookname"
-                                                            component="h2">The Beckham Experiment</Typography>
-                                                <Typography variant="body2" color="textSecondary"
-                                                            id="summary-authorname">Grant Wahl</Typography>
-                                                <Typography component="h2"
-                                                            id="summary-cost">Rs.1000</Typography>
-                                            </div>
-                                        </div>
-                                        <br/>
-                                    </div>
+                                        )}
+
                                 </div>
-                                <Button onClick={this.handleChange} id="summryBtn">
+                                <b id="totalPrice-summary">Total price: {this.state.totalPrice}</b>
+                                <Button onClick={this.handleCheckOut} id="summryBtn">
                                     Place Order
                                 </Button>
                             </div>

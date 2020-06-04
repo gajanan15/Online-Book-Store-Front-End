@@ -8,6 +8,8 @@ import Pagination from "@material-ui/lab/Pagination";
 import CustomSnackBar from "../utils/CustomSnackBar";
 import Select from "@material-ui/core/Select";
 import CustomCard from "./CustomCard";
+import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
+import CbFooter from "../utils/CbFooter";
 
 class HomePage extends Component {
 
@@ -24,9 +26,11 @@ class HomePage extends Component {
             snackMessage: "",
             tempTwo: [],
             searchActivated: "",
-            myFlag: false,
+            myFlag: true,
             searchText: "none",
-            selectBoxValue: "NEWEST_ARRIVALS"
+            selectBoxValue: "none",
+            name:"",
+            userData:[],
         }
         this.searchBar = React.createRef();
     }
@@ -54,6 +58,7 @@ class HomePage extends Component {
     }
 
     getUser = () =>{
+
         new AdminService().userDetails().then(response=>{
             this.setState({
                 name:response.data.fullName,
@@ -65,9 +70,12 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
+        let user = localStorage.getItem('Authorization')
         this.getBooks();
         this.getCount();
-        this.getUser();
+        if(user !== null){
+            this.getUser();
+        }
         this.searchBar.current.handleSearchbar();
     }
 
@@ -92,7 +100,8 @@ class HomePage extends Component {
         } else {
             this.setState({
                 searchText: text,
-                myFlag: true
+                myFlag: true,
+                selectBoxValue:this.state.selectBoxValue="none"? "NEWEST_ARRIVALS":this.state.selectBoxValue
             }, () => this.searchAndFilter())
         }
     }
@@ -146,33 +155,44 @@ class HomePage extends Component {
         }
     }
 
+
     render() {
+
+        const theme = createMuiTheme({
+            palette: {
+                primary: {
+                    main: '#a52a2a',
+                },
+            },
+        });
+
         let data = this.state.data;
         return (
             <div>
-                <CbHeader ref={this.searchBar} test={this.getSearchText}/>
+                <CbHeader userData={this.state.userData} ref={this.searchBar} test={this.getSearchText} name={this.state.name}/>
                 <div className="maincarddiv">
                     <Container className="maincontain" id="maincontainer">
                         <div id="filter">
                             <h2>Books <p className="maincontain-p"> ({this.state.dataLength} items)</p></h2>
-                            <Select
-                                native
-                                className="select-filter"
-                                variant="outlined"
-                                onChange={this.handleChange}>
-                                <option selected value={"None"}>Sort by</option>
-                                <option value={"LOW_TO_HIGH"}>Price:Low_to_High</option>
-                                <option value={"HIGH_TO_LOW"}>Price:High_to_Low</option>
-                                <option value={"NEWEST_ARRIVALS"}> Newest_Arrivals</option>
-                            </Select>
+                            <ThemeProvider theme={theme}>
+                                <Select
+                                    native
+                                    className="select-filter"
+                                    variant="outlined"
+                                    onChange={this.handleChange}>
+                                    <option defaultValue value={"None"}>Sort by</option>
+                                    <option value={"LOW_TO_HIGH"}>Price:Low to High</option>
+                                    <option value={"HIGH_TO_LOW"}>Price:High to Low</option>
+                                    <option value={"NEWEST_ARRIVALS"}> Newest Arrivals</option>
+                                </Select>
+                            </ThemeProvider>
                         </div>
-                        <Grid container spacing={6}>
-                            {data.length > 0 ? data.map((book, index) => {
-                                return <Grid key={book.id} item xs={12} sm={6} md={4} lg={3}>
-                                    <CustomCard book={book} index={index} key={book.id}/>
+                        <Grid container spacing={4}>
+                            {data.map((book, index) => {
+                                return <Grid key={book.id}  item xs={12} sm={6} md={4} lg={3}>
+                                    <CustomCard key={book.id} cartReference={this.searchBar} book={book} index={index}/>
                                 </Grid>
-                            }):<div className="imagediv"><img className="booknotfound" src={require("../../asset/noBooksfound.png")} alt="No Books Found"/></div>
-                            }
+                            })}
                         </Grid>
                     </Container>
                 </div>
@@ -183,6 +203,7 @@ class HomePage extends Component {
                 {this.state.snackFlag &&
                 <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity}/>
                 }
+                <CbFooter/>
             </div>
         );
     }

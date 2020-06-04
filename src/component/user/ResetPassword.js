@@ -81,9 +81,6 @@ class ResetPassword extends Component {
     getDetails=()=>{
         if(this.state.password === this.state.confirmPassWord){
             new AdminService().resetPassword(this.state.password,this.props.match.params.token).then(response=>{
-                console.log("in data resetpass")
-                console.log(response)
-
                 this.setState({
                     severity:response.data.message==="Password Has Been Reset" ? "success" : "error",
                     snackMessage:response.data.message,

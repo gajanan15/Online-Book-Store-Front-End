@@ -112,18 +112,18 @@
     flex-grow: 1
 }
 
-
-
-button.MuiButtonBa.MuiBadge-anchorOriginTopRightRectangle {
+.MuiBadge-anchorOriginTopRightRectangle {
     top: 0;
     right: 0;
     transform: scale(1) translate(50%, -50%);
     transform-origin: 100% 0%;
     color: brown;
     background-color: white;
-}se-root.MuiButton-root.MuiButton-contained.loginorsignupbutton{
-     width: 20px;
- }
+}
+
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.loginorsignupbutton{
+    width: 20px;
+}
 
 button.MuiButtonBase-root.MuiButton-root.MuiButton-text.loginorsignupbutton{
     border: solid 1px rgb(150, 0, 0);
@@ -191,20 +191,25 @@ svg.MuiSvgIcon-root.userIcon{
     }
     #title{
         width: 50%;
-        font-size: 100%;
+        font-size: 0%;
         margin-left: 2%;
     }
 
     .searchIcon{
-        margin-left: 25%;
+        margin-left: -2%;
         height: 50%;
         position: absolute;
-        color: white;
+        color: grey;
+        font-size: 80%;
     }
 
     .search{
-        width: 0;
-        margin-left: -37%;
+        width: 70%;
+        margin-left: -34%;
+    }
+
+    .MuiInputBase-root.inputRoot.inputInput{
+        margin-left: 15%;
     }
 
     svg.MuiSvgIcon-root.userIcon{
@@ -256,13 +261,25 @@ svg.MuiSvgIcon-root.userIcon{
 @media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 1){
     #title{
         width: 70%;
-        font-size: 115%;
+        font-size: 0%;
     }
 
     .searchIcon{
-        margin-left: 12%;
+        margin-left: -1%;
+        height: 50%;
+        position: absolute;
+        color: grey;
+        font-size: 80%;
     }
 
+    .search{
+        width: 70%;
+        margin-left: -53%;
+    }
+
+    .MuiInputBase-root.inputRoot.inputInput{
+        margin-left: 15%;
+    }
     #tool{
         margin-left: 2%;
     }
@@ -334,7 +351,7 @@ svg.MuiSvgIcon-root.userIcon{
         transform: translate(680%, 40%);
         width: 30%;
         z-index: 999;
-        margin-left: -132%;
+        margin-left: -131%;
         height: 18%;
     }
 
@@ -417,10 +434,10 @@ svg.MuiSvgIcon-root.userIcon{
 
     .loginsignupcard {
         position: absolute;
-        transform: translate(442%, 42%);
+        transform: translate(442%, 44%);
         width: 20%;
         z-index: 999;
-        margin-left: -16%;
+        margin-left: -12%;
         height: 12%;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     }

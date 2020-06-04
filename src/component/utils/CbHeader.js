@@ -11,13 +11,15 @@ import Badge from "@material-ui/core/Badge";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import PersonOutlineSharpIcon from '@material-ui/icons/PersonOutlineSharp';
 import {Link} from 'react-router-dom'
-import CardContent from "@material-ui/core/CardContent";
-import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
-import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import SignUp from "../user/SignUp";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+
 
 export class CbHeader extends Component {
     constructor(props) {
@@ -47,18 +49,23 @@ export class CbHeader extends Component {
         this.props.test(event.target.value)
     }
 
-    handleDialogueBoxVisibility = (user) => {
-        if (user === true) {
-            window.location.reload(true)
-            localStorage.removeItem('Authorization')
-        }
-        if (user === false) {
+    handleBadgeCount(value, updateFactor) {
+        if (updateFactor === "updateButton")
             this.setState({
-                visibilityOfDialogBox: true,
-                visibilityOfCloseIcon: "visible",
-                visibilityValueOfLogin: "hidden"
+                counter: value
+            })
+        if (updateFactor === "addButton") {
+            this.setState({
+                counter: this.state.counter + 1
             })
         }
+    }
+
+    handleCounter = () => {
+        this.setState({
+            counter: this.state.counter + 1
+        })
+        alert(this.state.counter)
     }
 
     handleLoginBoxVisibility = (event) => {
@@ -73,14 +80,16 @@ export class CbHeader extends Component {
         }
     }
 
-    handleBadgeCount(value, updateFactor) {
-        if (updateFactor === "updateButton")
+    handleDialogueBoxVisibility = (user) => {
+        if (user === true) {
+            window.location.reload(true)
+            localStorage.removeItem('Authorization')
+        }
+        if (user === false) {
             this.setState({
-                counter: value
-            })
-        if (updateFactor === "addButton") {
-            this.setState({
-                counter: this.state.counter + 1
+                visibilityOfDialogBox: true,
+                visibilityOfCloseIcon: "visible",
+                visibilityValueOfLogin: "hidden"
             })
         }
     }
@@ -91,6 +100,10 @@ export class CbHeader extends Component {
         })
     }
 
+    componentDidMount() {
+        this.isLoggedIn()
+    }
+
     isLoggedIn = () => {
         let user = localStorage.getItem('Authorization');
         if(user){
@@ -99,16 +112,13 @@ export class CbHeader extends Component {
                 redirect: "cart",
                 userLoggedIn: true
             })}
+
         if(user == "null" || user == "undefined"){
             this.setState({
                 logorsign: "LOGIN/SIGNUP",
                 redirect: "login",
                 userLoggedIn: false
             })}
-    }
-
-    componentDidMount() {
-        this.isLoggedIn()
     }
 
     render() {
@@ -139,7 +149,7 @@ export class CbHeader extends Component {
                         {this.state.searchVisibility &&
                         <div className="shoppingIcon">
                             <IconButton aria-label="show 4 new mails" id="shopping-icon" >
-                                <Badge className="badge-carticon" badgeContent={this.state.counter}>
+                                <Badge className="badge-carticon" badgeContent={this.state.counter} style={{color:"white"}}>
                                     <Link style={{color: 'white'}} to={`/${this.state.redirect}`}><ShoppingCartOutlinedIcon id="cart-icon"/></Link>
                                 </Badge>
                             </IconButton>

@@ -11,15 +11,15 @@ class CartItems extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            count: 1,
+            count: this.props.quantity,
             changedCount: '',
-            disableDecrementButton: false,
-            disableIncrementButton: true,
-            totalPrice: this.props.books.bookPrice
+            disableDecrementButton:false,
+            disableIncrementButton:true,
+            totalPrice:this.props.books.bookPrice
         }
     }
 
-    checkAndRemove = (count, id, type) => {
+    checkAndRemove = (count, id,type) => {
         if (count === 0) {
             this.remove(id)
         }
@@ -38,21 +38,19 @@ class CartItems extends Component {
     onclick(type, id, bookid) {
         if (this.state.count >= 0) {
             this.setState({
-                count: type == 'add' ? this.state.count + 1 : this.state.count - 1,
+                count: type === 'add' ? this.state.count + 1 : this.state.count - 1,
                 changedCount: id
-            }, () => this.checkAndRemove(this.state.count, bookid, type));
+            }, () => this.checkAndRemove(this.state.count, bookid,type));
         }
-        type === 'add' ? this.updateCount(id, this.state.count + 1) : this.updateCount(id, this.state.count - 1)
+        type === 'add' ? this.updateCount(bookid, this.state.count + 1) : this.updateCount(id, this.state.count - 1)
 
     }
 
     updateCount = (id, count) => {
         const cartDTO = {
-            "authorName": this.props.books.authorName,
-            "bookID": id,
-            "bookName": this.props.books.bookName,
-            "bookPrice": this.props.books.bookPrice,
-            "quantity": count
+            "id":this.props.cartID,
+            "quantity": count,
+            "totalPrice":this.props.books.bookPrice*count
         }
         new AdminService().updateCart(cartDTO).then(response => {
             this.props.handleCart()
@@ -62,7 +60,8 @@ class CartItems extends Component {
     }
 
     disableDecrementButton = (type) => {
-        if (type == 'sub' && this.state.disableDecrementButton) {
+
+        if (type === 'sub' && this.state.disableDecrementButton) {
             this.setState({
                 disableDecrementButton: false
             })
@@ -72,31 +71,32 @@ class CartItems extends Component {
                 disableDecrementButton: true
             })
         }
+
     }
 
-    disableIncrementButton = (type) => {
-        if ((type == 'add' && this.state.disableIncrementButton) || this.props.flag) {
+    disableIncrementButton=(type)=>{
+
+        if ((type === 'add' && this.state.disableIncrementButton) || this.props.flag) {
             this.setState({
                 disableIncrementButton: true
             })
         }
-        if (this.state.count > 1) {
+        if(this.state.count > 1){
             this.setState({
-                disableIncrementButton: false
+                disableIncrementButton:false
             })
         }
 
-        if (this.state.count === 1 || this.props.flag) {
+        if(this.state.count === 1 || this.props.flag){
             this.setState({
-                disableIncrementButton: true
+                disableIncrementButton:true
             })
         }
-
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        this.disableDecrementButton()
-        this.disableIncrementButton()
+        this.disableDecrementButton("loaded")
+        this.disableIncrementButton("loaded")
     }
 
 
@@ -104,41 +104,32 @@ class CartItems extends Component {
         return (
             <div className="mycart">
                 <div>
-                    <img src={this.props.books.bookImg} style={{height: "16vh"}}/>
+                    <img src={this.props.books.imageUrl} alt="Not found" className="mycart-img"/>
                 </div>
-                <div className="booksContainer" style={{marginLeft: "-1%", marginBottom: "-1.5%"}}>
+                <div className="books-container">
                     <Typography component="h2" id="bookname1">{this.props.books.bookName}</Typography>
-                    <Typography variant="body2" color="textSecondary"
-                                id="authorName">{this.props.books.authorName}</Typography>
+                    <Typography variant="body2" color="textSecondary" id="authorName">{this.props.books.authorName}</Typography>
                     <Typography component="h2" id="cost">Rs.
-                        {this.props.books.bookPrice * this.props.books.quantity}</Typography>
+                        {this.props.price}</Typography>
                     <div className="plusminusdiv">
                         <IconButton id="minus" disabled={this.state.disableIncrementButton}
-                                    onClick={() => this.onclick('sub', this.props.books.bookID, this.props.books.id, this.props.books.bookPrice)}>
-                            <RemoveCircleOutlineIcon style={this.state.disableIncrementButton === true ? {
-                                color: "#d3d3d3",
-                                fontSize: "90%"
-                            } : {fontSize: "90%", color: "rgb(165,42,42)"}}/>
+                                    onClick={() => this.onclick('sub', this.props.books.bookID, this.props.books.id,this.props.books.bookPrice)}>
+                            <RemoveCircleOutlineIcon id={this.state.disableIncrementButton===true ? "plusminubtn1":"plusminubtn"}/>
                         </IconButton>
 
-                        <input id="text" value={this.state.count}></input>
+                        <input  id="text" value={this.state.count}></input>
 
-                        <IconButton className="plus" disabled={this.state.disableDecrementButton}
-                                    onClick={() => this.onclick('add', this.props.books.bookID, this.props.books.id, this.props.books.bookPrice)}>
-                            <AddCircleOutlineIcon style={this.state.disableDecrementButton === true ? {
-                                color: "#d3d3d3",
-                                fontSize: "90%"
-                            } : {fontSize: "90%", color: "rgb(165,42,42)"}}/>
+                        <IconButton id="plus" disabled={this.state.disableDecrementButton}
+                                    onClick={() => this.onclick('add', this.props.books.bookID, this.props.books.id,this.props.books.bookPrice)}>
+                            <AddCircleOutlineIcon id={this.state.disableDecrementButton===true ? "plusminubtn1":"plusminubtn"}/>
                         </IconButton>
 
-                        <button className="remove" disabled={this.props.flag}
-                                onClick={() => this.remove(this.props.books.id)}>Remove
+                        <button className="remove" disabled={this.props.flag} onClick={() => this.remove(this.props.cartID)}>Remove
                         </button>
                     </div>
-                </div>
-                <br/>
+                </div><br/>
                 {this.props.index !== this.props.cartData.length - 1 ?
-                    <Divider/> : console.log()
+                    <Divider/>  : console.log()
                 }
             </div>
 
