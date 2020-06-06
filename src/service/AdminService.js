@@ -36,7 +36,7 @@ export class AdminService {
     addToCart = (data) => {
         return Axios({
             method: 'post',
-            headers:{token: localStorage.getItem('Authorization')},
+            headers: {token: localStorage.getItem('Authorization')},
             url: `${Constant.apiUrl}cart`,
             data: data,
         })
@@ -45,7 +45,7 @@ export class AdminService {
     myCart = () => {
         return Axios({
             method: 'get',
-            headers:{token: localStorage.getItem('Authorization')},
+            headers: {token: localStorage.getItem('Authorization')},
             url: `${Constant.apiUrl}cart`
         })
     }
@@ -53,7 +53,7 @@ export class AdminService {
     updateCart = (cartValues) => {
         return Axios({
             method: 'put',
-            headers:{token: localStorage.getItem('Authorization')},
+            headers: {token: localStorage.getItem('Authorization')},
             url: `${Constant.apiUrl}cart`,
             data: cartValues
         })
@@ -62,89 +62,91 @@ export class AdminService {
     remove = (id) => {
         return Axios({
             method: 'delete',
-            headers:{token: localStorage.getItem('Authorization')},
+            headers: {token: localStorage.getItem('Authorization')},
             url: `${Constant.apiUrl}cart/${id}`
         })
     }
 
-    customerEmail=(data)=>{
+    uploadFile = (formData) => {
         return Axios({
-            method:'post',
-            url:`${Constant.apiUrl}send`,
-            data:data
+            method: 'post',
+            data: formData,
+            url: `${Constant.apiUrl}admin/books/image`
         })
     }
 
-    uploadFile=(formData)=>{
+    register = (registerData) => {
         return Axios({
-            method:'post',
-            data:formData,
-            url:`${Constant.apiUrl}admin/books/image`
+            method: 'post',
+            url: `${Constant.apiUrl}user/register`,
+            data: registerData
         })
     }
 
-    register=(registerData)=>{
+    login = (loginData) => {
         return Axios({
-            method:'post',
-            url:`${Constant.apiUrl}user/register`,
-            data:registerData
+            method: 'post',
+            url: `${Constant.apiUrl}user/login`,
+            data: loginData
         })
     }
 
-    login=(loginData)=>{
+    userDetails = () => {
         return Axios({
-            method:'post',
-            url:`${Constant.apiUrl}user/login`,
-            data:loginData
+            headers: {token: localStorage.getItem('Authorization')},
+            method: 'get',
+            url: `${Constant.apiUrl}customer`,
         })
     }
 
-    userDetails=()=>{
+    forgetPassword = (emailID) => {
         return Axios({
-            headers:{token: localStorage.getItem('Authorization')},
-            method:'get',
-            url:`${Constant.apiUrl}customer`,
+            method: 'post',
+            params: {emailID: emailID},
+            url: `${Constant.apiUrl}user/forget/password`,
         })
     }
 
-    forgetPassword=(emailID)=>{
+    resetPassword = (password, token) => {
         return Axios({
-            method:'post',
-            params:{emailID:emailID},
-            url:`${Constant.apiUrl}user/forget/password`,
+            method: 'post',
+            params: {password: password, token: token},
+            url: `${Constant.apiUrl}user/confirm/password/`,
         })
     }
 
-    resetPassword=(password,token)=>{
+    verifyEmail = (token) => {
         return Axios({
-            method:'post',
-            params:{password:password,token:token},
-            url:`${Constant.apiUrl}user/confirm/password/`,
+            method: 'post',
+            params: {token: token},
+            url: `${Constant.apiUrl}user/verify/mail`
         })
     }
 
-    verifyEmail=(token)=>{
+    resendMail = (emailID) => {
         return Axios({
-            method:'post',
-            params:{token:token},
-            url:`${Constant.apiUrl}user/verify/mail`
+            method: 'post',
+            url: `${Constant.apiUrl}user/resend/email/${emailID}`
         })
     }
 
-    resendMail=(emailID)=>{
+    getDetails = (data) => {
         return Axios({
-            method:'post',
-            url:`${Constant.apiUrl}user/resend/email/${emailID}`
+            headers: {token: localStorage.getItem('Authorization')},
+            method: 'post',
+            url: `${Constant.apiUrl}customer`,
+            data: data
         })
     }
 
-    getDetails=(data)=>{
+    placedOrder = (totalprice) => {
         return Axios({
-            headers:{token: localStorage.getItem('Authorization')},
-            method:'post',
-            url:`${Constant.apiUrl}customer`,
-            data:data
+            headers: {token: localStorage.getItem('Authorization')},
+            method: 'post',
+            params: {totalprice: totalprice},
+            url: `${Constant.apiUrl}order`,
         })
     }
+
 }
 

@@ -35,69 +35,42 @@ class Cart extends Component {
             customerName: "", mobileNo: "", pincode: "", locality: "", address: "", city: "", landmark: "", email: "",
             name: " ", contact: " ", pinCode: " ", locaLity: " ", addRess: " ", ciTy: " ", landMark: " ", Email: " ",
             nameError: "", numberError: "", pincodeError: "", localityError: "", addressError: "", cityError: "",
-            landmarkError: "", emailError: "", err: "",totalPrice:"",
+            landmarkError: "", emailError: "", err: "", totalPrice: "",
             btnDisable: true,
             color: "grey",
 
         }
     }
 
-    handleChange = () => {
-        const min = 1;
-        const max = 100000000;
-        const rand = min + Math.random() * (max - min);
-        this.setState({
-                random: Math.ceil(this.state.random + rand)
-            }, () => this.props.history.push(`/order/successful/${this.state.random}`)
-        )
+    getMyOrder = () => {
+        new AdminService().placedOrder(this.state.totalPrice).then(response => {
+            this.setState({
+                orderID: response.data.data
+            }, () => this.props.history.push(`/orders/successful/${this.state.orderID}`))
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
 
-        let newVar = this.state.checkoutData.map((books, index) => {
-            return (books.bookPrice * books.quantity)
-        });
-
-        let totalValue = newVar.reduce((a, b) => a + b);
-
-        const order = {
-            "customerName": this.state.customerName,
-            "mobileNo": this.state.mobileNo,
-            "pincode": this.state.pincode,
-            "locality": this.state.locality,
-            "address": this.state.address,
-            "city": this.state.city,
-            "landmark": this.state.landmark,
-            "email": this.state.email,
-            "bookName": this.state.checkoutData.map((books, index) => {
-                return books.bookName
-            }),
-            "bookPrice": totalValue,
-            "quantity": this.state.checkoutData.length
+    getDetails = () => {
+        const data = {
+            pincode: this.state.pincode,
+            locality: this.state.locality,
+            address: this.state.address,
+            city: this.state.city,
+            landmark: this.state.landmark,
+            addressType: this.state.addressType,
         }
-        new AdminService().customerEmail(order).then(response => {
+
+        new AdminService().getDetails(data).then(response => {
             console.log(response)
         }).catch((error) => {
             console.log(error)
         })
     }
 
-    getDetails=()=>{
-        const data={
-            pincode:this.state.pincode,
-            locality:this.state.locality,
-            address:this.state.address,
-            city:this.state.city,
-            landmark:this.state.landmark,
-            addressType:this.state.addressType,
-        }
-
-        new AdminService().getDetails(data).then(response=>{
-            console.log(response)
-        }).catch((error) =>{
-            console.log(error)
-        })
-    }
-
-    handleCheckOut=()=>{
-        this.handleChange()
+    handleCheckOut = () => {
+        this.getMyOrder()
         this.getDetails()
     }
 
@@ -155,7 +128,6 @@ class Cart extends Component {
         });
         this.state.totalPrice = newVar.reduce((a, b) => a + b)
     }
-
 
 
     formCheck() {
@@ -284,23 +256,6 @@ class Cart extends Component {
         }
     }
 
-    emailValidation = (event, error) => {
-        let emailPattern = "^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$"
-        if (!event.target.value.match(emailPattern)) {
-            this.setState({
-                [event.target.id]: "Please enter valid email address",
-                [error]: `Invalid ${event.target.name}`,
-                err: true,
-            })
-        } else {
-            this.setState({
-                [event.target.id]: " ",
-                [error]: "",
-                err: false,
-            })
-        }
-    }
-
     changeState = (event) => {
         this.setState({
             [event.target.name]: event.target.value,
@@ -334,7 +289,7 @@ class Cart extends Component {
                             {
                                 cartData.length > 0 ? cartData.map((books, index) => {
                                     return <CartItems flag={this.state.disableFlag} handleSummary={this.setTotalValue}
-                                                      key={books.id} price= {books.totalPrice}
+                                                      key={books.id} price={books.totalPrice}
                                                       cartData={cartData} handleCart={this.handleCart}
                                                       cartID={books.id}
                                                       quantity={books.quantity}
@@ -436,25 +391,6 @@ class Cart extends Component {
                                         className="textfields1" disabled={this.state.text}
                                     />
                                 </div>
-
-                                <div className="customer-email">
-                                    <TextFields
-                                        required={true}
-                                        type="email"
-                                        style={{marginTop: "2%"}}
-                                        label="Email"
-                                        id="Email"
-                                        error={this.state.emailError}
-                                        name="email"
-                                        onChange={this.changeState}
-                                        onBlur={(e) => this.emailValidation(e, "emailError")}
-                                        helperText={this.state.Email}
-                                        variant="outlined"
-                                        className="textfields1" disabled={this.state.text}
-                                    />
-                                </div>
-
-
                                 <div className="secondtext">
                                     <TextFields
                                         required={true}
@@ -519,7 +455,8 @@ class Cart extends Component {
                         <ExpansionPanelDetails>
 
                             <div className="detailsblock">
-                                <div className={cartData.length === 1 ? "details-block" : cartData.length === 2 ? "no-scroll" : "scrollbar"}>
+                                <div
+                                    className={cartData.length === 1 ? "details-block" : cartData.length === 2 ? "no-scroll" : "scrollbar"}>
                                     {
                                         cartData.map((books, index) =>
                                             <div key={index}>
