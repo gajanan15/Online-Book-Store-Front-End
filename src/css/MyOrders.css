@@ -293,3 +293,71 @@ ul.myorderbreadcrumb li a {
 
 }
 
+@media only screen and (min-device-width: 1023px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+
+    ul.myorderbreadcrumb {
+        margin-left: 11%;
+        /*margin-top: 9%;*/
+    }
+
+    ul.myorderbreadcrumb li {
+        display: inline;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .order-img{
+        margin-top: 15%;
+        height: 14vh;
+    }
+
+    .myorderdiv {
+        border: 1px solid black;
+        margin-left: 22%;
+        width: 700px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5%;
+    }
+
+    .orderblock {
+        margin-left: 22%;
+        width: 700px;
+        height: 380px;
+    }
+
+    .orderblock1 {
+        margin-left: 22%;
+        width: 700px;
+    }
+
+    #orderdate {
+        margin-left: 1%;
+        font-size: 16px;
+    }
+
+    #orderid {
+        margin-right: 1%;
+        font-size: 16px;
+    }
+
+    #order-bookname {
+        font-size: 22px;
+        margin-left:30px;
+        font-weight: bold;
+        margin-top: 10%;
+    }
+
+    #order-authorname {
+        font-size: 15px;
+        margin-left: 30px;
+    }
+
+    #order-cost {
+        font-size: 16px;
+        font-weight:bold;
+        margin-left: 30px;
+        margin-top: 4%;
+    }
+
+}
