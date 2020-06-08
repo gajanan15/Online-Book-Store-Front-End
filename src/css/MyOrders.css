@@ -132,3 +132,89 @@ ul.myorderbreadcrumb li a {
     display: flex;
     height: 148px;
 }
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
+
+    ul.myorderbreadcrumb {
+        margin-left: 0.8%;
+        margin-top: 18%;
+    }
+
+    .myorderdiv {
+        border:1px solid black;
+        margin-left: 40px;
+        width: 330px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #orderdate {
+        margin-left: 1%;
+    }
+
+    .order-img{
+        margin-top: 25%;
+        height: 14vh;
+    }
+
+    #order-bookname {
+        font-size: 15px;
+        margin-left:18px;
+        font-weight: bold;
+        margin-top: 10%;
+    }
+
+    #order-authorname {
+        font-size: 11.5px;
+        margin-left: 18px;
+    }
+
+    #order-cost {
+        font-size: 13px;
+        font-weight:bold;
+        margin-left: 18px;
+        margin-top: 4%;
+    }
+
+    #orderid {
+        margin-right: 1%;
+        font-size: 14px;
+    }
+
+    .orderblock1{
+        margin-left: 40px;
+        width: 330px;
+    }
+
+    .orderblock{
+        margin-left: 40px;
+        width: 330px;
+    }
+
+    .order-grid{
+        width:100%;
+        display:flex;
+        height: 130px;
+    }
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 1){
+
+    ul.myorderbreadcrumb {
+        margin-left: 6.2%;
+        margin-top: 18%;
+    }
+
+    .myorderdiv {
+        margin-left: 67px;
+    }
+
+    .orderblock1{
+        margin-left: 67px;
+    }
+
+    .orderblock{
+        margin-left: 67px;
+    }
+
+}
