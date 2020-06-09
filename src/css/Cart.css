@@ -1,6 +1,5 @@
 /*My Cart Css*/
 #cartcontainer{
-    /*margin-top:7%;*/
     min-height: 75.5vh;
     margin-left: 3%;
 }
@@ -38,13 +37,11 @@
     width: 7px;
 }
 
-/* Track */
 .scrollbar::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px gainsboro;
     border-radius: 10px;
 }
 
-/* Handle */
 .scrollbar::-webkit-scrollbar-thumb {
     background: #aaadb3;
     border-radius: 10px;
@@ -162,7 +159,6 @@ h4{
 #orderBtn{
     background-color: rgb(165,42,42);
     width: 20%;
-    /*margin-bottom: 2%;*/
     color:#fff;
     margin-top: 2%;
     display:flex;
@@ -306,21 +302,18 @@ ul.breadcrumb {
     margin-top: -2%;
 }
 
-/* Display list items side by side */
 ul.breadcrumb li {
     display: inline;
     font-size: 14px;
     font-weight: bold;
 }
 
-/* Add a slash symbol (/) before/behind each list item */
 ul.breadcrumb li+li:before {
     padding: 4px;
     color: #9D9D9D;
     content: "/\00a0";
 }
 
-/* Add a color to all links inside the list */
 ul.breadcrumb li a {
     color: #9D9D9D;
     text-decoration: none;
@@ -334,4 +327,253 @@ ul.breadcrumb li a {
 .oredr-summary-books-div{
     margin-left: 1%;
     margin-top: 2%;
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
+
+    /*My Cart Css*/
+    #cartcontainer{
+        margin-top: 6%;
+        margin-left: 5%;
+        min-height: 85vh;
+    }
+
+    .books-container{
+        margin-left: -1%;
+        margin-bottom: -2.5%;
+    }
+
+    .mycart-img {
+        margin-left: 2%;
+    }
+
+    .breadcrumb{
+        margin-left: 2%;
+        margin-top: 15%;
+    }
+
+    ul.breadcrumb {
+        margin-left: -1%;
+        margin-top: 20%;
+    }
+
+    .bookdiv{
+        border:0.1px solid grey;
+        padding:2%;
+        width: 88%;
+        flex-direction: row;
+        height: 60%;
+    }
+
+    .bookdiv1{
+        width: 88%;
+        height: 224px;
+    }
+
+    h4{
+        font-size: 14px;
+        margin-left: 2%;
+        margin-top: 2%;
+    }
+
+    .img{
+        height:12vh;
+        margin-left: 3%;
+    }
+
+    #bookname1{
+        font-size: 12px;
+        padding-top: 5%;
+        margin-left: 35%;
+        margin-top: -45%;
+    }
+
+    #authorName{
+        font-size: 9.5px;
+        margin-left: 35%;
+    }
+
+    #cost{
+        font-size:11px;
+        margin-left: 35%;
+    }
+
+
+    .plusminusdiv{
+        margin-right: 14%;
+        margin-left: 29%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3%;
+    }
+
+
+    #text {
+        margin-top: 7.5%;
+        width: 33%;
+        margin-left: -5%;
+        margin-right: -5%;
+        font-size: 15px;
+        border: 1px solid grey;
+    }
+
+    .remove {
+        padding-left: 7%;
+        margin-top: 3%;
+        font-size: 11px;
+    }
+
+    #orderBtn{
+        width: 45%;
+        margin-left: 26%;
+        margin-bottom: 2%;
+        font-size: 10px;
+    }
+
+    /*Customer Css*/
+    .customerdetails{
+        margin-top: 3%;
+        width: 88%;
+    }
+
+    .secondtext{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        width: 260%;
+        margin-bottom: 5%;
+    }
+
+    .address{
+        width: 125%;
+        margin-bottom: 23%;
+        margin-top: 7%;
+    }
+
+    #name{
+        margin-bottom: -2%;
+    }
+
+    #contact{
+        margin-top: 1%;
+        margin-bottom: -2%;
+    }
+
+    #pinCode{
+        margin-bottom: -3%;
+    }
+
+    #locaLity{
+        margin-top: 2%;
+        margin-bottom: -2%;
+    }
+
+    #city{
+        margin-bottom: -5%;
+    }
+    #landmark{
+        margin-bottom: -5%;
+
+    }
+
+    .radiodiv{
+        margin-top: 10%;
+    }
+
+    #summary{
+        margin-bottom: -3%;
+    }
+
+    #customerBtn{
+        width: 55%;
+        margin-left: 40%;
+        margin-bottom: 2%;
+        font-size: 12px;
+    }
+
+    #customer-details{
+        font-size: 14px;
+        margin-left: 7%;
+        font-weight: bold;
+    }
+
+    #editBtn{
+        position: absolute;
+        margin-left: 73%;
+        font-size:14px;
+        margin-top:-18%;
+    }
+
+    /* Order Summary Css*/
+
+    .oredresummary{
+        margin-top: 3%;
+        width: 88%;
+    }
+
+    #summryBtn{
+        width: 45%;
+        margin-left:28%;
+        font-size: 12px;
+        margin-top: 5%;
+    }
+
+    .details-content{
+
+        margin-top: -4%;
+    }
+
+    #summary-bookname{
+        margin-top: 4%;
+        font-size: 12px;
+    }
+
+    #summary-authorname{
+        font-size: 9.5px;
+    }
+
+    #summary-cost{
+        font-size: 11px;
+    }
+
+    #totalPrice-summary{
+        font-size: 13px;
+    }
+
+    .oredr-summary-books-div{
+        margin-left: 1%;
+        margin-top: 2%;
+    }
+
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 1){
+
+    /*My Cart*/
+
+    .books-container {
+        margin-left: 2%;
+        margin-bottom: 10%;
+    }
+
+    #bookname1{
+        margin-top: -50%;
+    }
+
+    /*Order Details*/
+    .img {
+        height: 16vh;
+        margin-left: 3%;
+    }
+
+    .oredr-summary-books-div {
+        margin-left: 1%;
+        margin-top: 6%;
+    }
+
+    .details-content {
+        margin-top: -8%;
+    }
+
 }
