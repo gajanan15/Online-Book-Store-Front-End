@@ -577,3 +577,252 @@ ul.breadcrumb li a {
     }
 
 }
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+
+    /* My Cart Css*/
+
+    #cartcontainer{
+        margin-top: 1%;
+        margin-left: 7%;
+        min-height: 102vh;
+    }
+
+    ul.breadcrumb {
+        margin-left: 6%;
+        margin-top: 10%;
+    }
+
+    .bookdiv{
+        width: 92%;
+    }
+
+    .bookdiv1{
+        width: 92%;
+        height: 367px;
+    }
+
+    .books-container {
+        margin-left: 1%;
+        margin-bottom: -1%;
+    }
+
+    h4{
+        font-size: 24px;
+        margin-left: 2%;
+        margin-top: -1%;
+    }
+
+    .img{
+        height: 18vh;
+        margin-left: 2%;
+        margin-top: 48%;
+    }
+
+    #bookname1{
+        font-size: 28px;
+        padding-top: 2%;
+        margin-left: 25%;
+        margin-top: -28%;
+    }
+
+    #authorName{
+        font-size: 26px;
+        margin-left: 25%;
+    }
+
+    #cost{
+        font-size:24px;
+        margin-left: 25%;
+    }
+
+    .plusminusdiv{
+        margin-right: 20%;
+        margin-left: 22%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    #minus {
+        font-size: 33px;
+    }
+
+    #plus {
+
+        font-size: 33px;
+    }
+
+    #text {
+        margin-top: 2%;
+        width: 18%;
+        font-size: 24px;
+        font-weight: bold;
+        border: 1px solid grey;
+        text-align: center;
+    }
+
+    .remove {
+        padding-left: 7%;
+        margin-top: -2%;
+        font-size: 26px;
+    }
+
+    #orderBtn{
+        width: 35%;
+        margin-left: 65%;
+        font-size: 20px;
+    }
+
+    /* Customer Css*/
+
+    #customer-details{
+        font-size:24px;
+        margin-left:4%;
+        font-weight: bold;
+    }
+
+    #summary{
+        margin-bottom: 0%;
+    }
+
+    .customerdetails{
+        width: 92%;
+    }
+
+    .secondtext{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: -2%;
+    }
+
+    .customerdiv{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        width: 98%;
+    }
+
+    .address{
+        width: 96%;
+        margin-left: 2%;
+    }
+
+    #name{
+        margin-bottom: 0%;
+    }
+
+    #contact{
+        margin-bottom: -1%;
+    }
+
+    #pinCode{
+        margin-bottom: 0%;
+    }
+
+    .address{
+        margin-bottom: 4%;
+        margin-left: 1%;
+        width: 99%;
+    }
+
+    #locality{
+        margin-bottom: -2%;
+    }
+
+    #city{
+        margin-left: 5%;
+        margin-bottom: -2%;
+    }
+    #landmark{
+        margin-bottom: -2%;
+
+    }
+
+    #type-name{
+        font-size: 26px;
+        margin-left: 2%;
+    }
+
+    .radiodiv{
+        margin-top: 5%;
+    }
+
+    #customerBtn{
+        width: 35%;
+        margin-left: 65%;
+        font-size: 20px;
+    }
+
+    #editBtn{
+        position: absolute;
+        margin-left: 80%;
+        font-size:24px;
+        font-weight: bold;
+        margin-top:-10%;
+    }
+
+    /* Order Summary Css*/
+
+    .oredresummary{
+        margin-top: 3%;
+        width: 92%;
+    }
+
+    .oredr-summary-books-div {
+        margin-left: 5%;
+        margin-top: 6%;
+    }
+
+    #summryBtn{
+        width: 35%;
+        margin-left:65%;
+        font-size: 20px;
+    }
+
+    #totalPrice-summary{
+        font-size: 22px;
+    }
+
+    #summary-bookname{
+        font-size: 25px;
+        margin-left:18px;
+        padding-top:6%;
+        font-weight: bold;
+    }
+
+    #summary-authorname{
+        font-size: 22px;
+        margin-left: 7%;
+    }
+
+    #summary-cost{
+        font-size: 22px;
+        font-weight:bold;
+        margin-left: 12%;
+    }
+
+    #customer-details{
+        font-size:24px;
+        font-weight: bold;
+    }
+
+    ul.breadcrumb li {
+        font-size: 20px;
+    }
+
+    .scrollbar {
+        height: 417px;
+        overflow-y: scroll;
+    }
+
+    .details-block{
+        height: 284px;
+    }
+
+}
