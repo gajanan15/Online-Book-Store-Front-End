@@ -4,7 +4,7 @@
 }
 
 #tool{
-    margin-left: 2%;
+    margin-left: 1%;
 }
 
 #title{
@@ -191,7 +191,7 @@ svg.MuiSvgIcon-root.userIcon{
     }
     #title{
         width: 50%;
-        font-size: 0%;
+        font-size: 100%;
         margin-left: 2%;
     }
 
@@ -261,7 +261,7 @@ svg.MuiSvgIcon-root.userIcon{
 @media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 1){
     #title{
         width: 70%;
-        font-size: 0%;
+        font-size: 115%;
     }
 
     .searchIcon{
