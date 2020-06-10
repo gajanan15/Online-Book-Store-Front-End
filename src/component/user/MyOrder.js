@@ -12,7 +12,7 @@ class MyOrder extends Component {
                     <div id="orderimg">
                         <img src={this.props.data.bookDetails.imageUrl} alt={"Not found"} className="order-img"/>
                     </div>
-                    <div style={{marginLeft: "1%", marginTop: "1.5%", width: "30%"}}>
+                    <div className="order-div">
                         <Typography id="order-bookname"
                                     component="h2">{this.props.data.bookDetails.bookName}</Typography>
                         <Typography variant="body2" color="textSecondary"

@@ -1,8 +1,9 @@
 .ordercontainer {
+    /*min-height: 88.9vh;*/
     margin-left: -7%;
 }
 
-.main-order {
+.main-order{
     min-height: 89.1vh;
 }
 
@@ -11,18 +12,21 @@ ul.myorderbreadcrumb {
     margin-top: 7%;
 }
 
+/* Display list items side by side */
 ul.myorderbreadcrumb li {
     display: inline;
     font-size: 14px;
     font-weight: bold;
 }
 
-ul.myorderbreadcrumb li + li:before {
+/* Add a slash symbol (/) before/behind each list item */
+ul.myorderbreadcrumb li+li:before {
     padding: 4px;
     color: #9D9D9D;
     content: "/\00a0";
 }
 
+/* Add a color to all links inside the list */
 ul.myorderbreadcrumb li a {
     color: #9D9D9D;
     text-decoration: none;
@@ -30,7 +34,7 @@ ul.myorderbreadcrumb li a {
 }
 
 .myorderdiv {
-    border: 1px solid black;
+    border:1px solid black;
     margin-left: 168px;
     display: flex;
     justify-content: space-between;
@@ -46,7 +50,7 @@ ul.myorderbreadcrumb li a {
 
 #order-bookname {
     font-size: 15px;
-    margin-left: 18px;
+    margin-left:18px;
     font-weight: bold;
 }
 
@@ -57,7 +61,7 @@ ul.myorderbreadcrumb li a {
 
 #order-cost {
     font-size: 13px;
-    font-weight: bold;
+    font-weight:bold;
     margin-left: 18px;
     margin-top: 4%;
 }
@@ -66,24 +70,24 @@ ul.myorderbreadcrumb li a {
     font-size: 15px;
 }
 
-#order-date-value {
+#order-date-value{
     font-size: 13px;
     margin-bottom: 11%;
-    color: gray;
+    color:gray;
 }
 
-#order-id {
+#order-id{
     font-size: 15px;
 }
 
-#order-id-value {
+#order-id-value{
     font-size: 13px;
     margin-bottom: 11%;
-    color: gray;
+    color:gray;
 }
 
 #datediv {
-    width: 162px;
+    width : 162px;
     height: 20px;
     margin-top: 2%;
     margin-left: 55%;
@@ -96,10 +100,10 @@ ul.myorderbreadcrumb li a {
     margin-top: 25%;
 }
 
-.orderblock1 {
+.orderblock1{
     margin-left: 168px;
     width: 1022px;
-    border: 1px solid grey;
+    border:1px solid grey;
     margin-bottom: 1%;
     height: 300px;
     overflow-y: scroll;
@@ -109,28 +113,45 @@ ul.myorderbreadcrumb li a {
     width: 8px;
 }
 
+/* Track */
 .orderblock1::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px gainsboro;
     border-radius: 10px;
 }
 
+/* Handle */
 .orderblock1::-webkit-scrollbar-thumb {
     background: #aaadb3;
     border-radius: 10px;
 }
 
-.orderblock {
+.order-block{
     margin-left: 168px;
     width: 1022px;
-    border: 1px solid grey;
+    border:1px solid grey;
+    margin-bottom: 1%;
+    height: 150px;
+}
+
+.orderblock{
+    margin-left: 168px;
+    width: 1022px;
+    border:1px solid grey;
     margin-bottom: 1%;
     height: 300px;
 }
 
-.order-grid {
-    width: 1022px;
-    display: flex;
+.order-grid{
+    width:1022px;
+    display:flex;
     height: 148px;
+}
+
+
+.order-div{
+    margin-left: 1%;
+    margin-top: 1.5%;
+    width: 30%;
 }
 
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
@@ -184,17 +205,33 @@ ul.myorderbreadcrumb li a {
     .orderblock1{
         margin-left: 40px;
         width: 330px;
+        margin-bottom: 2%;
+    }
+
+    .order-block{
+        margin-left: 40px;
+        width: 330px;
+        margin-bottom: 2%;
     }
 
     .orderblock{
         margin-left: 40px;
         width: 330px;
+        border:1px solid grey;
+        margin-bottom: 2%;
+        height: 300px;
     }
 
     .order-grid{
         width:100%;
         display:flex;
         height: 130px;
+    }
+
+    .order-div{
+        margin-left: 1%;
+        margin-top: -1.5%;
+        width: 57%;
     }
 }
 
@@ -213,16 +250,23 @@ ul.myorderbreadcrumb li a {
         margin-left: 67px;
     }
 
-    .orderblock{
+    .order-block{
         margin-left: 67px;
     }
 
+    .orderblock{
+        margin-left: 68px;
+        width: 330px;
+        border:1px solid grey;
+        margin-bottom: 2%;
+        height: 300px;
+    }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
 
     ul.myorderbreadcrumb {
-        margin-left: 11%;
+        margin-left: 10%;
         margin-top: 9%;
         font-size: 30px;
     }
@@ -233,20 +277,20 @@ ul.myorderbreadcrumb li a {
 
     .myorderdiv {
         border: 1px solid black;
-        margin-left: 20%;
+        margin-left: 15%;
         width: 700px;
         display: flex;
         justify-content: space-between;
     }
 
-    .orderblock {
+    .order-block {
         margin-left: 20%;
         width: 700px;
         height: 1%;
     }
 
     .orderblock1 {
-        margin-left: 20%;
+        margin-left: 15%;
         width: 700px;
         /*height: 1%;*/
     }
@@ -291,13 +335,27 @@ ul.myorderbreadcrumb li a {
         height: 180px;
     }
 
+    .order-block{
+        margin-left: 125px;
+        width: 698px;
+        margin-bottom: 2%;
+    }
+
+    .orderblock{
+        margin-left: 126px;
+        width: 698px;
+        border:1px solid grey;
+        margin-bottom: 2%;
+        height: 364px;
+    }
 }
+
 
 @media only screen and (min-device-width: 1023px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
 
     ul.myorderbreadcrumb {
         margin-left: 11%;
-        /*margin-top: 9%;*/
+        margin-top: 9%;
     }
 
     ul.myorderbreadcrumb li {
@@ -313,22 +371,30 @@ ul.myorderbreadcrumb li a {
 
     .myorderdiv {
         border: 1px solid black;
-        margin-left: 22%;
-        width: 700px;
+        margin-left: 16%;
+        width: 800px;
         display: flex;
         justify-content: space-between;
-        margin-top: 5%;
+        margin-top: 4%;
+    }
+
+    .order-block {
+        margin-left: 16%;
+        width: 797px;
+        height: 242px;
     }
 
     .orderblock {
-        margin-left: 22%;
-        width: 700px;
-        height: 380px;
+        margin-left: 150px;
+        width: 800px;
+        border: 1px solid grey;
+        margin-bottom: 1%;
+        height: 324px;
     }
 
     .orderblock1 {
-        margin-left: 22%;
-        width: 700px;
+        margin-left: 16%;
+        width: 800px;
     }
 
     #orderdate {

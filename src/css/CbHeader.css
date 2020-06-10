@@ -208,6 +208,11 @@ svg.MuiSvgIcon-root.userIcon{
         margin-left: -34%;
     }
 
+    #footer{
+        width: 105%;
+        margin-left: -6%;
+    }
+
     .MuiInputBase-root.inputRoot.inputInput{
         margin-left: 15%;
     }
@@ -325,7 +330,7 @@ svg.MuiSvgIcon-root.userIcon{
     }
 
     #footer{
-        width: 116%;
+        width: 111%;
         margin-left: -6%;
     }
 

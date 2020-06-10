@@ -28,6 +28,7 @@ constructor(props) {
                 <Route path={"/reset/password/:token"} component={ResetPassword} exact/>
                 <Route path={"/verify/email/:token"} component={VerificationSuccessful} exact/>
                 <Route path={"/resend/email"} component={ResendEmail} exact/>
+                <Route path={"/forgot/resend/email"} component={ResendEmail} exact/>
                 <Route path={"/orders"} component={MyOrdersList} exact/>
              </Switch>
         );

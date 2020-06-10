@@ -188,11 +188,11 @@ class HomePage extends Component {
                             </ThemeProvider>
                         </div>
                         <Grid container spacing={4}>
-                            {data.map((book, index) => {
+                            {data.length > 0 ? data.map((book, index) => {
                                 return <Grid key={book.id}  item xs={12} sm={6} md={4} lg={3}>
                                     <CustomCard key={book.id} cartReference={this.searchBar} book={book} index={index}/>
                                 </Grid>
-                            })}
+                            }) : <div className="imagediv"><img className="booknotfound" src={require("../../asset/noBooksfound.png")} alt="No Books Found"/></div>}
                         </Grid>
                     </Container>
                 </div>
