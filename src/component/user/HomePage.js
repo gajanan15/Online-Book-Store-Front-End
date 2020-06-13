@@ -31,6 +31,7 @@ class HomePage extends Component {
             selectBoxValue: "none",
             name:"",
             userData:[],
+            isLoading:true
         }
         this.searchBar = React.createRef();
     }
@@ -39,7 +40,8 @@ class HomePage extends Component {
         new AdminService().displaybook(this.state.pageNo).then(response => {
             this.setState({
                 data: response.data,
-                temp: response.data
+                temp: response.data,
+                isLoading : false
             })
         }).catch((error) => {
             console.log(error);
@@ -168,43 +170,56 @@ class HomePage extends Component {
 
         let data = this.state.data;
         return (
-            <div>
-                <CbHeader userData={this.state.userData} ref={this.searchBar} test={this.getSearchText} name={this.state.name}/>
-                <div className="maincarddiv">
-                    <Container className="maincontain" id="maincontainer">
-                        <div id="filter">
-                            <h2>Books <p className="maincontain-p"> ({this.state.dataLength} items)</p></h2>
-                            <ThemeProvider theme={theme}>
-                                <Select
-                                    native
-                                    className="select-filter"
-                                    variant="outlined"
-                                    onChange={this.handleChange}>
-                                    <option defaultValue value={"None"}>Sort by</option>
-                                    <option value={"LOW_TO_HIGH"}>Price:Low to High</option>
-                                    <option value={"HIGH_TO_LOW"}>Price:High to Low</option>
-                                    <option value={"NEWEST_ARRIVALS"}> Newest Arrivals</option>
-                                </Select>
-                            </ThemeProvider>
-                        </div>
-                        <Grid container spacing={4}>
-                            {data.length > 0 ? data.map((book, index) => {
-                                return <Grid key={book.id}  item xs={12} sm={6} md={4} lg={3}>
-                                    <CustomCard key={book.id} cartReference={this.searchBar} book={book} index={index}/>
-                                </Grid>
-                            }) : <div className="imagediv"><img className="booknotfound" src={require("../../asset/noBooksfound.png")} alt="No Books Found"/></div>}
-                        </Grid>
-                    </Container>
+            this.state.isLoading===true ?
+                <div><CbHeader userData={this.state.userData} searchStatus={true} ref={this.searchBar} test={this.getSearchText} name={this.state.name}/>
+                    <div className="wrapper">
+                        <div className="circle"></div>
+                        <div className="circle"></div>
+                        <div className="circle"></div>
+                        <div className="shadow"></div>
+                        <div className="shadow"></div>
+                        <div className="shadow"></div>
+                        <span>Loading..</span>
+                    </div>
                 </div>
-                <Grid container className="page">
-                    <Pagination showFirstButton showLastButton count={Math.ceil(this.state.dataLength / 8)}
-                                onChange={this.alerts}/>
-                </Grid>
-                {this.state.snackFlag &&
-                <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity}/>
-                }
-                <CbFooter/>
-            </div>
+                :
+                <div>
+                    <CbHeader userData={this.state.userData} ref={this.searchBar} test={this.getSearchText} name={this.state.name}/>
+                    <div className="maincarddiv">
+                        <Container className="maincontain" id="maincontainer">
+                            <div id="filter">
+                                <h2>Books <p className="maincontain-p"> ({this.state.dataLength} items)</p></h2>
+                                <ThemeProvider theme={theme}>
+                                    <Select
+                                        native
+                                        className="select-filter"
+                                        variant="outlined"
+                                        onChange={this.handleChange}>
+                                        <option defaultValue value={"None"}>Sort by</option>
+                                        <option value={"LOW_TO_HIGH"}>Price:Low to High</option>
+                                        <option value={"HIGH_TO_LOW"}>Price:High to Low</option>
+                                        <option value={"NEWEST_ARRIVALS"}> Newest Arrivals</option>
+                                    </Select>
+                                </ThemeProvider>
+                            </div>
+                            <Grid container spacing={4}>
+                                {data.length > 0 ? data.map((book, index) => {
+                                    return <Grid key={book.id}  item xs={12} sm={6} md={4} lg={3}>
+                                        <CustomCard key={book.id} cartReference={this.searchBar} book={book} index={index}/>
+                                    </Grid>
+                                }) : <div className="imagediv"><img className="booknotfound" src={require("../../asset/noBooksfound.png")} alt="No Books Found"/></div>}
+                            </Grid>
+                        </Container>
+                    </div>
+                    <Grid container className="page">
+                        <Pagination showFirstButton showLastButton count={Math.ceil(this.state.dataLength / 8)}
+                                    onChange={this.alerts}/>
+                    </Grid>
+                    {this.state.snackFlag &&
+                    <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity}/>
+                    }
+                    <CbFooter/>
+                </div>
         );
     }
 }
