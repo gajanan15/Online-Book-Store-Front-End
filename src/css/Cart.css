@@ -334,6 +334,19 @@ ul.breadcrumb li a {
     margin-left: 72%;
 }
 
+.MuiPaper-root.MuiCard-root.coupon-form-box.MuiPaper-elevation1.MuiPaper-rounded{
+    margin-left: -611%;
+    width: 298%;
+    margin-top: 35%;
+}
+
+.MuiPaper-root.MuiCard-root.coupon-box.MuiPaper-elevation1.MuiPaper-rounded{
+    margin-left: -6%;
+    width: 109%;
+    margin-top: 4%;
+    height: 68%;
+}
+
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
 
     /*My Cart Css*/
