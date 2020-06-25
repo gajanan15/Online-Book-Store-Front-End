@@ -472,7 +472,14 @@ class Cart extends Component {
                                             )}
 
                                     </div>
-                                    <b id="totalPrice-summary">Total price: {this.state.totalPrice}</b>
+                                    <b id="totalPrice-summary">Coupon Discount: Rs.{this.state.discountCoupon}</b><br/>
+                                    <b id="totalPrice-summary">Total price: Rs.{this.state.totalPrice}</b>
+                                    <div id="apply-coupons-btn">
+
+                                        <b>Apply Coupons</b><button onClick={this.getCoupon}
+                                                                    style={{backgroundColor:"#a52a2a",marginLeft:"2%",color:"#ffff"}}>APPLY
+                                    </button>
+                                    </div>
                                     <Button onClick={this.handleCheckOut} id="summryBtn">
                                         Place Order
                                     </Button>
