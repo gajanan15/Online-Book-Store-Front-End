@@ -347,6 +347,13 @@ ul.breadcrumb li a {
     height: 68%;
 }
 
+#dialoguecontent {
+    padding: 0px;
+    margin-bottom: 200px;
+    width: 50%;
+
+}
+
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
 
     /*My Cart Css*/
