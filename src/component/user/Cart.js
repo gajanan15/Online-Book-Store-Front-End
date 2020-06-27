@@ -19,6 +19,9 @@ import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 import Divider from "@material-ui/core/Divider";
 import CbFooter from "../utils/CbFooter";
 import SignUp from "./SignUp";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import Coupon from "./Coupon";
 
 class Cart extends Component {
 
@@ -48,6 +51,7 @@ class Cart extends Component {
             userData: [],
             addressType: "HOME",
             orderID: '',
+            visibilityOfDialogBox:false
         }
     }
 
@@ -248,6 +252,12 @@ class Cart extends Component {
                 btnDisable: true
             })
         }
+    }
+
+    getCoupon=()=>{
+        this.setState({
+            visibilityOfDialogBox:true
+        })
     }
 
     render() {
@@ -487,6 +497,12 @@ class Cart extends Component {
                             </ExpansionPanelDetails>
                         </ExpansionPanel>
                     </Container>
+                    <Dialog className="coupon-dialog-box" aria-labelledby="customized-dialog-title"
+                            open={true} onClose={this.handleClose}>
+                        <DialogContent id="dialoguecontent" id="customized-dialog-title">
+                            <Coupon/>
+                        </DialogContent>
+                    </Dialog>
                     <CbFooter/>
                 </div>
             );
