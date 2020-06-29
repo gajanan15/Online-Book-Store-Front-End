@@ -51,7 +51,8 @@ class Cart extends Component {
             userData: [],
             addressType: "HOME",
             orderID: '',
-            visibilityOfDialogBox:false
+            visibilityOfDialogBox:false,
+            coupons:''
         }
     }
 
@@ -509,9 +510,9 @@ class Cart extends Component {
                         </ExpansionPanel>
                     </Container>
                     <Dialog className="coupon-dialog-box" aria-labelledby="customized-dialog-title"
-                            open={true} onClose={this.handleClose}>
+                            open={this.state.visibilityOfDialogBox} onClose={this.handleClose}>
                         <DialogContent id="dialoguecontent" id="customized-dialog-title">
-                            <Coupon/>
+                            <Coupon coupons={this.state.coupons}/>
                         </DialogContent>
                     </Dialog>
                     <CbFooter/>
