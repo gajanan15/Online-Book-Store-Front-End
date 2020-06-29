@@ -206,11 +206,6 @@ class Cart extends Component {
         })
     }
 
-    componentDidMount() {
-        this.handleCart()
-        this.getUser()
-    }
-
     handleCart = () => {
         new AdminService().myCart().then(response => {
             this.setState({
@@ -258,6 +253,22 @@ class Cart extends Component {
         this.setState({
             visibilityOfDialogBox:true
         })
+    }
+
+    discountCoupon=()=>{
+        new AdminService().getCoupon().then(response =>{
+            this.setState({
+                coupons:response.data.data
+            })
+        }).catch((error) =>{
+            console.log(error)
+        })
+    }
+
+    componentDidMount() {
+        this.handleCart()
+        this.getUser()
+        this.discountCoupon()
     }
 
     render() {
