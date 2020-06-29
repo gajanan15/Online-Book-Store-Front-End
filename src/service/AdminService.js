@@ -156,5 +156,13 @@ export class AdminService {
         })
     }
 
+    getCoupon = () =>{
+        return Axios({
+            headers: {token: localStorage.getItem('Authorization')},
+            method: 'get',
+            url: `${Constant.apiUrl}coupon`,
+        })
+    }
+
 }
 
