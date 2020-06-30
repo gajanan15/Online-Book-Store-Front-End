@@ -164,5 +164,14 @@ export class AdminService {
         })
     }
 
+    addDiscountPrice = (discountCoupon, totalPrice) => {
+        return Axios({
+            headers: {token: localStorage.getItem('Authorization')},
+            method: 'post',
+            params: {discountCoupon: discountCoupon, totalPrice: totalPrice},
+            url: `${Constant.apiUrl}coupon`,
+        })
+    }
+
 }
 
