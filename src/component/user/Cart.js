@@ -184,9 +184,9 @@ class Cart extends Component {
 
 
     handleCheckOut = () => {
-
         this.getMyOrder()
         this.getDetails()
+        this.addCoupon()
     }
 
     handleFocus = () => {
@@ -263,6 +263,28 @@ class Cart extends Component {
             })
         }).catch((error) =>{
             console.log(error)
+        })
+    }
+
+    addCoupon = () => {
+        new AdminService().addDiscountPrice(this.state.coupon, this.state.totalPrice).then(response => {
+            console.log(response)
+            this.setState({
+                discountCoupon: response.data.data
+            })
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
+    handleTotalPrice = (data, status, price, index) => {
+        this.setState({
+            visibilityOfDialogBox: false,
+            coupon: data,
+            couponStatus: status,
+            couponPrice: price,
+            discountCoupon: (this.state.totalPrice - price) < 0 ? 0 : this.state.totalPrice - price,
+            index: index
         })
     }
 
@@ -512,7 +534,8 @@ class Cart extends Component {
                     <Dialog className="coupon-dialog-box" aria-labelledby="customized-dialog-title"
                             open={this.state.visibilityOfDialogBox} onClose={this.handleClose}>
                         <DialogContent id="dialoguecontent" id="customized-dialog-title">
-                            <Coupon coupons={this.state.coupons}/>
+                            <Coupon coupons={this.state.coupons} totalPrice={this.state.totalPrice}
+                                    handleTotalPrice={this.handleTotalPrice} index={this.state.index}/>
                         </DialogContent>
                     </Dialog>
                     <CbFooter/>
