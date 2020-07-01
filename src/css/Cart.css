@@ -354,6 +354,63 @@ ul.breadcrumb li a {
 
 }
 
+.coupon-div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+}
+
+.coupon-div1{
+    display: inline-flex;
+}
+
+#offer-icon{
+    margin-top: 2%;
+}
+
+.coupon-div1-sub{
+    display: inline-flex;
+    width: 96%;
+    height: 1%;
+}
+
+.coupon-sub-title{
+    margin-top: 1.8%;
+    margin-left: 1%;
+    font-weight: initial;
+}
+
+#coupon-apply-btn{
+    height: 10%;
+    margin-left: 3%;
+    font-size: 73%;
+    margin-top: 1.3%;
+    border: 1px dashed rgb(160, 48, 60) ;
+}
+
+.price-sub-div{
+    display: -webkit-box;
+    margin-top: -3%;
+}
+
+.sub-price{
+    margin-left: 4%;
+}
+
+.discount-price{
+    margin-left: 4.4%;
+}
+
+.total-price{
+    margin-left: 6.5%;
+}
+
+.horizontal-line{
+    width: 32%;
+    margin-left: 0.01%;
+    margin-top:0%;
+}
+
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
 
     /*My Cart Css*/

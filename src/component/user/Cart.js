@@ -22,6 +22,8 @@ import SignUp from "./SignUp";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import Coupon from "./Coupon";
+import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
+
 
 class Cart extends Component {
 
@@ -516,14 +518,43 @@ class Cart extends Component {
                                             )}
 
                                     </div>
-                                    <b id="totalPrice-summary">Coupon Discount: Rs.{this.state.discountCoupon}</b><br/>
-                                    <b id="totalPrice-summary">Total price: Rs.{this.state.totalPrice}</b>
-                                    <div id="apply-coupons-btn">
-
-                                        <b>Apply Coupons</b><button onClick={this.getCoupon}
-                                                                    style={{backgroundColor:"#a52a2a",marginLeft:"2%",color:"#ffff"}}>APPLY
-                                    </button>
+                                    <div className="coupon-div">
+                                        <b>Coupons</b>
+                                        <div className="coupon-div1">
+                                            <LocalOfferOutlinedIcon id="offer-icon"/>
+                                            {this.state.couponStatus === "applied" ?
+                                                <div className="coupon-div1-sub">
+                                                    <p className="coupon-sub-title">1 Coupon Applied</p>
+                                                    <Button id="coupon-apply-btn" onClick={this.getCoupon}>Edit</Button>
+                                                </div>
+                                                :
+                                                <div className="coupon-div1-sub">
+                                                    <p className="coupon-sub-title">Apply Coupons</p>
+                                                    <Button id="coupon-apply-btn"
+                                                            onClick={this.getCoupon}>Apply</Button>
+                                                </div>
+                                            }
+                                        </div>
                                     </div>
+                                    <Divider/>
+                                    <div>
+                                        <p><b>Price details</b></p>
+                                        <div className="price-sub-div">
+                                            <p> Sub Total Price: </p>
+                                            <p className="sub-price">Rs. {this.state.totalPrice}</p>
+                                        </div>
+                                        <div className="price-sub-div">
+                                            <p> Discount Price: </p>
+                                            <p className="discount-price">Rs. {this.state.couponPrice}</p>
+                                        </div>
+                                        <hr className="horizontal-line"/>
+                                        <div className="price-main-div">
+                                            <b>Total price: </b>
+                                            <b className="total-price">Rs.{this.state.discountCoupon}</b>
+                                        </div>
+
+                                    </div>
+
                                     <Button onClick={this.handleCheckOut} id="summryBtn">
                                         Place Order
                                     </Button>
