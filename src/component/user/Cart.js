@@ -259,18 +259,17 @@ class Cart extends Component {
     }
 
     discountCoupon=()=>{
-        new AdminService().getCoupon().then(response =>{
+        new AdminService().getCoupon(this.state.totalPrice).then(response => {
             this.setState({
-                coupons:response.data.data
+                coupons: response.data.data
             })
-        }).catch((error) =>{
+        }).catch((error) => {
             console.log(error)
         })
     }
 
     addCoupon = () => {
         new AdminService().addDiscountPrice(this.state.coupon, this.state.totalPrice).then(response => {
-            console.log(response)
             this.setState({
                 discountCoupon: response.data.data
             })

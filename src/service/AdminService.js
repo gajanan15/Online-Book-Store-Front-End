@@ -156,10 +156,11 @@ export class AdminService {
         })
     }
 
-    getCoupon = () =>{
+    getCoupon = (totalPrice) => {
         return Axios({
             headers: {token: localStorage.getItem('Authorization')},
             method: 'get',
+            params: {totalPrice: totalPrice},
             url: `${Constant.apiUrl}coupon`,
         })
     }
