@@ -23,6 +23,10 @@ class Coupon extends Component {
         this.props.handleTotalPrice(this.state.coupon,"applied",this.props.coupons[this.state.index].discountPrice,this.state.index)
     }
 
+    handleCancel = () => {
+        this.props.handleDialogVisibility();
+    }
+
     onSelectedChange = (event,index) => {
         this.setState(previousState => ({
             checked: {
@@ -101,13 +105,14 @@ class Coupon extends Component {
                                                 </div>
 
                                             </div>
-                                            <Typography style={{marginLeft:"25%"}}><b>Save Rs.{coupon.discountPrice}</b></Typography>
-                                            <Typography style={{marginLeft:"25%"}}>Expires on <b>{coupon.expireCouponDate}</b></Typography>
+                                            <Typography id="coupon-name-Rs"><b>Save Rs.{coupon.discountPrice}</b></Typography>
+                                            <Typography id="coupon-name-expire">Expires on <b>{coupon.expireCouponDate}</b></Typography>
                                             <Divider style={{width:"95%",marginLeft:"2%"}}/>
                                         </div>
                                     )}
                             </div>
                             <Typography style={{marginTop: "5%", marginLeft: "2%"}}>
+                                <Button id="coupon-btn" onClick={this.handleCancel}>CANCEL</Button>
                                 <Button id="coupon-btn" onClick={this.handleChange}>APPLY</Button>
                             </Typography>
                         </Card>

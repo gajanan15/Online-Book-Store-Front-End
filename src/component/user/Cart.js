@@ -284,6 +284,10 @@ class Cart extends Component {
         })
     }
 
+    handleCancel = () => {
+        this.setState({visibilityOfDialogBox: false});
+    }
+
     discountCoupon = () => {
         new AdminService().getCoupon(this.state.totalPrice).then(response => {
             this.setState({
@@ -472,7 +476,7 @@ class Cart extends Component {
                                     <div className="radiodiv">
                                         <Typography id="type-name">Type</Typography>
                                         <RadioGroup onChange={this.changeState} row aria-label="Type"
-                                                    name="addressType">
+                                                    name="addressType" defaultValue="HOME">
                                             <FormControlLabel
                                                 value="HOME"
                                                 control={<Radio style={{fontSize: "80%", color: "rgb(160,48,55)"}}/>}
@@ -587,7 +591,8 @@ class Cart extends Component {
                             open={this.state.visibilityOfDialogBox} onClose={this.handleClose}>
                         <DialogContent id="dialoguecontent" id="customized-dialog-title">
                             <Coupon coupons={this.state.coupons} totalPrice={this.state.totalPrice}
-                                    handleTotalPrice={this.handleTotalPrice} index={this.state.index} />
+                                    handleTotalPrice={this.handleTotalPrice} index={this.state.index}
+                                    handleDialogVisibility={this.handleCancel}/>
                         </DialogContent>
                     </Dialog>
                     <CbFooter/>

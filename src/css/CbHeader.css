@@ -166,6 +166,7 @@ svg.MuiSvgIcon-root.userIcon{
 
 .MuiPaper-root.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm.MuiPaper-elevation24.MuiPaper-rounded{
     position: inherit;
+    overflow: hidden;
 }
 
 .MuiDialogContent-root.dialoguecontent {
