@@ -110,6 +110,14 @@
     justify-content:center;
 }
 
+#coupon-name-Rs {
+    margin-left: 27%;
+}
+
+#coupon-name-expire {
+    margin-left: 27%;
+}
+
 @media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
 
     .image-coupon{
@@ -120,6 +128,29 @@
         justify-content:center;
     }
 
+    .coupon-name-div1 {
+        height: 18%;
+        background-color: brown;
+        margin-top: -2%;
+    }
+
+    #coupon-name-Rs {
+        margin-left: 48%;
+    }
+
+    #coupon-name-expire {
+        margin-left: 48%;
+    }
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 1) {
+    #coupon-name-Rs {
+        margin-left: 44%;
+    }
+
+    #coupon-name-expire {
+        margin-left: 44%;
+    }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
@@ -127,6 +158,15 @@
     .image-coupon{
         margin-top:7%;
         width:30%;
+    }
+
+    #coupon-name-Rs {
+        margin-left: 30%;
+        margin-top: -5%;
+    }
+
+    #coupon-name-expire {
+        margin-left: 30%;
     }
 }
 
@@ -136,6 +176,14 @@
         margin-top:8%;
         width:30%;
         margin-left: 35%;
+    }
+
+    #coupon-name-Rs {
+        margin-left: 23%;
+    }
+
+    #coupon-name-expire {
+        margin-left: 23.4%;
     }
 
 }

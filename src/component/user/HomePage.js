@@ -81,7 +81,7 @@ class HomePage extends Component {
         this.searchBar.current.handleSearchbar();
     }
 
-    alerts = (event, value) => {
+    handlePageChange = (event, value) => {
         if (!this.state.myFlag) {
             this.state.pageNo = value
             this.getBooks()
@@ -213,7 +213,7 @@ class HomePage extends Component {
                     </div>
                     <Grid container className="page">
                         <Pagination showFirstButton showLastButton count={Math.ceil(this.state.dataLength / 8)}
-                                    onChange={this.alerts}/>
+                                    onChange={this.handlePageChange}/>
                     </Grid>
                     {this.state.snackFlag &&
                     <CustomSnackBar message={this.state.snackMessage} severity={this.state.severity}/>
