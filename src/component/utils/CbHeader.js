@@ -61,13 +61,6 @@ export class CbHeader extends Component {
         }
     }
 
-    handleCounter = () => {
-        this.setState({
-            counter: this.state.counter + 1
-        })
-        alert(this.state.counter)
-    }
-
     handleLoginBoxVisibility = (event) => {
 
         if (`${this.state.visibilityValueOfLogin}` === "hidden") {

@@ -1,36 +1,36 @@
 /*My Cart Css*/
-#cartcontainer{
+#cartcontainer {
     min-height: 75.5vh;
     margin-left: 3%;
 }
 
-.books-container{
+.books-container {
     margin-left: -1%;
-    margin-bottom:-1.5%;
+    margin-bottom: -1.5%;
 }
 
-.address{
+.address {
     margin-top: 2%;
     margin-bottom: 3%;
 }
 
-.bookdiv{
-    border:0.1px solid grey;
-    padding:2%;
+.bookdiv {
+    border: 0.1px solid grey;
+    padding: 2%;
     width: 84%;
-    height:415px;
+    height: 415px;
 }
 
-.bookdiv1{
-    border:0.1px solid grey;
-    padding:2%;
+.bookdiv1 {
+    border: 0.1px solid grey;
+    padding: 2%;
     width: 84%;
-    height:265px;
+    height: 265px;
 }
 
-.scrollbar{
-    height:278px;
-    overflow-y:scroll;
+.scrollbar {
+    height: 278px;
+    overflow-y: scroll;
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -47,31 +47,31 @@
     border-radius: 10px;
 }
 
-.customerdetails{
+.customerdetails {
     margin-top: 3%;
     width: 84%;
 }
 
-.oredresummary{
+.oredresummary {
     margin-top: 3%;
     width: 84%;
 }
 
-h4{
+h4 {
     font-size: 17px;
     margin-top: -1%;
 }
 
-.img{
-    height:16vh;
+.img {
+    height: 16vh;
     margin-top: 27%;
 }
 
-.mycart-img{
-    height:16vh;
+.mycart-img {
+    height: 16vh;
 }
 
-#bookname1{
+#bookname1 {
     font-size: 15px;
     padding-top: 2.2%;
     font-weight: bold;
@@ -82,54 +82,54 @@ h4{
 
 }
 
-#authorName{
+#authorName {
     font-size: 11.5px;
     margin-left: 14%;
     margin-top: 0.4%;
 }
 
-.customer-email{
+.customer-email {
     width: 125%;
     margin-top: 4%;
 }
 
-#cost{
-    font-size:13px;
+#cost {
+    font-size: 13px;
     font-weight: bold;
     margin-left: 14%;
     margin-top: 0.4%;
 }
 
 
-.mycart{
+.mycart {
     margin-bottom: 5%;
     max-height: 18vh;
 }
 
-.plusminusdiv{
+.plusminusdiv {
     margin-top: 1%;
-    margin-right:58%;
+    margin-right: 58%;
     margin-left: 12%;
     display: flex;
 }
 
-#plusminubtn{
-    font-size:90%;
-    color:rgb(165,42,42);
+#plusminubtn {
+    font-size: 90%;
+    color: rgb(165, 42, 42);
 }
 
-#plusminubtn1{
-    font-size:90%;
+#plusminubtn1 {
+    font-size: 90%;
     color: #d3d3d3;
 }
 
-.nocartitems{
+.nocartitems {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.noitemsimage{
+.noitemsimage {
     height: 140px;
     width: 180px;
     align-self: center;
@@ -148,6 +148,7 @@ h4{
     font-size: 14px;
     text-align: center;
 }
+
 .remove {
     border: none;
     background-color: white;
@@ -156,27 +157,27 @@ h4{
     font-size: 15px;
 }
 
-#orderBtn{
-    background-color: rgb(165,42,42);
+#orderBtn {
+    background-color: rgb(165, 42, 42);
     width: 20%;
-    color:#fff;
+    color: #fff;
     margin-top: 2%;
-    display:flex;
-    margin-left:80%;
+    display: flex;
+    margin-left: 80%;
 }
 
 /*Customer Details Css*/
-.radiodiv{
+.radiodiv {
     margin-top: 1%;
 }
 
-#customer-details{
-    font-size:17px;
-    margin-left:3%;
+#customer-details {
+    font-size: 17px;
+    margin-left: 3%;
     font-weight: bold;
 }
 
-.secondtext{
+.secondtext {
     margin-bottom: 2%;
     margin-top: 3%;
     display: flex;
@@ -184,45 +185,45 @@ h4{
 }
 
 
-#details{
-    border:1px  grey;
-    padding:1px
+#details {
+    border: 1px grey;
+    padding: 1px
 }
 
-#summary{
-    border:1px  grey;
-    padding:1px
+#summary {
+    border: 1px grey;
+    padding: 1px
 }
 
-#name{
-    height:12px ;
+#name {
+    height: 12px;
 }
 
-#contact{
-    height:12px ;
+#contact {
+    height: 12px;
 }
 
-#pincode{
-    height:12px ;
+#pincode {
+    height: 12px;
 }
 
-#locality{
-    height:12px ;
+#locality {
+    height: 12px;
 }
 
-#address{
-    height:20px ;
+#address {
+    height: 20px;
 }
 
-#city{
-    height:12px ;
+#city {
+    height: 12px;
 }
 
-#landmark{
-    height:12px ;
+#landmark {
+    height: 12px;
 }
 
-.textfields{
+.textfields {
     width: 48.5%;
     margin-left: 40%;
     height: 59px;
@@ -233,58 +234,59 @@ h4{
     margin-left: 10%;
     height: 72px;
 }
-.customerdiv{
+
+.customerdiv {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     margin-left: 1%;
-    margin-top:-2%;
-    width:75%;
+    margin-top: -2%;
+    width: 75%;
 }
 
-#customerBtn{
-    background-color: rgb(160,48,60);
+#customerBtn {
+    background-color: rgb(160, 48, 60);
     width: 26%;
     margin-bottom: 2%;
-    color:#fff;
-    display:flex;
-    margin-left:105%;
+    color: #fff;
+    display: flex;
+    margin-left: 105%;
 }
 
 
 /*Oredr Summary*/
-#summryBtn{
-    background-color: rgb(160,48,60);
+#summryBtn {
+    background-color: rgb(160, 48, 60);
     width: 20%;
-    color:#fff;
-    display:flex;
-    margin-left:79%;
+    color: #fff;
+    display: flex;
+    margin-left: 79%;
     margin-top: 2%;
     font-size: 14px;
 }
 
-#summary-bookname{
+#summary-bookname {
     font-size: 15px;
-    margin-left:18px;
+    margin-left: 18px;
     font-weight: bold;
 }
 
-#summary-authorname{
+#summary-authorname {
     font-size: 11.5px;
     margin-left: 20px;
 }
 
-#summary-cost{
+#summary-cost {
     font-size: 13px;
-    font-weight:bold;
+    font-weight: bold;
     margin-left: 20px;
 }
 
-#editBtn{
+#editBtn {
     position: absolute;
     margin-left: 80%;
-    font-size:15px;
-    margin-top:-8%;
+    font-size: 15px;
+    margin-top: -8%;
 }
 
 ul.breadcrumb {
@@ -292,12 +294,12 @@ ul.breadcrumb {
     margin-top: 7%;
 }
 
-.detailsblock{
+.detailsblock {
     margin-left: 1%;
     width: 100%;
 }
 
-.details-content{
+.details-content {
     display: flex;
     margin-top: -2%;
 }
@@ -308,7 +310,7 @@ ul.breadcrumb li {
     font-weight: bold;
 }
 
-ul.breadcrumb li+li:before {
+ul.breadcrumb li + li:before {
     padding: 4px;
     color: #9D9D9D;
     content: "/\00a0";
@@ -320,31 +322,22 @@ ul.breadcrumb li a {
     cursor: pointer;
 }
 
-.details-block{
+.details-block {
     height: 150px;
 }
 
-.oredr-summary-books-div{
+.oredr-summary-books-div {
     margin-left: 1%;
     margin-top: 2%;
 }
 
 
-#apply-coupons-btn{
+#apply-coupons-btn {
     margin-left: 72%;
 }
 
-.MuiPaper-root.MuiCard-root.coupon-form-box.MuiPaper-elevation1.MuiPaper-rounded{
-    margin-left: -611%;
-    width: 298%;
-    margin-top: 35%;
-}
+.coupon-dialog-box {
 
-.MuiPaper-root.MuiCard-root.coupon-box.MuiPaper-elevation1.MuiPaper-rounded{
-    margin-left: -6%;
-    width: 109%;
-    margin-top: 4%;
-    height: 68%;
 }
 
 #dialoguecontent {
@@ -353,6 +346,46 @@ ul.breadcrumb li a {
     width: 50%;
 
 }
+
+.MuiPaper-root.MuiCard-root.coupon-box.MuiPaper-elevation1.MuiPaper-rounded {
+    margin-left: -6%;
+    width: 109%;
+    margin-top: 4%;
+    height: 68%;
+}
+
+.MuiPaper-root.MuiCard-root.coupon-box1.MuiPaper-elevation1.MuiPaper-rounded {
+    margin-left: -6%;
+    width: 109%;
+    margin-top: 4%;
+    height: 50%;
+}
+
+.MuiPaper-root.MuiCard-root.coupon-box2.MuiPaper-elevation1.MuiPaper-rounded {
+    margin-left: -6%;
+    width: 109%;
+    margin-top: 15%;
+    height: 35%;
+}
+
+.MuiPaper-root.MuiCard-root.coupon-box3.MuiPaper-elevation1.MuiPaper-rounded {
+    margin-left: -60%;
+    width: 200%;
+    margin-top: 20%;
+    height: 45%;
+}
+
+.discount-text {
+    margin-left: 0%;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.discount-text:hover {
+    text-decoration: underline;
+    color: brown;
+}
+
 
 .coupon-div{
     display: flex;
@@ -366,26 +399,13 @@ ul.breadcrumb li a {
 
 #offer-icon{
     margin-top: 2%;
-}
-
-.coupon-div1-sub{
-    display: inline-flex;
-    width: 96%;
-    height: 1%;
+    color: rgb(160,48,55);
 }
 
 .coupon-sub-title{
     margin-top: 1.8%;
     margin-left: 1%;
     font-weight: initial;
-}
-
-#coupon-apply-btn{
-    height: 10%;
-    margin-left: 3%;
-    font-size: 73%;
-    margin-top: 1.3%;
-    border: 1px dashed rgb(160, 48, 60) ;
 }
 
 .price-sub-div{
@@ -405,22 +425,36 @@ ul.breadcrumb li a {
     margin-left: 6.5%;
 }
 
+#coupon-apply-btn{
+    height: 10%;
+    margin-left: 3%;
+    font-size: 73%;
+    margin-top: 1.3%;
+    border: 1px dashed rgb(160, 48, 60) ;
+}
+
+.coupon-div1-sub{
+    display: inline-flex;
+    width: 96%;
+    height: 1%;
+}
+
 .horizontal-line{
     width: 32%;
     margin-left: 0.01%;
     margin-top:0%;
 }
 
-@media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
+@media only screen and (min-device-width: 300px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
 
     /*My Cart Css*/
-    #cartcontainer{
+    #cartcontainer {
         margin-top: 6%;
         margin-left: 5%;
         min-height: 85vh;
     }
 
-    .books-container{
+    .books-container {
         margin-left: -1%;
         margin-bottom: -2.5%;
     }
@@ -429,7 +463,7 @@ ul.breadcrumb li a {
         margin-left: 2%;
     }
 
-    .breadcrumb{
+    .breadcrumb {
         margin-left: 2%;
         margin-top: 15%;
     }
@@ -439,49 +473,49 @@ ul.breadcrumb li a {
         margin-top: 20%;
     }
 
-    .bookdiv{
-        border:0.1px solid grey;
-        padding:2%;
+    .bookdiv {
+        border: 0.1px solid grey;
+        padding: 2%;
         width: 88%;
         flex-direction: row;
         height: 60%;
     }
 
-    .bookdiv1{
+    .bookdiv1 {
         width: 88%;
         height: 224px;
     }
 
-    h4{
+    h4 {
         font-size: 14px;
         margin-left: 2%;
         margin-top: 2%;
     }
 
-    .img{
-        height:12vh;
+    .img {
+        height: 12vh;
         margin-left: 3%;
     }
 
-    #bookname1{
+    #bookname1 {
         font-size: 12px;
         padding-top: 5%;
         margin-left: 35%;
         margin-top: -45%;
     }
 
-    #authorName{
+    #authorName {
         font-size: 9.5px;
         margin-left: 35%;
     }
 
-    #cost{
-        font-size:11px;
+    #cost {
+        font-size: 11px;
         margin-left: 35%;
     }
 
 
-    .plusminusdiv{
+    .plusminusdiv {
         margin-right: 14%;
         margin-left: 29%;
         display: flex;
@@ -505,7 +539,7 @@ ul.breadcrumb li a {
         font-size: 11px;
     }
 
-    #orderBtn{
+    #orderBtn {
         width: 45%;
         margin-left: 26%;
         margin-bottom: 2%;
@@ -513,12 +547,12 @@ ul.breadcrumb li a {
     }
 
     /*Customer Css*/
-    .customerdetails{
+    .customerdetails {
         margin-top: 3%;
         width: 88%;
     }
 
-    .secondtext{
+    .secondtext {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -527,134 +561,168 @@ ul.breadcrumb li a {
         margin-bottom: 5%;
     }
 
-    .address{
+    .address {
         width: 125%;
         margin-bottom: 23%;
         margin-top: 7%;
     }
 
-    #name{
+    #name {
         margin-bottom: -2%;
     }
 
-    #contact{
+    #contact {
         margin-top: 1%;
         margin-bottom: -2%;
     }
 
-    #pinCode{
+    #pinCode {
         margin-bottom: -3%;
     }
 
-    #locaLity{
+    #locaLity {
         margin-top: 2%;
         margin-bottom: -2%;
     }
 
-    #city{
+    #city {
         margin-bottom: -5%;
     }
-    #landmark{
+
+    #landmark {
         margin-bottom: -5%;
 
     }
 
-    .radiodiv{
+    .radiodiv {
         margin-top: 10%;
     }
 
-    #summary{
+    #summary {
         margin-bottom: -3%;
     }
 
-    #customerBtn{
+    #customerBtn {
         width: 55%;
         margin-left: 40%;
         margin-bottom: 2%;
         font-size: 12px;
     }
 
-    #customer-details{
+    #customer-details {
         font-size: 14px;
         margin-left: 7%;
         font-weight: bold;
     }
 
-    #editBtn{
+    #editBtn {
         position: absolute;
         margin-left: 73%;
-        font-size:14px;
-        margin-top:-18%;
+        font-size: 14px;
+        margin-top: -18%;
     }
 
     /* Order Summary Css*/
-
-    .oredresummary{
+    .oredresummary {
         margin-top: 3%;
         width: 88%;
     }
 
-    #summryBtn{
+    #summryBtn {
         width: 45%;
-        margin-left:28%;
+        margin-left: 28%;
         font-size: 12px;
         margin-top: 5%;
     }
 
-    .details-content{
+    .details-content {
 
         margin-top: -4%;
     }
 
-    #summary-bookname{
+    #summary-bookname {
         margin-top: 5%;
         font-size: 12px;
     }
 
-    #summary-authorname{
+    #summary-authorname {
         font-size: 9.5px;
     }
 
-    #summary-cost{
+    #summary-cost {
         font-size: 11px;
     }
 
-    #totalPrice-summary{
+    #totalPrice-summary {
         font-size: 13px;
     }
 
-    .oredr-summary-books-div{
+    .oredr-summary-books-div {
         margin-left: 1%;
         margin-top: 2%;
     }
 
+
+    .MuiPaper-root.MuiCard-root.coupon-box3.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -25%;
+        width: 100%;
+        margin-top: 20%;
+        height: 30%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -63%;
+        width: 150%;
+        margin-top: 2%;
+        height: 50%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box1.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -58%;
+        width: 140%;
+        margin-top: 15%;
+        height: 42%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box2.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -58%;
+        width: 140%;
+        margin-top: 18%;
+        height: 28%;
+    }
+
+    .horizontal-line{
+        width: 75%;
+        margin-left: 0.01%;
+        margin-top:0%;
+    }
+
+
 }
 
-@media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 1){
+@media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 1) {
 
     /*My Cart*/
+    .books-container {
+        margin-left: 2%;
+        margin-bottom: 3%;
+    }
+
+    .mycart {
+        margin-bottom: 3%;
+        max-height: 21vh;
+    }
 
     .books-container {
         margin-left: 2%;
         margin-bottom: 3%;
     }
 
-    .mycart{
-        margin-bottom: 3%;
-        max-height: 21vh;
-    }
-
-    .books-container{
-        margin-left: 2%;
-        margin-bottom: 3%;
-    }
-
-    #bookname1{
+    #bookname1 {
         margin-top: -44%;
     }
 
     /*Order Details*/
-
     .img {
         height: 16vh;
         margin-left: 3%;
@@ -669,13 +737,40 @@ ul.breadcrumb li a {
         margin-top: -8%;
     }
 
+    .MuiPaper-root.MuiCard-root.coupon-box3.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -35%;
+        width: 110%;
+        margin-top: 25%;
+        height: 28%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -65%;
+        width: 150%;
+        margin-top: 2%;
+        height: 40%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box1.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -58%;
+        width: 140%;
+        margin-top: 15%;
+        height: 32%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box2.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -58%;
+        width: 140%;
+        margin-top: 25%;
+        height: 22%;
+    }
+
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
 
     /* My Cart Css*/
-
-    #cartcontainer{
+    #cartcontainer {
         margin-top: 1%;
         margin-left: 5%;
         min-height: 103vh;
@@ -686,11 +781,11 @@ ul.breadcrumb li a {
         margin-top: 10%;
     }
 
-    .bookdiv{
+    .bookdiv {
         width: 92%;
     }
 
-    .bookdiv1{
+    .bookdiv1 {
         width: 92%;
         height: 367px;
     }
@@ -700,36 +795,36 @@ ul.breadcrumb li a {
         margin-bottom: -1%;
     }
 
-    h4{
+    h4 {
         font-size: 24px;
         margin-left: 2%;
         margin-top: -1%;
     }
 
-    .img{
+    .img {
         height: 18vh;
         margin-left: 2%;
         margin-top: 48%;
     }
 
-    #bookname1{
+    #bookname1 {
         font-size: 28px;
         padding-top: 2%;
         margin-left: 25%;
         margin-top: -28%;
     }
 
-    #authorName{
+    #authorName {
         font-size: 26px;
         margin-left: 25%;
     }
 
-    #cost{
-        font-size:24px;
+    #cost {
+        font-size: 24px;
         margin-left: 25%;
     }
 
-    .plusminusdiv{
+    .plusminusdiv {
         margin-right: 20%;
         margin-left: 22%;
         display: flex;
@@ -761,29 +856,28 @@ ul.breadcrumb li a {
         font-size: 26px;
     }
 
-    #orderBtn{
+    #orderBtn {
         width: 35%;
         margin-left: 65%;
         font-size: 20px;
     }
 
     /* Customer Css*/
-
-    #customer-details{
-        font-size:24px;
-        margin-left:4%;
+    #customer-details {
+        font-size: 24px;
+        margin-left: 4%;
         font-weight: bold;
     }
 
-    #summary{
+    #summary {
         margin-bottom: 0%;
     }
 
-    .customerdetails{
+    .customerdetails {
         width: 92%;
     }
 
-    .secondtext{
+    .secondtext {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -792,7 +886,7 @@ ul.breadcrumb li a {
         margin-bottom: -2%;
     }
 
-    .customerdiv{
+    .customerdiv {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -800,68 +894,68 @@ ul.breadcrumb li a {
         width: 98%;
     }
 
-    .address{
+    .address {
         width: 96%;
         margin-left: 2%;
     }
 
-    #name{
+    #name {
         margin-bottom: 0%;
     }
 
-    #contact{
+    #contact {
         margin-bottom: -1%;
     }
 
-    #pinCode{
+    #pinCode {
         margin-bottom: 0%;
     }
 
-    .address{
+    .address {
         margin-bottom: 4%;
         margin-left: 1%;
         width: 99%;
     }
 
-    #locality{
+    #locality {
         margin-bottom: -2%;
     }
 
-    #city{
+    #city {
         margin-left: 5%;
         margin-bottom: -2%;
     }
-    #landmark{
+
+    #landmark {
         margin-bottom: -2%;
 
     }
 
-    #type-name{
+    #type-name {
         font-size: 26px;
         margin-left: 2%;
     }
 
-    .radiodiv{
+    .radiodiv {
         margin-top: 5%;
     }
 
-    #customerBtn{
+    #customerBtn {
         width: 35%;
         margin-left: 65%;
         font-size: 20px;
     }
 
-    #editBtn{
+    #editBtn {
         position: absolute;
         margin-left: 80%;
-        font-size:24px;
+        font-size: 24px;
         font-weight: bold;
-        margin-top:-10%;
+        margin-top: -10%;
     }
 
     /* Order Summary Css*/
-
-    .oredresummary{
+    .oredresummary {
         margin-top: 3%;
         width: 92%;
     }
@@ -871,36 +965,36 @@ ul.breadcrumb li a {
         margin-top: 6%;
     }
 
-    #summryBtn{
+    #summryBtn {
         width: 35%;
-        margin-left:65%;
+        margin-left: 65%;
         font-size: 20px;
     }
 
-    #totalPrice-summary{
+    #totalPrice-summary {
         font-size: 22px;
     }
 
-    #summary-bookname{
+    #summary-bookname {
         font-size: 25px;
-        margin-left:18px;
-        padding-top:6%;
+        margin-left: 18px;
+        padding-top: 6%;
         font-weight: bold;
     }
 
-    #summary-authorname{
+    #summary-authorname {
         font-size: 22px;
         margin-left: 7%;
     }
 
-    #summary-cost{
+    #summary-cost {
         font-size: 22px;
-        font-weight:bold;
+        font-weight: bold;
         margin-left: 12%;
     }
 
-    #customer-details{
-        font-size:24px;
+    #customer-details {
+        font-size: 24px;
         font-weight: bold;
     }
 
@@ -913,16 +1007,43 @@ ul.breadcrumb li a {
         overflow-y: scroll;
     }
 
-    .details-block{
+    .details-block {
         height: 284px;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box3.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -50%;
+        width: 175%;
+        margin-top: 25%;
+        height: 28%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -42%;
+        width: 150%;
+        margin-top: 2%;
+        height: 40%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box1.MuiPaper-elevation1.MuiPaper-rounded {
+        height: 40%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box2.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -30%;
+        height: 22%;
+    }
+
+    .horizontal-line{
+        width: 32%;
+        margin-left: 0.01%;
     }
 
 }
 
 @media only screen and (min-device-width: 1023px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
     /* My Cart Css*/
-
-    #cartcontainer{
+    #cartcontainer {
         margin-top: 1%;
         margin-left: 5%;
         min-height: 84.5vh;
@@ -933,12 +1054,12 @@ ul.breadcrumb li a {
         margin-top: 10%;
     }
 
-    .bookdiv{
+    .bookdiv {
         width: 92%;
         height: 710px;
     }
 
-    .bookdiv1{
+    .bookdiv1 {
         width: 92%;
         height: 431px;
     }
@@ -948,36 +1069,36 @@ ul.breadcrumb li a {
         margin-bottom: 7%;
     }
 
-    h4{
+    h4 {
         font-size: 24px;
         margin-left: 2%;
         margin-top: -1%;
     }
 
-    .img{
+    .img {
         height: 18vh;
         margin-left: 2%;
         margin-top: 48%;
     }
 
-    #bookname1{
+    #bookname1 {
         font-size: 28px;
         padding-top: 2%;
         margin-left: 25%;
         margin-top: -31%;
     }
 
-    #authorName{
+    #authorName {
         font-size: 26px;
         margin-left: 25%;
     }
 
-    #cost{
-        font-size:24px;
+    #cost {
+        font-size: 24px;
         margin-left: 25%;
     }
 
-    .plusminusdiv{
+    .plusminusdiv {
         margin-right: 20%;
         margin-left: 22%;
         display: flex;
@@ -1009,29 +1130,28 @@ ul.breadcrumb li a {
         font-size: 26px;
     }
 
-    #orderBtn{
+    #orderBtn {
         width: 35%;
         margin-left: 65%;
         font-size: 20px;
     }
 
     /* Customer Css*/
-
-    #customer-details{
-        font-size:24px;
-        margin-left:4%;
+    #customer-details {
+        font-size: 24px;
+        margin-left: 4%;
         font-weight: bold;
     }
 
-    #summary{
+    #summary {
         margin-bottom: 0%;
     }
 
-    .customerdetails{
+    .customerdetails {
         width: 92%;
     }
 
-    .secondtext{
+    .secondtext {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -1040,7 +1160,7 @@ ul.breadcrumb li a {
         margin-bottom: -2%;
     }
 
-    .customerdiv{
+    .customerdiv {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -1048,68 +1168,68 @@ ul.breadcrumb li a {
         width: 98%;
     }
 
-    .address{
+    .address {
         width: 96%;
         margin-left: 2%;
     }
 
-    #name{
+    #name {
         margin-bottom: 0%;
     }
 
-    #contact{
+    #contact {
         margin-bottom: -1%;
     }
 
-    #pinCode{
+    #pinCode {
         margin-bottom: 0%;
     }
 
-    .address{
+    .address {
         margin-bottom: 4%;
         margin-left: 1%;
         width: 99%;
     }
 
-    #locality{
+    #locality {
         margin-bottom: -2%;
     }
 
-    #city{
+    #city {
         margin-left: 5%;
         margin-bottom: -2%;
     }
-    #landmark{
+
+    #landmark {
         margin-bottom: -2%;
 
     }
 
-    #type-name{
+    #type-name {
         font-size: 26px;
         margin-left: 2%;
     }
 
-    .radiodiv{
+    .radiodiv {
         margin-top: 5%;
     }
 
-    #customerBtn{
+    #customerBtn {
         width: 35%;
         margin-left: 65%;
         font-size: 20px;
     }
 
-    #editBtn{
+    #editBtn {
         position: absolute;
         margin-left: 80%;
-        font-size:24px;
+        font-size: 24px;
         font-weight: bold;
-        margin-top:-9%;
+        margin-top: -9%;
     }
 
     /* Order Summary Css*/
-
-    .oredresummary{
+    .oredresummary {
         margin-top: 3%;
         width: 92%;
     }
@@ -1124,36 +1244,36 @@ ul.breadcrumb li a {
         margin-top: -8%;
     }
 
-    #summryBtn{
+    #summryBtn {
         width: 35%;
-        margin-left:65%;
+        margin-left: 65%;
         font-size: 20px;
     }
 
-    #totalPrice-summary{
+    #totalPrice-summary {
         font-size: 22px;
     }
 
-    #summary-bookname{
+    #summary-bookname {
         font-size: 25px;
-        margin-left:18px;
-        padding-top:6%;
+        margin-left: 18px;
+        padding-top: 6%;
         font-weight: bold;
     }
 
-    #summary-authorname{
+    #summary-authorname {
         font-size: 22px;
         margin-left: 7%;
     }
 
-    #summary-cost{
+    #summary-cost {
         font-size: 22px;
-        font-weight:bold;
+        font-weight: bold;
         margin-left: 12%;
     }
 
-    #customer-details{
-        font-size:24px;
+    #customer-details {
+        font-size: 24px;
         font-weight: bold;
     }
 
@@ -1166,8 +1286,41 @@ ul.breadcrumb li a {
         overflow-y: scroll;
     }
 
-    .details-block{
+    .details-block {
         height: 364px;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box3.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -35%;
+        width: 200%;
+        margin-top: 20%;
+        height: 28%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -25%;
+        width: 160%;
+        margin-top: -2%;
+        height: 34%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box1.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -25%;
+        width: 150%;
+        margin-top: 10%;
+        height: 25%;
+    }
+
+    .MuiPaper-root.MuiCard-root.coupon-box2.MuiPaper-elevation1.MuiPaper-rounded {
+        margin-left: -25%;
+        width: 140%;
+        margin-top: 10%;
+        height: 20%;
+    }
+
+    .horizontal-line{
+        width: 30%;
+        margin-left: 0.01%;
     }
 
 }

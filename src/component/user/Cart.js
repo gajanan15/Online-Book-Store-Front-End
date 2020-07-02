@@ -24,7 +24,6 @@ import DialogContent from "@material-ui/core/DialogContent";
 import Coupon from "./Coupon";
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
 
-
 class Cart extends Component {
 
     constructor(props) {
@@ -50,11 +49,10 @@ class Cart extends Component {
             color: "grey",
             totalPrice: "",
             disableFlag: false,
-            userData: [],
-            addressType: "HOME",
-            orderID: '',
-            visibilityOfDialogBox:false,
-            coupons:''
+            userData: [], customerData: "",
+            addressType: "",
+            orderID: '', visibilityOfDialogBox: false,
+            discountTotal: "", discountCoupon: 0, coupons: [], couponStatus: "", couponPrice: 0, coupon: "", index: 0
         }
     }
 
@@ -141,10 +139,11 @@ class Cart extends Component {
         })
         this.state.disableFlag = true
         this.setTotalValue()
+        this.discountCoupon()
     }
 
     getMyOrder = () => {
-        new AdminService().placedOrder(this.state.totalPrice).then(response => {
+        new AdminService().placedOrder(this.state.totalPrice, this.state.couponPrice).then(response => {
             this.setState({
                 orderID: response.data.data
             }, () => this.props.history.push(`/orders/successful/${this.state.orderID}`))
@@ -186,6 +185,7 @@ class Cart extends Component {
 
 
     handleCheckOut = () => {
+
         this.getMyOrder()
         this.getDetails()
         this.addCoupon()
@@ -209,6 +209,12 @@ class Cart extends Component {
         })
     }
 
+    componentDidMount() {
+        this.handleCart()
+        this.getUser()
+        this.buttonVisibility()
+    }
+
     handleCart = () => {
         new AdminService().myCart().then(response => {
             this.setState({
@@ -226,6 +232,9 @@ class Cart extends Component {
             return (books.bookDetails.bookPrice * books.quantity)
         });
         this.state.totalPrice = newVar.reduce((a, b) => a + b)
+        this.setState({
+            discountCoupon: this.state.totalPrice
+        })
     }
 
     formCheck() {
@@ -252,30 +261,15 @@ class Cart extends Component {
         }
     }
 
-    getCoupon=()=>{
+    getCoupon = () => {
         this.setState({
-            visibilityOfDialogBox:true
+            visibilityOfDialogBox: true
         })
     }
 
-    discountCoupon=()=>{
-        new AdminService().getCoupon().then(response =>{
-            this.setState({
-                coupons:response.data.data
-            })
-        }).catch((error) =>{
-            console.log(error)
-        })
-    }
-
-    addCoupon = () => {
-        new AdminService().addDiscountPrice(this.state.coupon, this.state.totalPrice).then(response => {
-            console.log(response)
-            this.setState({
-                discountCoupon: response.data.data
-            })
-        }).catch((error) => {
-            console.log(error)
+    handleClose = () => {
+        this.setState({
+            visibilityOfDialogBox: false
         })
     }
 
@@ -290,11 +284,26 @@ class Cart extends Component {
         })
     }
 
-    componentDidMount() {
-        this.handleCart()
-        this.getUser()
-        this.discountCoupon()
+    discountCoupon = () => {
+        new AdminService().getCoupon(this.state.totalPrice).then(response => {
+            this.setState({
+                coupons: response.data.data
+            })
+        }).catch((error) => {
+            console.log(error)
+        })
     }
+
+    addCoupon = () => {
+        new AdminService().addDiscountPrice(this.state.coupon, this.state.totalPrice).then(response => {
+            this.setState({
+                discountCoupon: response.data.data
+            })
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
 
     render() {
 
@@ -386,6 +395,8 @@ class Cart extends Component {
 
                                     <div className="textbox secondtext">
                                         <TextFields
+                                            InputLabelProps={{shrink: true}}
+                                            value={this.state.pincode}
                                             required={true}
                                             label="Pincode"
                                             id="pinCode"
@@ -398,6 +409,8 @@ class Cart extends Component {
                                             className="textfields" disabled={this.state.text}
                                         />
                                         <TextFields
+                                            InputLabelProps={{shrink: true}}
+                                            value={this.state.locality}
                                             required={true}
                                             label="Locality"
                                             id="locaLity"
@@ -413,6 +426,8 @@ class Cart extends Component {
                                     </div>
                                     <div className="address">
                                         <TextFields
+                                            InputLabelProps={{shrink: true}}
+                                            value={this.state.address}
                                             required={true}
                                             style={{marginTop: "2%"}}
                                             multiline rows={2} fullWidth inputProps={{maxLength: 150}}
@@ -430,6 +445,8 @@ class Cart extends Component {
                                     </div>
                                     <div className="secondtext">
                                         <TextFields
+                                            InputLabelProps={{shrink: true}}
+                                            value={this.state.city}
                                             required={true}
                                             label="City/Town"
                                             id="ciTy"
@@ -442,6 +459,8 @@ class Cart extends Component {
                                             className="textfields" disabled={this.state.text}
                                         />
                                         <TextFields
+                                            InputLabelProps={{shrink: true}}
+                                            value={this.state.landmark}
                                             label="Landmark"
                                             id="landMark"
                                             name="landmark"
@@ -452,8 +471,8 @@ class Cart extends Component {
                                     </div>
                                     <div className="radiodiv">
                                         <Typography id="type-name">Type</Typography>
-                                        <RadioGroup onChange={this.changeState} row aria-label="Type" name="addressType"
-                                                    defaultValue="HOME">
+                                        <RadioGroup onChange={this.changeState} row aria-label="Type"
+                                                    name="addressType">
                                             <FormControlLabel
                                                 value="HOME"
                                                 control={<Radio style={{fontSize: "80%", color: "rgb(160,48,55)"}}/>}
@@ -518,6 +537,8 @@ class Cart extends Component {
                                             )}
 
                                     </div>
+
+
                                     <div className="coupon-div">
                                         <b>Coupons</b>
                                         <div className="coupon-div1">
@@ -566,7 +587,7 @@ class Cart extends Component {
                             open={this.state.visibilityOfDialogBox} onClose={this.handleClose}>
                         <DialogContent id="dialoguecontent" id="customized-dialog-title">
                             <Coupon coupons={this.state.coupons} totalPrice={this.state.totalPrice}
-                                    handleTotalPrice={this.handleTotalPrice} index={this.state.index}/>
+                                    handleTotalPrice={this.handleTotalPrice} index={this.state.index} />
                         </DialogContent>
                     </Dialog>
                     <CbFooter/>

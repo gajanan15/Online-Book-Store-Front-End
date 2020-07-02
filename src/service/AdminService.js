@@ -139,11 +139,11 @@ export class AdminService {
         })
     }
 
-    placedOrder = (totalprice) => {
+    placedOrder = (totalprice,discountPrice) => {
         return Axios({
             headers: {token: localStorage.getItem('Authorization')},
             method: 'post',
-            params: {totalprice: totalprice},
+            params: {totalprice: totalprice,discountPrice:discountPrice},
             url: `${Constant.apiUrl}order`,
         })
     }
@@ -156,10 +156,11 @@ export class AdminService {
         })
     }
 
-    getCoupon = () =>{
+    getCoupon = (totalPrice) => {
         return Axios({
             headers: {token: localStorage.getItem('Authorization')},
             method: 'get',
+            params: {totalPrice: totalPrice},
             url: `${Constant.apiUrl}coupon`,
         })
     }
@@ -174,4 +175,3 @@ export class AdminService {
     }
 
 }
-

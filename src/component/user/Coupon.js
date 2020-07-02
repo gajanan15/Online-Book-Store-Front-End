@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
-import "../../css/coupon.css"
+import "../../css/Coupon.css"
 import Divider from "@material-ui/core/Divider";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -24,7 +24,6 @@ class Coupon extends Component {
     }
 
     onSelectedChange = (event,index) => {
-        console.log("hdbchd    ",index)
         this.setState(previousState => ({
             checked: {
                 ...previousState.checked,
@@ -51,8 +50,6 @@ class Coupon extends Component {
     }
 
     render() {
-        const coupons = window.location.href.includes('/coupons')
-
         const { checked } = this.state;
         const checkedCount = Object.keys(checked).filter(key => checked[key]).length;
         const disabled = checkedCount == 1;
@@ -80,7 +77,7 @@ class Coupon extends Component {
                         <Card className={this.props.coupons.length === 1 ? "coupon-box2" : this.props.coupons.length === 2 ? "coupon-box1" :  "coupon-box"}>
 
                             <div className={this.props.coupons.length === 1 ? "coupon-name-div1" : this.props.coupons.length === 2 ? "coupon-name-div" : "coupon-name-div"} >
-                                <Typography style={{color:"#fff", fontSize:"22px", marginLeft:"5%", marginTop:"2%"}}>
+                                <Typography style={{color:"#fff", fontSize:"22px", marginLeft:"5%", marginTop:"2%"}} >
                                     Coupons
                                 </Typography>
                             </div>

@@ -164,7 +164,6 @@ a {
     min-height: 345px;
     position: relative;
     perspective: 1000px;
-    /* transform-style: preserve-3d; */
 }
 
 .login-form .group {
@@ -235,7 +234,6 @@ a {
     left: 3px;
     width: 5px;
     bottom: 6px;
-    /* transform: scale(0); */
 }
 
 .login-form .group label .icon:after {

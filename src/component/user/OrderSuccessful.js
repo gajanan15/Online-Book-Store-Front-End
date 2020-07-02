@@ -63,7 +63,6 @@ class OrderSuccessful extends Component {
                     </table>
                     <Button
                         onClick={this.handleChange}
-                        // aria-controls="panel1a-content"
                         id="btn">CONTINUE SHOPPING</Button>
                 </div>
                 <CbFooter/>

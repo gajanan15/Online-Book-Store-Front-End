@@ -1,5 +1,4 @@
 .ordercontainer {
-    /*min-height: 88.9vh;*/
     margin-left: -7%;
 }
 
@@ -292,7 +291,6 @@ ul.myorderbreadcrumb li a {
     .orderblock1 {
         margin-left: 15%;
         width: 700px;
-        /*height: 1%;*/
     }
 
     #orderdate {
